@@ -1,0 +1,296 @@
+﻿@model IEnumerable<BOL_business_object_layer_.tbl_user>
+
+@{
+    ViewBag.Title = "AllReocrd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>AllReocrd</h2>
+
+
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success">
+
+        @TempData["success"]
+
+    </div>
+
+
+}
+
+
+<div class="container">
+
+    <div class="row">
+
+        @*SEARCH BAR FORM*@
+
+        @using (Html.BeginForm("AllReocrd", "Admin", new { area = "Admin" }, FormMethod.Post, new { @class = "col-md-12" }))
+        {
+
+
+            <div class="form-group row" style="align-items: center; justify-content: center;">
+
+
+                <label class="control-label col-md-1" style="padding: 0px; padding-left: 43px;     padding-top: 3px;"> Search </label>
+
+
+                <div class="col-md-6">
+
+                    <input type="text" name="search" class="form-control" style="max-width:100%" />
+                </div>
+
+                <div class="col-md-2" style="padding-left:0px">
+                    <button type="submit" class="btn btn-dark">Serach</button>
+                </div>
+
+
+            </div>
+
+
+
+        }
+
+    </div>
+
+
+    <div class="row">
+
+        <table class="table">
+
+            <tr>
+
+                <th>
+                    S.NO
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.User_id)
+                </th>
+
+                @* YE CONDITION SORTING K LEYE LAGI HAI *@
+                <th>
+                    @*  if                   this      else if                     this    else   *@
+
+                    @Html.ActionLink("Name", "AllReocrd", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder == "Asc" ? "Desc" : "Asc", SortBy = "Name", PageNumber = ViewBag.PageNumber, SerialNo = (ViewBag.SerialNo) },
+                     new { Style = "color:black" }
+
+
+
+               )
+
+
+
+
+
+                </th>
+
+                <th>
+                    @*  if                   this      else if                     this    else   *@
+
+                    @Html.ActionLink("Email", "AllReocrd", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder == "Asc" ? "Desc" : "Asc", SortBy = "Email", PageNumber = ViewBag.PageNumber, SerialNo = (ViewBag.SerialNo) },
+
+                    new { Style = "color:black" })
+
+                    @*<a href="AllReocrd?SortOrder=Asc&SortBy=UserName">Email</a>*@
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+                <th>
+                    Edit
+                </th>
+                <th>
+                    Detail
+                </th>
+                <th>
+                    Delete
+                </th>
+            </tr>
+
+
+
+
+
+
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+
+                    <td>
+
+
+                        @Html.Raw(++ViewBag.SerialNo)
+
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User_id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.User_id }, new { @class = "btn btn-primary", @style = "padding:5px 18px" })
+
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.User_id }, new { @class = "btn btn-success" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.User_id }, new { @class = "btn btn-warning" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+
+    <ul class="pagination">
+
+        @{
+            double TotalPages = ViewBag.TotalPages;
+
+            int NextPreButton = ViewBag.SerialNo;
+
+            ViewBag.SerialNo = 0;
+
+
+            // AGAR AIK PAGE SAY ZEYADA PAGE BANAY TO TAB PAGINATION SHOW HOGI YE CONDITION US K LEYE HAI
+            if (TotalPages > 1)
+            {
+
+                //PREVIOUS BUTTON K LEYE
+
+                if (ViewBag.PageNumber == 1)
+                {
+
+                    <li class="page-item ">
+
+                        @Html.ActionLink("Previous", "AllReocrd", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder, SortBy = ViewBag.SortBy == null ? "Name" : ViewBag.SortBy, PageNumber = ViewBag.PageNumber, SerialNo = 0 }, new { @class = "page-link" })
+
+                    </li>
+
+
+                }
+
+                else
+                {
+
+                    <li class="page-item ">
+
+                        @Html.ActionLink("Previous", "AllReocrd", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder, SortBy = ViewBag.SortBy == null ? "Name" : ViewBag.SortBy, PageNumber = ViewBag.PageNumber - 1, SerialNo = NextPreButton - 10 }, new { @class = "page-link" })
+
+                    </li>
+
+                }
+
+
+
+
+
+
+                //MAIN PAGINATION BUTTON K LEYE
+
+                for (int i = 1; i <= TotalPages; i++)
+                {
+
+                    if (i == ViewBag.PageNumber)
+                    {
+
+                        //SERIAL NUMBER GENRATION K LEYE
+                        <li class="page-item active">
+
+                            @Html.ActionLink(i.ToString(), "AllReocrd", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder, SortBy = ViewBag.SortBy == null ? "Name" : ViewBag.SortBy, PageNumber = i, SerialNo = (ViewBag.SerialNo++) * 5 }, new { @class = "page-link" })
+
+                        </li>
+
+
+                    }
+
+                    else
+                    {
+                        <li class="page-item">
+
+                            @Html.ActionLink(i.ToString(), "AllReocrd", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder, SortBy = ViewBag.SortBy == null ? "Name" : ViewBag.SortBy, PageNumber = i, SerialNo = (ViewBag.SerialNo++) * 5 }, new { @class = "page-link" })
+
+                        </li>
+
+
+                    }
+
+
+                }
+
+
+
+                //NEXT BUTTON K LEYE
+
+                if (ViewBag.PageNumber >= TotalPages)
+                {
+
+                    <li class="page-item" i>
+
+
+                        <button id="kk" class="page-link"> Previous  </button>
+
+                    </li>
+
+
+                }
+
+                else
+                {
+
+                    <li class="page-item">
+
+                        @Html.ActionLink("Next", "AllReocrd", new { SortOrder = ViewBag.SortOrder == null ? "Asc" : ViewBag.SortOrder, SortBy = ViewBag.SortBy == null ? "Name" : ViewBag.SortBy, PageNumber = ViewBag.PageNumber + 1, SerialNo = NextPreButton }, new { @class = "page-link" })
+
+                    </li>
+
+                }
+
+
+
+            }
+
+
+
+
+
+
+
+        }
+
+    </ul>
+
+
+</div>
+
+<script src="~/Scripts/jquery-3.5.0.min.js"></script>
+
+<script type="text/javascript">
+
+    $('#kk').focus(
+        function () {
+            $(this).css('box-shadow', 'none');
+        });
+
+</script>

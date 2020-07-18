@@ -1,0 +1,97 @@
+﻿@model IEnumerable<BOL_business_object_layer_.tbl_ContactUs>
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_AdminPannelLayout.cshtml";
+}
+
+
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <!-- OVERVIEW -->
+            <div class="panel panel-headline">
+                <div class="panel-heading">
+                    <h3 class="panel-title">User messages</h3>
+
+                    @if (TempData["Delete"] != null)
+                    {
+                     <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <i class="fa fa-check-circle"></i>     @TempData["Delete"]
+                        </div>
+
+                    }
+
+                </div>
+                <div class="PageTypeBg">
+
+                    <div style="padding:10px">
+
+                        <table class="table">
+                            <thead class="thead-dark" style="background-color: #00aaff;">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Name)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Email)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Subject)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Message)
+                                    </th>
+                                    <th>
+                                        Actions
+                                    </th>
+                                </tr>
+                            </thead>
+
+                       
+
+
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Subject)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Message)
+                                    </td>
+                                    <td >
+
+                                        @Html.ActionLink("Delete", "ContactUsDeleteRecord","Admin" ,new { id = item.ID , },new {@class ="btn btn-danger"})
+
+                                   
+
+                              
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

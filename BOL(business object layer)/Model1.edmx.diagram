@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="71631caf602b4f04ac7e7445035785c0" Name="Diagram1">
+        <EntityTypeShape EntityType="WebAppModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebAppModel.tbl_category" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebAppModel.tbl_city" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebAppModel.tbl_user" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="WebAppModel.FK_tbl_user_tbl_city" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="WebAppModel.tbl_ContactUs" Width="1.5" PointX="5.25" PointY="3.25" />
+        <EntityTypeShape EntityType="WebAppModel.tbl_Admin" Width="1.5" PointX="3.5" PointY="5.25" />
+        <EntityTypeShape EntityType="WebAppModel.tbl_Packages" Width="1.5" PointX="6.375" PointY="6.75" />
+        <EntityTypeShape EntityType="WebAppModel.tbl_MakeMyTrip" Width="1.5" PointX="8.125" PointY="3.125" />
+        <EntityTypeShape EntityType="WebAppModel.tbl_MemberShip" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="WebAppModel.tbl_Guide" Width="1.5" PointX="3.375" PointY="8.75" />
+        <EntityTypeShape EntityType="WebAppModel.tbl_Hotel_images" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="WebAppModel.tbl_Hotels" Width="1.5" PointX="8.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

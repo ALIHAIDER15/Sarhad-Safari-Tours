@@ -1,0 +1,384 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+
+    <link href="~/DashBoard/template/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/DashBoard/template/assets/vendor/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/DashBoard/template/assets/vendor/linearicons/style.css" rel="stylesheet" />
+    <link href="~/DashBoard/template/assets/vendor/chartist/css/chartist-custom.css" rel="stylesheet" />
+
+
+
+
+
+    <!-- MAIN CSS -->
+    <link href="~/DashBoard/template/assets/css/main.css" rel="stylesheet" />
+
+
+    <link href="~/DashBoard/template/assets/css/demo.css" rel="stylesheet" />
+
+
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/18387ccc1c.js" crossorigin="anonymous"></script>
+
+
+    <!-- ICONS -->
+
+    <link rel="apple-touch-icon" sizes="76x76" href="~/DashBoard/template/assets/img/apple-icon.png">
+
+    <link rel="icon" type="image/png" sizes="96x96" href="~/DashBoard/template/assets/img/favicon.png">
+</head>
+
+<body>
+
+
+    <!-- WRAPPER -->
+    <div id="wrapper">
+
+
+
+
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+          
+
+            <div class="brand" style="padding-bottom: 0; padding-top: 20px;">
+                <a href="@Url.Action("Index", "Admin")"><img src="~/DashBoard/template/assets/img/WebLogo2.png" height="49"  width="103" alt="Klorofil Logo" class="img-responsive logo"></a>
+            </div>
+            <div class="container-fluid">
+                <div class="navbar-btn">
+                    <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+                </div>
+                <form class="navbar-form navbar-left">
+                    <div class="input-group">
+                        <input type="text" value="" class="form-control" placeholder="Search dashboard...">
+                        <span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
+                    </div>
+                </form>
+
+                <div id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        @*<li class="dropdown">
+                    <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                        <i class="lnr lnr-alarm"></i>
+                        <span class="badge bg-danger">5</span>
+                    </a>*@
+                        @*<ul class="dropdown-menu notifications">
+                            <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
+                            <li><a href="#" class="notification-item"><span class="dot bg-danger"></span>You have 9 unfinished tasks</a></li>
+                            <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Monthly report is available</a></li>
+                            <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>Weekly meeting in 1 hour</a></li>
+                            <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
+                            <li><a href="#" class="more">See all notifications</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Basic Use</a></li>
+                            <li><a href="#">Working With Data</a></li>
+                            <li><a href="#">Security</a></li>
+                            <li><a href="#">Troubleshooting</a></li>
+                        </ul>*@
+
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src=" @Session["Image"] " class="img-circle" alt="Avatar" style="width: 28px;margin-right: 5px;"> <span>@Session["Name"] </span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href=@Url.Action("AdminProfile", "Admin")><i class="lnr lnr-user"></i><span>Profile</span></a></li>
+
+                                <li><a href="#subPages5" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
+                                <li class="nav-item "><a href=@Url.Action("AdminLogout", "Admin")><i class="lnr lnr-exit"></i><span>Log Out</span></a></li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="sidebar-nav" class="sidebar">
+            <div class="sidebar-scroll">
+                <nav>
+                    <ul class="nav">
+
+                        <li class="nav-item "><a href=@Url.Action("Index", "Admin") class="active"><i class="lnr lnr-home"></i><span>Dashboard</span></a></li>
+
+                        <li>
+                            <a href="#subPages1" data-toggle="collapse" class="collapsed"><i class="lnr lnr-layers"></i> <span>Packages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <div id="subPages1" class="collapse">
+                                <ul class="nav">
+                                    <li class="nav-item "><a href=@Url.Action("CurrentPackage", "Admin")><span>Current Package</span></a></li>
+
+
+                                    <li class="nav-item "><a href=@Url.Action("AddPackage", "Admin")><span>Add New Package</span></a></li>
+
+
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+
+
+                        <li>
+                            <a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-heart"></i> <span>Memebership</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <div id="subPages2" class="collapse ">
+                                <ul class="nav">
+
+
+                                    <li class="nav-item "><a href=@Url.Action("CurrentMemebership", "Admin")><span>Current Memebership</span></a></li>
+
+
+                                    <li class="nav-item "><a href=@Url.Action("AddMemebership", "Admin")><spam style="font-size:14px">Add New Memebership</spamc></a></li>
+
+
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+
+                        <li>
+                            <a href="#subPages3" data-toggle="collapse" class="collapsed"><i class="lnr lnr-star"></i> <span>Guide</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <div id="subPages3" class="collapse ">
+                                <ul class="nav">
+
+
+                                    <li class="nav-item "><a href=@Url.Action("CurrentGuide", "Admin")><span>Current Guide</span></a></li>
+
+
+                                    <li class="nav-item "><a href=@Url.Action("GuideCreate", "Admin")><spam style="font-size:14px">Add New Guide</spam></a></li>
+
+
+
+                                </ul>
+                            </div>
+                        </li>
+
+                  
+
+                        <li>
+                            <a href="#subPages4" data-toggle="collapse" class="collapsed"><i class="lnr lnr-apartment"></i> <span>Hotels</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <div id="subPages4" class="collapse ">
+                                <ul class="nav">
+
+
+                                    <li class="nav-item "><a href=@Url.Action("CurrentHotels", "Admin")><span>Current Hotels</span></a></li>
+
+
+                                    <li class="nav-item "><a href=@Url.Action("CreateHotels", "Admin")><spam style="font-size:14px">Add New Hotel</spam></a></li>
+
+
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+
+                        <li class="nav-item "><a href=@Url.Action("PackageRequests", "Admin")><i class="lnr lnr-alarm"></i><span>Package Requests</span></a></li>
+
+                        <li class="nav-item "><a href=@Url.Action("ContactUs", "Admin")><i class="lnr lnr-user"></i><span>User Contacts</span></a></li>
+
+                        <li>
+                            <a href="#subPages5" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cog"></i> <span>Admin Settings</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <div id="subPages5" class="collapse ">
+                                <ul class="nav">
+
+                                    <li class="nav-item "><a href=@Url.Action("AdminProfile", "Admin")><span>Profile</span></a></li>
+
+                                    @if (User.IsInRole("A"))
+                                    {
+
+                                        <li class="nav-item "><a href=@Url.Action("AdminCreate", "Admin")><span>Create Admin</span></a></li>
+
+                                        <li class="nav-item "><a href=@Url.Action("GetAllAdmins", "Admin")><span>All Admin</span></a></li>
+
+                                    }
+                                    <li class="nav-item "><a href=@Url.Action("AdminLogout", "Admin")><span>Log Out</span></a></li>
+
+
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- END LEFT SIDEBAR -->
+
+
+
+
+        @RenderBody()
+
+
+
+
+
+
+        <div class="clearfix"></div>
+
+        <footer>
+            <div class="container-fluid">
+                <p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All Rights Reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+    <!-- END WRAPPER -->
+    <!-- Javascript -->
+    <script src="~/DashBoard/template/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/DashBoard/template/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/DashBoard/template/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/DashBoard/template/assets/vendor/jquery.easy-pie-chart/angular.easypiechart.min.js"></script>
+    <script src="~/DashBoard/template/assets/vendor/chartist/js/chartist.min.js"></script>
+    <script src="~/DashBoard/template/assets/scripts/klorofil-common.js"></script>
+
+
+    @*<script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="assets/vendor/chartist/js/chartist.min.js"></script>
+    <script src="assets/scripts/klorofil-common.js"></script>*@
+
+    @*<script>
+        $(function () {
+            var data, options;
+
+            // headline charts
+            data = {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                series: [
+                    [23, 29, 24, 40, 25, 24, 35],
+                    [14, 25, 18, 34, 29, 38, 44],
+                ]
+            };
+
+            options = {
+                height: 300,
+                showArea: true,
+                showLine: false,
+                showPoint: false,
+                fullWidth: true,
+                axisX: {
+                    showGrid: false
+                },
+                lineSmooth: false,
+            };
+
+            new Chartist.Line('#headline-chart', data, options);
+
+
+            // visits trend charts
+            data = {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                series: [{
+                    name: 'series-real',
+                    data: [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
+                }, {
+                    name: 'series-projection',
+                    data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
+                }]
+            };
+
+            options = {
+                fullWidth: true,
+                lineSmooth: false,
+                height: "270px",
+                low: 0,
+                high: 'auto',
+                series: {
+                    'series-projection': {
+                        showArea: true,
+                        showPoint: false,
+                        showLine: false
+                    },
+                },
+                axisX: {
+                    showGrid: false,
+
+                },
+                axisY: {
+                    showGrid: false,
+                    onlyInteger: true,
+                    offset: 0,
+                },
+                chartPadding: {
+                    left: 20,
+                    right: 20
+                }
+            };
+
+            new Chartist.Line('#visits-trends-chart', data, options);
+
+
+            // visits chart
+            data = {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                series: [
+                    [6384, 6342, 5437, 2764, 3958, 5068, 7654]
+                ]
+            };
+
+            options = {
+                height: 300,
+                axisX: {
+                    showGrid: false
+                },
+            };
+
+            new Chartist.Bar('#visits-chart', data, options);
+
+
+            // real-time pie chart
+            var sysLoad = $('#system-load').easyPieChart({
+                size: 130,
+                barColor: function (percent) {
+                    return "rgb(" + Math.round(200 * percent / 100) + ", " + Math.round(200 * (1.1 - percent / 100)) + ", 0)";
+                },
+                trackColor: 'rgba(245, 245, 245, 0.8)',
+                scaleColor: false,
+                lineWidth: 5,
+                lineCap: "square",
+                animate: 800
+            });
+
+            var updateInterval = 3000; // in milliseconds
+
+            setInterval(function () {
+                var randomVal;
+                randomVal = getRandomInt(0, 100);
+
+                sysLoad.data('easyPieChart').update(randomVal);
+                sysLoad.find('.percent').text(randomVal);
+            }, updateInterval);
+
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+        });</script>*@
+</body>
+
+</html>

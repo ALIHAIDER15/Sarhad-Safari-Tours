@@ -1,0 +1,143 @@
+﻿@model BOL_business_object_layer_.tbl_ContactUs
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_MainDesign.cshtml";
+}
+
+
+<!--================Home Banner Area =================-->
+<section class="banner_area ">
+    <div class="banner_inner overlay d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content">
+                <div class="page_link">
+                    <a href="index.html">Home</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <h2>Contact Us</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+<!--================Contact Area =================-->
+<section class="contact_area section_gap">
+    <div class="container">
+        <div id="mapBox" class="mapBox" data-lat="40.701083" data-lon="-74.1522848" data-zoom="13" data-info="PO Box CT16122 Collins Street West, Victoria 8007, Australia."
+             data-mlat="40.701083" data-mlon="-74.1522848">
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="contact_info">
+                    <div class="info_item">
+                        <i class="lnr lnr-home"></i>
+                        <h6>Peshawar, Pakistan</h6>
+                        <p>Defence Housing Authority</p>
+                    </div>
+                    <div class="info_item">
+                        <i class="lnr lnr-phone-handset"></i>
+                        <h6><a href="#">+923471110644</a></h6>
+                        <p>Mon to Fri 9am to 6 pm</p>
+                    </div>
+                    <div class="info_item">
+                        <i class="lnr lnr-envelope"></i>
+                        <h6><a href="#">KpTourAgecny@Gmail.com</a></h6>
+                        <p>Send us your query anytime!</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+         
+            
+
+            <div class="col-lg-9">
+                @using (Html.BeginForm("Contact", "Comman", new { area = "Comman" }, FormMethod.Post, new { @class = "row contact_form", id = "contactForm", novalidate = "novalidate" }))
+                {
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.Name, new { HtmlAttributes = new { id = "name", name = "name", placeholder = "Enter your name", @class = "form-control" } })
+
+                        </div>
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.Email, new { HtmlAttributes = new { id = "email", name = "email", placeholder = "Enter email address", @class = "form-control" } })
+
+                        </div>
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.Subject, new { HtmlAttributes = new { id = "subject", name = "subject", placeholder = "Enter Subject", @class = "form-control" } })
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.TextAreaFor(model => model.Message, new { id = "message", name = "message", rows = "1", placeholder = "Enter Message", @class = "form-control" })
+
+                        </div>
+                    </div>
+                    <div class=" row col-md-12 ">
+                        <div class="col-md-8" >
+                            @if (TempData["SENT"] != null)
+                             {
+
+                            <div class="alert alert-success" role="alert" style="margin-bottom: 0px;height: 39px;margin-top: 20px;background: linear-gradient(90deg, #ff2f8b 0%, #9035f9 100%);">
+
+                                <p style="color: #fff;color: #fff; letter-spacing: 1px;   font-size: 13px;  font-weight:1000;    margin-top: -7px; letter-spacing: 3px;">
+
+
+
+                                    @TempData["SENT"]
+                                 
+                                </p>
+                            </div>
+
+
+
+                         
+                            }
+
+                        </div>
+
+                        <div class="text-right">
+                            <button type="submit" value="submit" class="primary-btn text-uppercase">Send Message</button>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<!--================Contact Area =================-->
+<!--================Contact Success and Error message Area =================-->
+<div id="success" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h2>Thank you</h2>
+                <p>Your message is successfully sent...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals error -->
+
+<div id="error" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h2>Sorry !</h2>
+                <p> Something went wrong </p>
+            </div>
+        </div>
+    </div>
+</div>
+

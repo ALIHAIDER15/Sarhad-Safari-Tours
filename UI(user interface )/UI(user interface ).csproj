@@ -1,0 +1,1131 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FB18FAFA-9396-4095-ADD9-4CF54E0D7125}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UI_user_interface__</RootNamespace>
+    <AssemblyName>UI%28user interface %29</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44363</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.7</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap-datepicker.min.css" />
+    <Content Include="Content\bootstrap-datepicker.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="Content\bootstrap-datepicker3.css" />
+    <Content Include="Content\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="DashBoard\README.txt" />
+    <Content Include="DashBoard\template\assets\css\addPackage.css" />
+    <Content Include="DashBoard\template\assets\css\bootstrap.css" />
+    <Content Include="DashBoard\template\assets\css\bootstrap.min.css" />
+    <Content Include="DashBoard\template\assets\css\demo.css" />
+    <Content Include="DashBoard\template\assets\css\main.css" />
+    <Content Include="DashBoard\template\assets\img\apple-icon.png" />
+    <Content Include="DashBoard\template\assets\img\favicon.png" />
+    <Content Include="DashBoard\template\assets\img\login-bg.jpg" />
+    <Content Include="DashBoard\template\assets\img\logo-dark.png" />
+    <Content Include="DashBoard\template\assets\img\profile-bg.png" />
+    <Content Include="DashBoard\template\assets\img\user-medium.png" />
+    <Content Include="DashBoard\template\assets\img\user.png" />
+    <Content Include="DashBoard\template\assets\img\user1.png" />
+    <Content Include="DashBoard\template\assets\img\user2.png" />
+    <Content Include="DashBoard\template\assets\img\user3.png" />
+    <Content Include="DashBoard\template\assets\img\user4.png" />
+    <Content Include="DashBoard\template\assets\img\user5.png" />
+    <Content Include="DashBoard\template\assets\img\WebLogo1.png" />
+    <Content Include="DashBoard\template\assets\img\WebLogo2.png" />
+    <Content Include="DashBoard\template\assets\scripts\klorofil-common.js" />
+    <Content Include="DashBoard\template\assets\vendor\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="DashBoard\template\assets\vendor\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="DashBoard\template\assets\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="DashBoard\template\assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="DashBoard\template\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="DashBoard\template\assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="DashBoard\template\assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="DashBoard\template\assets\vendor\bootstrap\js\npm.js" />
+    <Content Include="DashBoard\template\assets\vendor\chartist\css\chartist-custom.css" />
+    <Content Include="DashBoard\template\assets\vendor\chartist\css\chartist.css" />
+    <Content Include="DashBoard\template\assets\vendor\chartist\css\chartist.min.css" />
+    <Content Include="DashBoard\template\assets\vendor\chartist\js\chartist.js" />
+    <Content Include="DashBoard\template\assets\vendor\chartist\js\chartist.min.js" />
+    <Content Include="DashBoard\template\assets\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="DashBoard\template\assets\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="DashBoard\template\assets\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="DashBoard\template\assets\vendor\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="DashBoard\template\assets\vendor\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="DashBoard\template\assets\vendor\jquery.easy-pie-chart\angular.easypiechart.js" />
+    <Content Include="DashBoard\template\assets\vendor\jquery.easy-pie-chart\angular.easypiechart.min.js" />
+    <Content Include="DashBoard\template\assets\vendor\jquery.easy-pie-chart\easypiechart.js" />
+    <Content Include="DashBoard\template\assets\vendor\jquery.easy-pie-chart\easypiechart.min.js" />
+    <Content Include="DashBoard\template\assets\vendor\jquery.easy-pie-chart\jquery.easypiechart.js" />
+    <Content Include="DashBoard\template\assets\vendor\jquery.easy-pie-chart\jquery.easypiechart.min.js" />
+    <Content Include="DashBoard\template\assets\vendor\jquery\jquery.js" />
+    <Content Include="DashBoard\template\assets\vendor\jquery\jquery.min.js" />
+    <Content Include="DashBoard\template\assets\vendor\linearicons\fonts\Linearicons-Free.svg" />
+    <Content Include="DashBoard\template\assets\vendor\linearicons\style.css" />
+    <Content Include="DashBoard\template\assets\vendor\toastr\toastr.css" />
+    <Content Include="DashBoard\template\assets\vendor\toastr\toastr.js" />
+    <Content Include="DashBoard\template\assets\vendor\toastr\toastr.min.css" />
+    <Content Include="DashBoard\template\assets\vendor\toastr\toastr.min.js" />
+    <Content Include="DashBoard\template\charts.html" />
+    <Content Include="DashBoard\template\elements.html" />
+    <Content Include="DashBoard\template\icons.html" />
+    <Content Include="DashBoard\template\index.html" />
+    <Content Include="DashBoard\template\notifications.html" />
+    <Content Include="DashBoard\template\page-lockscreen.html" />
+    <Content Include="DashBoard\template\page-login.html" />
+    <Content Include="DashBoard\template\page-profile.html" />
+    <Content Include="DashBoard\template\panels.html" />
+    <Content Include="DashBoard\template\tables.html" />
+    <Content Include="DashBoard\template\typography.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Areas\Security\Views\Security\Index.cshtml" />
+    <Content Include="Images\icon.jpg" />
+    <Content Include="Images\No_Image_Available.jpg" />
+    <Content Include="MainDesign\.gitignore" />
+    <Content Include="MainDesign\about-us.html" />
+    <Content Include="MainDesign\blog.html" />
+    <Content Include="MainDesign\book-trip.html" />
+    <Content Include="MainDesign\contact.html" />
+    <Content Include="MainDesign\contact_process.php" />
+    <Content Include="MainDesign\css\bootstrap.css" />
+    <Content Include="MainDesign\css\breadcrumb.css" />
+    <Content Include="MainDesign\css\font-awesome.min.css" />
+    <Content Include="MainDesign\css\magnific-popup.css" />
+    <Content Include="MainDesign\css\style.css" />
+    <Content Include="MainDesign\elements.html" />
+    <Content Include="MainDesign\fonts\fontawesome-webfont.svg" />
+    <Content Include="MainDesign\img\about-img.jpg" />
+    <Content Include="MainDesign\img\banner\banner-map.png" />
+    <Content Include="MainDesign\img\banner\common-banner.jpg" />
+    <Content Include="MainDesign\img\banner\home-banner.png" />
+    <Content Include="MainDesign\img\blog\add.jpg" />
+    <Content Include="MainDesign\img\blog\author.png" />
+    <Content Include="MainDesign\img\blog\c1.jpg" />
+    <Content Include="MainDesign\img\blog\c2.jpg" />
+    <Content Include="MainDesign\img\blog\c3.jpg" />
+    <Content Include="MainDesign\img\blog\c4.jpg" />
+    <Content Include="MainDesign\img\blog\c5.jpg" />
+    <Content Include="MainDesign\img\blog\c6.jpg" />
+    <Content Include="MainDesign\img\blog\cat-post\cat-post-1.jpg" />
+    <Content Include="MainDesign\img\blog\cat-post\cat-post-2.jpg" />
+    <Content Include="MainDesign\img\blog\cat-post\cat-post-3.jpg" />
+    <Content Include="MainDesign\img\blog\causes\causes-1.jpg" />
+    <Content Include="MainDesign\img\blog\causes\causes-2.jpg" />
+    <Content Include="MainDesign\img\blog\causes\causes-3.jpg" />
+    <Content Include="MainDesign\img\blog\feature-img1.jpg" />
+    <Content Include="MainDesign\img\blog\h-blog1.jpg" />
+    <Content Include="MainDesign\img\blog\h-blog2.jpg" />
+    <Content Include="MainDesign\img\blog\h-blog3.jpg" />
+    <Content Include="MainDesign\img\blog\main-blog\m-blog-1.jpg" />
+    <Content Include="MainDesign\img\blog\main-blog\m-blog-2.jpg" />
+    <Content Include="MainDesign\img\blog\main-blog\m-blog-3.jpg" />
+    <Content Include="MainDesign\img\blog\main-blog\m-blog-4.jpg" />
+    <Content Include="MainDesign\img\blog\main-blog\m-blog-5.jpg" />
+    <Content Include="MainDesign\img\blog\next.jpg" />
+    <Content Include="MainDesign\img\blog\popular-post\post1.jpg" />
+    <Content Include="MainDesign\img\blog\popular-post\post2.jpg" />
+    <Content Include="MainDesign\img\blog\popular-post\post3.jpg" />
+    <Content Include="MainDesign\img\blog\popular-post\post4.jpg" />
+    <Content Include="MainDesign\img\blog\post-img1.jpg" />
+    <Content Include="MainDesign\img\blog\post-img2.jpg" />
+    <Content Include="MainDesign\img\blog\prev.jpg" />
+    <Content Include="MainDesign\img\cta-bg.png" />
+    <Content Include="MainDesign\img\cta-bg2.png" />
+    <Content Include="MainDesign\img\cta-img.png" />
+    <Content Include="MainDesign\img\cta-img2.png" />
+    <Content Include="MainDesign\img\elements\a.jpg" />
+    <Content Include="MainDesign\img\elements\a2.jpg" />
+    <Content Include="MainDesign\img\elements\d.jpg" />
+    <Content Include="MainDesign\img\elements\disabled-check.png" />
+    <Content Include="MainDesign\img\elements\disabled-radio.png" />
+    <Content Include="MainDesign\img\elements\f1.jpg" />
+    <Content Include="MainDesign\img\elements\f2.jpg" />
+    <Content Include="MainDesign\img\elements\f3.jpg" />
+    <Content Include="MainDesign\img\elements\f4.jpg" />
+    <Content Include="MainDesign\img\elements\f5.jpg" />
+    <Content Include="MainDesign\img\elements\f6.jpg" />
+    <Content Include="MainDesign\img\elements\f7.jpg" />
+    <Content Include="MainDesign\img\elements\f8.jpg" />
+    <Content Include="MainDesign\img\elements\g1.jpg" />
+    <Content Include="MainDesign\img\elements\g2.jpg" />
+    <Content Include="MainDesign\img\elements\g3.jpg" />
+    <Content Include="MainDesign\img\elements\g4.jpg" />
+    <Content Include="MainDesign\img\elements\g5.jpg" />
+    <Content Include="MainDesign\img\elements\g6.jpg" />
+    <Content Include="MainDesign\img\elements\g7.jpg" />
+    <Content Include="MainDesign\img\elements\g8.jpg" />
+    <Content Include="MainDesign\img\elements\primary-check.png" />
+    <Content Include="MainDesign\img\elements\primary-radio.png" />
+    <Content Include="MainDesign\img\elements\success-check.png" />
+    <Content Include="MainDesign\img\elements\success-radio.png" />
+    <Content Include="MainDesign\img\elements\user1.png" />
+    <Content Include="MainDesign\img\elements\user2.png" />
+    <Content Include="MainDesign\img\favicon.png" />
+    <Content Include="MainDesign\img\i1.jpg" />
+    <Content Include="MainDesign\img\i2.jpg" />
+    <Content Include="MainDesign\img\i3.jpg" />
+    <Content Include="MainDesign\img\i4.jpg" />
+    <Content Include="MainDesign\img\i5.jpg" />
+    <Content Include="MainDesign\img\i6.jpg" />
+    <Content Include="MainDesign\img\i7.jpg" />
+    <Content Include="MainDesign\img\i8.jpg" />
+    <Content Include="MainDesign\img\logo.png" />
+    <Content Include="MainDesign\img\package\p1.jpg" />
+    <Content Include="MainDesign\img\package\p2.jpg" />
+    <Content Include="MainDesign\img\package\p3.jpg" />
+    <Content Include="MainDesign\img\places\p1.jpg" />
+    <Content Include="MainDesign\img\places\p2.jpg" />
+    <Content Include="MainDesign\img\places\p3.jpg" />
+    <Content Include="MainDesign\img\places\p4.jpg" />
+    <Content Include="MainDesign\img\quote.png" />
+    <Content Include="MainDesign\img\service\s1.png" />
+    <Content Include="MainDesign\img\service\s2.png" />
+    <Content Include="MainDesign\img\service\s3.png" />
+    <Content Include="MainDesign\img\team\team-1.jpg" />
+    <Content Include="MainDesign\img\team\team-2.jpg" />
+    <Content Include="MainDesign\img\team\team-3.jpg" />
+    <Content Include="MainDesign\img\team\team-4.jpg" />
+    <Content Include="MainDesign\img\testimonial\t1.jpg" />
+    <Content Include="MainDesign\img\testimonial\t2.jpg" />
+    <Content Include="MainDesign\img\testimonial\t3.jpg" />
+    <Content Include="MainDesign\img\testimonial\t4.jpg" />
+    <Content Include="MainDesign\img\trip-form-bg.jpg" />
+    <Content Include="MainDesign\index.html" />
+    <Content Include="MainDesign\js\bootstrap.min.js" />
+    <Content Include="MainDesign\js\contact.js" />
+    <Content Include="MainDesign\js\CustomDatePicker.js" />
+    <Content Include="MainDesign\js\gmaps.min.js" />
+    <Content Include="MainDesign\js\jquery-3.2.1.min.js" />
+    <Content Include="MainDesign\js\jquery.ajaxchimp.min.js" />
+    <Content Include="MainDesign\js\jquery.form.js" />
+    <Content Include="MainDesign\js\jquery.magnific-popup.min.js" />
+    <Content Include="MainDesign\js\jquery.validate.min.js" />
+    <Content Include="MainDesign\js\mail-script.js" />
+    <Content Include="MainDesign\js\owl-carousel-thumb.min.js" />
+    <Content Include="MainDesign\js\popper.js" />
+    <Content Include="MainDesign\js\stellar.js" />
+    <Content Include="MainDesign\js\theme.js" />
+    <Content Include="MainDesign\packages.html" />
+    <Content Include="MainDesign\scss\style.css" />
+    <Content Include="MainDesign\single-blog.html" />
+    <Content Include="MainDesign\Taxa Adventure-doc\css\font-awesome.min.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\css\main.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\css\normalize.min.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\fonts\fontawesome-webfont.svg" />
+    <Content Include="MainDesign\Taxa Adventure-doc\img\logo.png" />
+    <Content Include="MainDesign\Taxa Adventure-doc\index.html" />
+    <Content Include="MainDesign\Taxa Adventure-doc\js\custom.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\js\jquery-1.11.0.min.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\js\jquery.nav.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shAutoloader.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushAppleScript.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushAS3.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushBash.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushColdFusion.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushCpp.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushCSharp.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushCss.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushDelphi.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushDiff.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushErlang.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushGroovy.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushJava.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushJavaFX.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushJScript.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushPerl.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushPhp.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushPlain.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushPowerShell.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushPython.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushRuby.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushSass.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushScala.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushSql.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushVb.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shBrushXml.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shCore.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\scripts\shLegacy.js" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shCore.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shCoreDefault.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shCoreDjango.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shCoreEclipse.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shCoreEmacs.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shCoreFadeToGrey.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shCoreMDUltra.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shCoreMidnight.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shCoreRDark.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shThemeDefault.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shThemeDjango.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shThemeEclipse.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shThemeEmacs.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shThemeFadeToGrey.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shThemeMDUltra.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shThemeMidnight.css" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\styles\shThemeRDark.css" />
+    <Content Include="MainDesign\vendors\animate-css\animate.css" />
+    <Content Include="MainDesign\vendors\animate-css\wow.min.js" />
+    <Content Include="MainDesign\vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="MainDesign\vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="MainDesign\vendors\bootstrap-datepicker\bootstrap-select.css" />
+    <Content Include="MainDesign\vendors\bootstrap-datepicker\bootstrap-select.js" />
+    <Content Include="MainDesign\vendors\counter-up\jquery.counterup.js" />
+    <Content Include="MainDesign\vendors\counter-up\jquery.waypoints.min.js" />
+    <Content Include="MainDesign\vendors\flipclock\timer.js" />
+    <Content Include="MainDesign\vendors\isotope\imagesloaded.pkgd.min.js" />
+    <Content Include="MainDesign\vendors\isotope\isotope-min.js" />
+    <Content Include="MainDesign\vendors\jquery-ui\jquery-ui.css" />
+    <Content Include="MainDesign\vendors\jquery-ui\jquery-ui.js" />
+    <Content Include="MainDesign\vendors\lightbox\simpleLightbox.css" />
+    <Content Include="MainDesign\vendors\lightbox\simpleLightbox.min.js" />
+    <Content Include="MainDesign\vendors\linericon\fonts\Linearicons-Free.svg" />
+    <Content Include="MainDesign\vendors\linericon\style.css" />
+    <Content Include="MainDesign\vendors\nice-select\css\nice-select.css" />
+    <Content Include="MainDesign\vendors\nice-select\css\style.css" />
+    <Content Include="MainDesign\vendors\nice-select\js\jquery.nice-select.js" />
+    <Content Include="MainDesign\vendors\nice-select\js\jquery.nice-select.min.js" />
+    <Content Include="MainDesign\vendors\owl-carousel\assets\ajax-loader.gif" />
+    <Content Include="MainDesign\vendors\owl-carousel\assets\animated.css" />
+    <Content Include="MainDesign\vendors\owl-carousel\assets\owl.carousel.css" />
+    <Content Include="MainDesign\vendors\owl-carousel\owl.carousel.min.css" />
+    <Content Include="MainDesign\vendors\owl-carousel\owl.carousel.min.js" />
+    <Content Include="my_css\CurrentMemberShip.css" />
+    <Content Include="my_css\login.css" />
+    <Content Include="my_css\RegistrationForms.css" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Custom.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Security\Views\Security\Login.cshtml" />
+    <Content Include="Areas\Security\Views\Security\Register.cshtml" />
+    <Content Include="Areas\Comman\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Security\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AllReocrd.cshtml" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker3.css.map" />
+    <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="Content\bootstrap-datepicker.css.map" />
+    <Content Include="Areas\Security\Views\Security\Regisssster.cshtml" />
+    <Content Include="MainDesign\.DS_Store" />
+    <Content Include="MainDesign\.git\COMMIT_EDITMSG" />
+    <Content Include="MainDesign\.git\config" />
+    <Content Include="MainDesign\.git\description" />
+    <Content Include="MainDesign\.git\HEAD" />
+    <Content Include="MainDesign\.git\hooks\applypatch-msg.sample" />
+    <Content Include="MainDesign\.git\hooks\commit-msg.sample" />
+    <Content Include="MainDesign\.git\hooks\fsmonitor-watchman.sample" />
+    <Content Include="MainDesign\.git\hooks\post-update.sample" />
+    <Content Include="MainDesign\.git\hooks\pre-applypatch.sample" />
+    <Content Include="MainDesign\.git\hooks\pre-commit.sample" />
+    <Content Include="MainDesign\.git\hooks\pre-push.sample" />
+    <Content Include="MainDesign\.git\hooks\pre-rebase.sample" />
+    <Content Include="MainDesign\.git\hooks\pre-receive.sample" />
+    <Content Include="MainDesign\.git\hooks\prepare-commit-msg.sample" />
+    <Content Include="MainDesign\.git\hooks\update.sample" />
+    <Content Include="MainDesign\.git\index" />
+    <Content Include="MainDesign\.git\info\exclude" />
+    <Content Include="MainDesign\.git\logs\HEAD" />
+    <Content Include="MainDesign\.git\logs\refs\heads\master" />
+    <Content Include="MainDesign\.git\logs\refs\remotes\origin\master" />
+    <Content Include="MainDesign\.git\objects\00\f22a2b674e70a87eee0999dafcab4b56f189e7" />
+    <Content Include="MainDesign\.git\objects\01\1e2f691ea046f63438d4da5870f34e2f28dac9" />
+    <Content Include="MainDesign\.git\objects\01\5360a2044ba42a11bb111b0b6b23f1f2c2de11" />
+    <Content Include="MainDesign\.git\objects\02\13552372f1cddab3995c41dd751a624f9a9efc" />
+    <Content Include="MainDesign\.git\objects\02\4de994ffbcd50965d770725defa671e32db79c" />
+    <Content Include="MainDesign\.git\objects\02\5d574dce02d34aedc265b93c9ad8ee9b5833ee" />
+    <Content Include="MainDesign\.git\objects\02\764b6d3f82ddc083b9883fc54ab6f3244ad756" />
+    <Content Include="MainDesign\.git\objects\03\134da3b0c43129be0e7129a280c9880d7b649f" />
+    <Content Include="MainDesign\.git\objects\03\7cce84baae28a97585e443b5d601819ef62428" />
+    <Content Include="MainDesign\.git\objects\03\d0e12629fbd431abca30cfa3e0d3e0dcdfc309" />
+    <Content Include="MainDesign\.git\objects\05\93dd209cc23bdab036196f0835700cd30a95a1" />
+    <Content Include="MainDesign\.git\objects\06\519c3637d760d2a73779d4f6afd3c5cebe3d0e" />
+    <Content Include="MainDesign\.git\objects\07\8be99253c62f3e81c7717ec4179ff94e21c710" />
+    <Content Include="MainDesign\.git\objects\07\9214efe11da48fd686db1dab4ae700de86dfa5" />
+    <Content Include="MainDesign\.git\objects\07\d87c8c50322517a5642692aae0df6f16a7a824" />
+    <Content Include="MainDesign\.git\objects\08\d905f3b230c9fa6f1e7eca8cad877002f15da7" />
+    <Content Include="MainDesign\.git\objects\08\f9e10e4ea57944826f5c22baedbd1dc1627771" />
+    <Content Include="MainDesign\.git\objects\09\5fc64af73ba6f5f666666a3a55f6d75abb2974" />
+    <Content Include="MainDesign\.git\objects\0a\646f203c73b845f9b07567bcfc9a6566730a95" />
+    <Content Include="MainDesign\.git\objects\0a\e3db9df5f38b29b504430c968b07fad490d980" />
+    <Content Include="MainDesign\.git\objects\0b\e175296894671b466de8b4548243ba8e333c06" />
+    <Content Include="MainDesign\.git\objects\0c\276d9cdf3b9d3b55fa4fabfa8661f87e724c1f" />
+    <Content Include="MainDesign\.git\objects\0c\ea5c28528f928512bdf7a216d6398ba4021904" />
+    <Content Include="MainDesign\.git\objects\0f\809206b2324f162620d526998d51842f37367d" />
+    <Content Include="MainDesign\.git\objects\10\178ff9eda43800a3cd2652060b78cade8015ab" />
+    <Content Include="MainDesign\.git\objects\11\e8fe5cf5e94cd5e9599cb8b89b14d28818e469" />
+    <Content Include="MainDesign\.git\objects\11\f67f02d3c7a38b99489f71ea21f349174ddd5d" />
+    <Content Include="MainDesign\.git\objects\13\e7ced454d5cd9b1df7e0e9da6541876ee793ad" />
+    <Content Include="MainDesign\.git\objects\16\51ec924a6e1af587cc677f2eb97eabb4e1c7b2" />
+    <Content Include="MainDesign\.git\objects\16\f3976d2b7f15d844dd003e272b9d0032124a2a" />
+    <Content Include="MainDesign\.git\objects\18\08351e862021d3581ec1301d071fefabb864f6" />
+    <Content Include="MainDesign\.git\objects\18\6fe512215dbad17d9aee8a2c47827a3f2c35a3" />
+    <Content Include="MainDesign\.git\objects\19\3b55ecc2b1f0cd50e55edd0748e2aec9c031ab" />
+    <Content Include="MainDesign\.git\objects\19\40748deee06f89274b47bc42cda3d40f0d005c" />
+    <Content Include="MainDesign\.git\objects\19\4bd0d941cbe99fad507268375387b3de0e2ad4" />
+    <Content Include="MainDesign\.git\objects\1a\150a6ad33469887aa4b747723580b0360afad6" />
+    <Content Include="MainDesign\.git\objects\1b\45cdf0871791785a956a1fd75396ad00ea61bd" />
+    <Content Include="MainDesign\.git\objects\1b\48ba828dbbbafc15ea6d3812391dec2d18a389" />
+    <Content Include="MainDesign\.git\objects\1b\d789c78656b081910f1546549a5f7db8cad4a4" />
+    <Content Include="MainDesign\.git\objects\1c\6859fbad32eddc927711ba381355411939685f" />
+    <Content Include="MainDesign\.git\objects\1d\ae7baef83865d73f20c75ca527d084370c71f6" />
+    <Content Include="MainDesign\.git\objects\1d\b1f70cb0d047242c62fc795a54dd61277544c2" />
+    <Content Include="MainDesign\.git\objects\1e\9f66de3e4ff35495d84a19052a92327df37ccc" />
+    <Content Include="MainDesign\.git\objects\1e\ce042ac23a93193597167153b7373b7ff28e62" />
+    <Content Include="MainDesign\.git\objects\1f\060a77a544fa65a3f0d50b75f10456a471955a" />
+    <Content Include="MainDesign\.git\objects\1f\3b78536bcdb661d070042909ed215c6d121cca" />
+    <Content Include="MainDesign\.git\objects\20\5cb40b49b04e69a6210fe25c9e732f83a7d80f" />
+    <Content Include="MainDesign\.git\objects\21\562a32307f38334910e0be1e3c89b83cf7d01a" />
+    <Content Include="MainDesign\.git\objects\24\62fe8a46d5108c2ed217edb2dfab2b966cf180" />
+    <Content Include="MainDesign\.git\objects\26\06db1994464892666757211a74d8aba8f9d3fb" />
+    <Content Include="MainDesign\.git\objects\27\6a307f2b4d523088a2dbf30a3885546b230c3c" />
+    <Content Include="MainDesign\.git\objects\28\3b321e646b51fb93dd29ca63af0318a1eb2db2" />
+    <Content Include="MainDesign\.git\objects\29\23ce7367b54cb7124ae253e4d58a0fd141b96d" />
+    <Content Include="MainDesign\.git\objects\29\51db0f32381d7f0d1cd982f28c12f0643c38fe" />
+    <Content Include="MainDesign\.git\objects\2b\48e5ca3afbfb2e7aa9824630fc57749a003c61" />
+    <Content Include="MainDesign\.git\objects\2c\22f53da87d696a77c3dd2b9b3d3fd8c9759395" />
+    <Content Include="MainDesign\.git\objects\2c\ae549e53ec83bfbe651287da170dd7a4b25586" />
+    <Content Include="MainDesign\.git\objects\2d\a1831a08c405f333f367b5884bf124de8ac478" />
+    <Content Include="MainDesign\.git\objects\2e\a1b791c29def649bd5756eafd6478dd6ffe8da" />
+    <Content Include="MainDesign\.git\objects\31\1a7689e0a7a34ca243c340980106a4ecfdc85d" />
+    <Content Include="MainDesign\.git\objects\32\274c5520e2583b7928103f9c7b7fc1faef0327" />
+    <Content Include="MainDesign\.git\objects\34\61e3fce6a37f2321ecbe64707f04c0a4f05424" />
+    <Content Include="MainDesign\.git\objects\34\afa0c5c76d0601ca4c51a60d4050ba128cf70f" />
+    <Content Include="MainDesign\.git\objects\34\be13d07e99eda283b2fc4c0415af6fb7313643" />
+    <Content Include="MainDesign\.git\objects\34\f6864a155b18bcca36d86f39c3034cc6d49424" />
+    <Content Include="MainDesign\.git\objects\35\02a2c6287789c7dfc2c5d5662972cd61f38b0c" />
+    <Content Include="MainDesign\.git\objects\35\62e9bc4df5e45a25186c738e4ee89625f9606f" />
+    <Content Include="MainDesign\.git\objects\38\5351a264e3ff5492be752248eefc4fb72c5a86" />
+    <Content Include="MainDesign\.git\objects\39\658c7d94b75c7721f366547c7ba0bd6dc815ee" />
+    <Content Include="MainDesign\.git\objects\3d\920fc87c230c0d6fe777dfd422d68dd1ef787b" />
+    <Content Include="MainDesign\.git\objects\3d\be4bb32e0dcc87d1d6face098d2e38dea24a1a" />
+    <Content Include="MainDesign\.git\objects\3e\65d3ec180a976ab578eb5635e65c41ba14ebe6" />
+    <Content Include="MainDesign\.git\objects\3e\83c192d0947aec1f4a97337c4ff48d23e25225" />
+    <Content Include="MainDesign\.git\objects\3e\98631ba72a26ef3b59d6709e044454d485527e" />
+    <Content Include="MainDesign\.git\objects\40\f53871118435a241d291ad46a3e9d9f4ed5fad" />
+    <Content Include="MainDesign\.git\objects\42\8ffa54bc8187ad8ce3f4569d008cce2188030c" />
+    <Content Include="MainDesign\.git\objects\42\97a9a6486b6c93e335a2d2805c2bf91e04dbf8" />
+    <Content Include="MainDesign\.git\objects\44\f1eab6ab4bc5ce319a5d2c8d7f80a131e0e5cf" />
+    <Content Include="MainDesign\.git\objects\47\b94cb2c50fd80c61fad6319fe2739b5bb35efb" />
+    <Content Include="MainDesign\.git\objects\49\84061555fc821549a9ea05d25607582599a053" />
+    <Content Include="MainDesign\.git\objects\4b\0b6f04d2982779675a4e005072cdec4c63b9d5" />
+    <Content Include="MainDesign\.git\objects\4c\1de36442d0c4b2138f10dd666077362a5ed984" />
+    <Content Include="MainDesign\.git\objects\4c\40b84c40b4c64d73f8313d4718cea086f8854d" />
+    <Content Include="MainDesign\.git\objects\4d\304f4ecae303d325507258c7d6df78edbb8472" />
+    <Content Include="MainDesign\.git\objects\4e\29bddecbbcdb01c669fb2c89aca4a2505a59bc" />
+    <Content Include="MainDesign\.git\objects\4f\e6ccbe0fdf0f6b3a1e6f19eea1c4a07e81cf11" />
+    <Content Include="MainDesign\.git\objects\50\08ddfcf53c02e82d7eee2e57c38e5672ef89f6" />
+    <Content Include="MainDesign\.git\objects\51\e5c9d4a1505be5b80efe68a29041c280a08c5c" />
+    <Content Include="MainDesign\.git\objects\52\3dc7e37ccf62fba1ac8b9636a19eb70df656eb" />
+    <Content Include="MainDesign\.git\objects\55\1c3f9b375a3fc9aec18f9a234a189112ca6ae4" />
+    <Content Include="MainDesign\.git\objects\57\003bd6f8eaed2d152f54ef861684bef38cc2ea" />
+    <Content Include="MainDesign\.git\objects\57\17c617737d6edf72b56938cf7049cb7c15d24e" />
+    <Content Include="MainDesign\.git\objects\57\fe3b269b6250a81b00e8025ed8ebaaf47ffc7d" />
+    <Content Include="MainDesign\.git\objects\58\408b9a17e5850fe86feab1ac1c1e5f3b51a5ad" />
+    <Content Include="MainDesign\.git\objects\58\8a609e07d995208b856c9fe80e6f3b2a97112a" />
+    <Content Include="MainDesign\.git\objects\59\60719f7c0e673dd4fe25e022ad82e9c1a88be4" />
+    <Content Include="MainDesign\.git\objects\5a\c4fe82459d75056085b32accb65893735c5f9d" />
+    <Content Include="MainDesign\.git\objects\5c\2cd8806ffed9b2002446b3cb6e1ddc70231f3a" />
+    <Content Include="MainDesign\.git\objects\5c\d6cff6d6f6cf438a882e366420dbcc5dddd3f1" />
+    <Content Include="MainDesign\.git\objects\5d\2aff58ac225d84d5cf8d3543977bb1c0dc2505" />
+    <Content Include="MainDesign\.git\objects\5f\3bdda7f7b0e5aa2a1aef63609d98d06b9ee0e3" />
+    <Content Include="MainDesign\.git\objects\60\9ece0a51a92e1f4a8bc1b318850c043b30bd86" />
+    <Content Include="MainDesign\.git\objects\61\01eba51f0bbe078a1d83e4b08066453778c8e6" />
+    <Content Include="MainDesign\.git\objects\61\08cd627a464f72973fa681c6b66de1b13db619" />
+    <Content Include="MainDesign\.git\objects\61\6dd09ecabcdcdb2bbf82afb7b1ff9c064c2ce0" />
+    <Content Include="MainDesign\.git\objects\61\a4ad878e6fef7a759df837db62bf35b0c4f05c" />
+    <Content Include="MainDesign\.git\objects\62\477ff7f989708b8380236ac37bebdf6300b79d" />
+    <Content Include="MainDesign\.git\objects\62\7dbb9b76e181ea7ae7253099bf41b7142cd45d" />
+    <Content Include="MainDesign\.git\objects\63\05a10e4ebb09f56b8da07f8d15918f6001d863" />
+    <Content Include="MainDesign\.git\objects\63\b5b751e5d898d1fab6da6d266a855e2f46675c" />
+    <Content Include="MainDesign\.git\objects\64\4d35e274fd64ddaf6d12af813e820c424176a9" />
+    <Content Include="MainDesign\.git\objects\65\fb71486393c6e8e37b83a2f22d9ce1664770dd" />
+    <Content Include="MainDesign\.git\objects\66\980a18389914d343399ddeff640b0924baa003" />
+    <Content Include="MainDesign\.git\objects\66\a620593b005ae5741303be805dd48732e8c2eb" />
+    <Content Include="MainDesign\.git\objects\69\d9fd0b1f4405a03aaa8c41d0b089168aefa43e" />
+    <Content Include="MainDesign\.git\objects\6a\9e75a6003b3ee48995a5358c567524632f97ac" />
+    <Content Include="MainDesign\.git\objects\6b\a7d9da871a2fb656bfb736715a2433289f3400" />
+    <Content Include="MainDesign\.git\objects\6c\fd56609567bc9db55186415c694d1d32808fc2" />
+    <Content Include="MainDesign\.git\objects\6d\9fd4d19f678550adbc8dc4204cb09a42d06ab8" />
+    <Content Include="MainDesign\.git\objects\6e\7483cf61b490c08ed644d6ef802c69472eb247" />
+    <Content Include="MainDesign\.git\objects\6e\c5c18521a1830d653a01080ccba937d1541533" />
+    <Content Include="MainDesign\.git\objects\6e\e3a3bd5b52860ea3e99fdf8633ad683943245e" />
+    <Content Include="MainDesign\.git\objects\6f\22f4dead335ae87c6d5ce531f9e153b0db6e17" />
+    <Content Include="MainDesign\.git\objects\6f\6b8ea59bbcedee448a7346b594dc33cd8c9053" />
+    <Content Include="MainDesign\.git\objects\70\6c77a0a8562a24a8975e68d0af50dba06fbc51" />
+    <Content Include="MainDesign\.git\objects\71\48b57658700ce6a493c016ab7c44d25a5e4cb8" />
+    <Content Include="MainDesign\.git\objects\71\cbb944aa05f8d57bfb653d413908204dc905f2" />
+    <Content Include="MainDesign\.git\objects\72\7486b4fd7b38e5597440b619f74e7828f5b450" />
+    <Content Include="MainDesign\.git\objects\72\9ec11b537159832c8608356c21d2d091f86d32" />
+    <Content Include="MainDesign\.git\objects\72\ae5092dde6444a4ca12da8ac0c5c244b53f51d" />
+    <Content Include="MainDesign\.git\objects\72\b5c0f749d42eeeff44b206c95038197596acdf" />
+    <Content Include="MainDesign\.git\objects\73\d6783225aeb0d10553a1fd613b42446fbf7226" />
+    <Content Include="MainDesign\.git\objects\73\f33fb3aa529308d1f3f2f4fc253c4abed95374" />
+    <Content Include="MainDesign\.git\objects\77\377d9533477c6b808306a9c04bec2ffa528103" />
+    <Content Include="MainDesign\.git\objects\78\042d78baf444d5a4dd77d29d1d54d4b125e3e3" />
+    <Content Include="MainDesign\.git\objects\78\b9efca9212f29ae5761d70f3f4a6f08d585b64" />
+    <Content Include="MainDesign\.git\objects\79\69c5d66f10e09632731f258ac439d6f6e93d8d" />
+    <Content Include="MainDesign\.git\objects\7a\3610270a263692bdfe430737bcf7c1dc201925" />
+    <Content Include="MainDesign\.git\objects\7d\31127740290f0af8d9d97fa201e67b0bcc3834" />
+    <Content Include="MainDesign\.git\objects\7e\b74fd127ee5eddf3b95fee6a20dc1684b0963b" />
+    <Content Include="MainDesign\.git\objects\7e\e3196a846443a997566e169d472cb02752385a" />
+    <Content Include="MainDesign\.git\objects\80\a7d526bb5fadfb6285330e369c37bf11fe41e9" />
+    <Content Include="MainDesign\.git\objects\82\3ebd337a9ec2bb2f6fe32748da6a743174ed8f" />
+    <Content Include="MainDesign\.git\objects\82\8463541243a3c1340927a09f8cac466b9f9f38" />
+    <Content Include="MainDesign\.git\objects\83\5f30f43580bbd8b6926fa58f8c7ceb5ccc5195" />
+    <Content Include="MainDesign\.git\objects\85\61e181adf05fbc285c993cb4664872cd11453f" />
+    <Content Include="MainDesign\.git\objects\85\df6ce84dfc617a803454ecfce3c930eb7fa84f" />
+    <Content Include="MainDesign\.git\objects\87\cbbd1eba9465be1722ad88e1709de76a89c2ba" />
+    <Content Include="MainDesign\.git\objects\87\d828493f15d2a38ffed6e5f4a6fa9b6b1fe48a" />
+    <Content Include="MainDesign\.git\objects\88\757b34b72d1f9f75dbc7b2725d7a6b1eb3d635" />
+    <Content Include="MainDesign\.git\objects\88\eb2d6c809c1a7a94dead67f023a2ee2ecf262e" />
+    <Content Include="MainDesign\.git\objects\88\fccaec0db37cb0cc181d4c98ff0cf059f31def" />
+    <Content Include="MainDesign\.git\objects\8a\6b80a0563d7aea87e6f32cb89a898cb395283a" />
+    <Content Include="MainDesign\.git\objects\8a\a3ed2732adc3bb5ca65124348d2438efdd2ba0" />
+    <Content Include="MainDesign\.git\objects\8b\41d9c4bb4b557dc4657e54a72541ef4480e90c" />
+    <Content Include="MainDesign\.git\objects\8b\66187fe067c3aa389ce8c98108f349ceae159c" />
+    <Content Include="MainDesign\.git\objects\8b\d46bbd7df28d8af8284c5e6e9db3eb57881ad2" />
+    <Content Include="MainDesign\.git\objects\8c\05ad76793bf2aa3d8caf90b9737b2207f5b0a3" />
+    <Content Include="MainDesign\.git\objects\8c\296969ff440083931c6208855617723db152f1" />
+    <Content Include="MainDesign\.git\objects\8d\56fc0fce6bf5e31eab2a31a6555502fab06302" />
+    <Content Include="MainDesign\.git\objects\8d\8893a251495ecd64cde9b663f0ad11647f85b1" />
+    <Content Include="MainDesign\.git\objects\8e\b2ba74d84073cbe0263fd3328806a5673736e2" />
+    <Content Include="MainDesign\.git\objects\8f\1c161390e0cb2cb0cdd1b80c7dbb5b964efd01" />
+    <Content Include="MainDesign\.git\objects\8f\7f70fef620742651680fe9e9e723ae26161861" />
+    <Content Include="MainDesign\.git\objects\8f\bd871fb5bc1a33b3a4b35bccdcbf5baab553da" />
+    <Content Include="MainDesign\.git\objects\91\973731c2ce7bb8d0e6177b762f1fdcb75b412c" />
+    <Content Include="MainDesign\.git\objects\93\97bc321ef366c63ab750eadb878989d6fd3a3f" />
+    <Content Include="MainDesign\.git\objects\95\1271577784221653f40166fdba03958822fcf8" />
+    <Content Include="MainDesign\.git\objects\95\e6e4325bb44aa6caf4c40d914810f25616db88" />
+    <Content Include="MainDesign\.git\objects\97\160f8d3d0391d5b0bd2d8ca22206a21eeda7b6" />
+    <Content Include="MainDesign\.git\objects\98\3e9a334bb977c814f13c8b1788d6a872982986" />
+    <Content Include="MainDesign\.git\objects\99\fca6ec32c6210c5e3f02e293331d3ad346a2ee" />
+    <Content Include="MainDesign\.git\objects\9a\4e6f6d2002aec80a1e22711bd3594cb055ef45" />
+    <Content Include="MainDesign\.git\objects\9b\9566f4b968a5d5325c7ece1f10fee3b5d8e674" />
+    <Content Include="MainDesign\.git\objects\9c\143b80820c00ab393c8a6bf3057585e6da6d58" />
+    <Content Include="MainDesign\.git\objects\9c\801bdf276283bffe34a6e13af9b0ecf80664e7" />
+    <Content Include="MainDesign\.git\objects\9e\aecb37996e205f1027fce2df59fbaa500657a8" />
+    <Content Include="MainDesign\.git\objects\9f\70d3aed60d815bb2700f4e29565a4c8be51009" />
+    <Content Include="MainDesign\.git\objects\9f\7d9e90c32f797e89bd00efd24162ec1c1e33a8" />
+    <Content Include="MainDesign\.git\objects\a0\b6e8b766f0c932512465e1676ad7aa59254fe5" />
+    <Content Include="MainDesign\.git\objects\a1\d9a683b5f4ff83c6acdf4e07abd48c2be8e8ee" />
+    <Content Include="MainDesign\.git\objects\a2\2ecb05ca4c85f6f07634441c98a772871ce94a" />
+    <Content Include="MainDesign\.git\objects\a2\aef3e25dbfbecdf91dea71491a75d544661c76" />
+    <Content Include="MainDesign\.git\objects\a3\50fc0f3d17bba75738762f56e665342b5c3bc1" />
+    <Content Include="MainDesign\.git\objects\a4\5de9fd8e34e6c73fe0b85043c9a068bdf88081" />
+    <Content Include="MainDesign\.git\objects\a5\f12c6da8002641f6ed3215f973eb72f9473a06" />
+    <Content Include="MainDesign\.git\objects\a8\56a1768748c9e0d14b7ff8f23a3fde9e93e292" />
+    <Content Include="MainDesign\.git\objects\a9\f84695031139c2542f582e9312310f2186ff58" />
+    <Content Include="MainDesign\.git\objects\aa\04da0996b13343d3faa59aaf968288915c7cc3" />
+    <Content Include="MainDesign\.git\objects\ac\28cb4e796793f069732202016f20245e87d4f9" />
+    <Content Include="MainDesign\.git\objects\ac\6f117d39bfe07dc3fff2bdd0f7e6823e9c4a91" />
+    <Content Include="MainDesign\.git\objects\ae\20be48a8dd5d89d11d6913fecb7fb5dadffd35" />
+    <Content Include="MainDesign\.git\objects\ae\94932603ca1409bc0ca2bbc75b66645173a9d4" />
+    <Content Include="MainDesign\.git\objects\af\1cf59b6b0863b6ff52f2c08ff8c4460e6be51c" />
+    <Content Include="MainDesign\.git\objects\b1\8950e724b9cccc950cd29b08737cd6e7d6897c" />
+    <Content Include="MainDesign\.git\objects\b1\9783766f9f23c40dbf38e7bdbc2e5b648e4db9" />
+    <Content Include="MainDesign\.git\objects\b1\cab777daf64d09d79dfa11c1d474aae8a151fe" />
+    <Content Include="MainDesign\.git\objects\b3\fba5fa26904ae8251da160f7633422f3d55db7" />
+    <Content Include="MainDesign\.git\objects\b4\7b6454721504abf3ebe05dad4c903142f843f7" />
+    <Content Include="MainDesign\.git\objects\b7\7b5fe5ac5a25ee49a0e2100319ff3921891069" />
+    <Content Include="MainDesign\.git\objects\b7\f8dfa3e3aa9dfdeb543af9fd50285501406564" />
+    <Content Include="MainDesign\.git\objects\b8\4ade65d08da15ed04d1a8c6554eb16eab6e8c7" />
+    <Content Include="MainDesign\.git\objects\ba\e5c33ab3dabced7d8cb543a7e2f94652b13d7f" />
+    <Content Include="MainDesign\.git\objects\bc\572fe8799d8ecd12af2ab3bab8a7801f9fd218" />
+    <Content Include="MainDesign\.git\objects\bc\7871fa75fda76234f41c4368d91fa3555bbb75" />
+    <Content Include="MainDesign\.git\objects\bc\9d1863969725e05093355960bbc5e5c27867b1" />
+    <Content Include="MainDesign\.git\objects\bd\4f85757501c473a536f78e8384fd87f3a27936" />
+    <Content Include="MainDesign\.git\objects\be\191c249e71614b6c7337e807f728f43e1662ab" />
+    <Content Include="MainDesign\.git\objects\be\845dc0b30131bcc5294f7313225e2f59ab1aae" />
+    <Content Include="MainDesign\.git\objects\c0\a70e27a3f8d0c610b5bd9e37f67153b1eb37f4" />
+    <Content Include="MainDesign\.git\objects\c0\ecbf801ea9e010aa9f055af59d52e527dfbde2" />
+    <Content Include="MainDesign\.git\objects\c1\bf56e8e1448b264d89548dd6bd0354fb59fdc4" />
+    <Content Include="MainDesign\.git\objects\c1\fc33bd47c090ec6f04443f084cc57ff4048f32" />
+    <Content Include="MainDesign\.git\objects\c3\e71fadc458072fca808c2e0bdaf513e687ce21" />
+    <Content Include="MainDesign\.git\objects\c4\9563cc9dbf5d71be4157ae4805f0fc2a4d0e1d" />
+    <Content Include="MainDesign\.git\objects\c5\9d4bfb168571effb466fe896ea80b074921dfc" />
+    <Content Include="MainDesign\.git\objects\c5\9d517e31f49e3bc7d747bbd9932f17c4237e22" />
+    <Content Include="MainDesign\.git\objects\c6\cae1e9ea0810f60b2db094a86a4867a12c0b38" />
+    <Content Include="MainDesign\.git\objects\c7\9e620eeaf8e70021a4648f836f07cac0067650" />
+    <Content Include="MainDesign\.git\objects\c7\b00d2ba8896fd29de846b19f89fcf0d56ad152" />
+    <Content Include="MainDesign\.git\objects\c7\b3221739048dcb7f8b2d6d066b4c6bdef54623" />
+    <Content Include="MainDesign\.git\objects\ca\498e903fbe7fb85832499fde3ac904628c721b" />
+    <Content Include="MainDesign\.git\objects\cb\1067675425c2bf4824ba83889c4d3ec3d1a8f7" />
+    <Content Include="MainDesign\.git\objects\cb\7cb047e81470a87342f5a58bb246ca935cdf65" />
+    <Content Include="MainDesign\.git\objects\cb\8817917e991b9ec256fe1be657b3a49ab79a32" />
+    <Content Include="MainDesign\.git\objects\cb\af5109a433c04a6cda11282c62c4fb93633a67" />
+    <Content Include="MainDesign\.git\objects\cc\2cd6faf8837fdf8783301749c796f04a52c607" />
+    <Content Include="MainDesign\.git\objects\cd\653f16ad6032a12e7eaa3c70babeb034016f8a" />
+    <Content Include="MainDesign\.git\objects\ce\77462975f8c1b9ddc2d4e6d3bfb384971303de" />
+    <Content Include="MainDesign\.git\objects\cf\57a479608e2146cff5aa68e9776ad596194c3e" />
+    <Content Include="MainDesign\.git\objects\d0\3175e0395fbef75917e000a6427edba8d5eecb" />
+    <Content Include="MainDesign\.git\objects\d0\603cb4b01b1037466a5a17dc253cbdc8d41aa1" />
+    <Content Include="MainDesign\.git\objects\d0\9368384dafd9b1f9650fe012f4c590a52312d3" />
+    <Content Include="MainDesign\.git\objects\d1\237357de4426abe7f750d862eed9b32e6412ac" />
+    <Content Include="MainDesign\.git\objects\d2\d1d65090e7617ec66efc5c81bc0abb9cb87c11" />
+    <Content Include="MainDesign\.git\objects\d3\8b6355b0cb5d88074588a226a6c81719dacb29" />
+    <Content Include="MainDesign\.git\objects\d3\962f969930b0a5cb13fa079f273167082abf68" />
+    <Content Include="MainDesign\.git\objects\d4\0bbd7dd262cad9bad0184b46f1641cfe5e9950" />
+    <Content Include="MainDesign\.git\objects\d4\8957a9680161178898ba8ac1ebf04c0adba58c" />
+    <Content Include="MainDesign\.git\objects\d4\c5ddafc96c4e9fc92365a8d66c2c2fdb3d90ac" />
+    <Content Include="MainDesign\.git\objects\d4\de13e832d567ff29c5b4e9561b8c370348cc9c" />
+    <Content Include="MainDesign\.git\objects\d6\4d905df9684a01ae33149522e9a5b59a357472" />
+    <Content Include="MainDesign\.git\objects\d6\92fd63828bce4de6b961299f2dd23cc271c4b0" />
+    <Content Include="MainDesign\.git\objects\d7\2a7cbcc69043f13a2a517e927aee74411f6388" />
+    <Content Include="MainDesign\.git\objects\d8\086dbfafee076823404c3f97ec91a4ccec9ffb" />
+    <Content Include="MainDesign\.git\objects\d8\b4313433d107db3eaa13447994c62adc3cb339" />
+    <Content Include="MainDesign\.git\objects\d9\4a2e0ec52b65a8ac81409dd7098f2da8e867dd" />
+    <Content Include="MainDesign\.git\objects\d9\7f438571eccdf6686a06d1c212b47d85564a9b" />
+    <Content Include="MainDesign\.git\objects\da\d7cabd5032c7dffdb19cbd4688e680534b0e77" />
+    <Content Include="MainDesign\.git\objects\da\e5053fea8a6cef6b763f97a6461e307a50107d" />
+    <Content Include="MainDesign\.git\objects\db\cf5c1761ed3aab3814c7eee42e0676996d5134" />
+    <Content Include="MainDesign\.git\objects\dc\601f4de9b3e47bc11912a6b5949ee30d7739f2" />
+    <Content Include="MainDesign\.git\objects\de\0fbc30bd1fd78cab164ff7e7adc0c1fef1f3f0" />
+    <Content Include="MainDesign\.git\objects\df\8940cc82220a4d5172201e67dec4f6c0a32d73" />
+    <Content Include="MainDesign\.git\objects\df\e438908515023f3309fbf25656e508d88efe0e" />
+    <Content Include="MainDesign\.git\objects\e0\6ef68fea3e0a1e586576ad4b3d922ca9db2d21" />
+    <Content Include="MainDesign\.git\objects\e1\060d44688c3b7db155c61f39e53f152e9b4007" />
+    <Content Include="MainDesign\.git\objects\e1\965dd105f796a7fd166f8652b768447282f1af" />
+    <Content Include="MainDesign\.git\objects\e3\733eed566d76ba97db8f15fdcb63f809a6fd30" />
+    <Content Include="MainDesign\.git\objects\e4\6e03aead04144e7b6ee0073347ff5cbae23d0c" />
+    <Content Include="MainDesign\.git\objects\e5\31c2262bc46eff0cdfa1c0001b470697b2b9ae" />
+    <Content Include="MainDesign\.git\objects\e7\355d85858de716e9c6a9661ceb767c2bdbae77" />
+    <Content Include="MainDesign\.git\objects\e8\7b754b0228bd89d225fe96a0e0605a70a1ee63" />
+    <Content Include="MainDesign\.git\objects\e9\b14fc580a4826ad762b742e9102f4bfb8a152a" />
+    <Content Include="MainDesign\.git\objects\ea\9ce12ab711d5c564ecac49b394af50c40c9938" />
+    <Content Include="MainDesign\.git\objects\eb\117b12cf3ea6af6640c65b15b4390274b2c3df" />
+    <Content Include="MainDesign\.git\objects\eb\a15ce5d3c22296a786891734d87b0942764517" />
+    <Content Include="MainDesign\.git\objects\ec\06adcc615b8342583b7ef30a77979a9bc35891" />
+    <Content Include="MainDesign\.git\objects\ec\bdc3e7a57f80dc394bf9f011fe03a0bd6ebfe4" />
+    <Content Include="MainDesign\.git\objects\ee\5838353a3351d45b688e67b2d140b3e11bc5ff" />
+    <Content Include="MainDesign\.git\objects\ef\842e9a851d0ab430eefd785d47b087fefbfb5c" />
+    <Content Include="MainDesign\.git\objects\f0\4fa80af81800edfc784c292e368100084b1d33" />
+    <Content Include="MainDesign\.git\objects\f0\de917f93eada57cb80bdf623c2db741159d839" />
+    <Content Include="MainDesign\.git\objects\f2\21e50a2ef60738ba30932d834530cdfe55cb3e" />
+    <Content Include="MainDesign\.git\objects\f2\6a5070062002352248d797d3ff3e60fba7e815" />
+    <Content Include="MainDesign\.git\objects\f2\7c826ab953a7f984c421ddad240d05cb5fcc7d" />
+    <Content Include="MainDesign\.git\objects\f3\3b6e985837cb006a1ab15692c3c225ef894981" />
+    <Content Include="MainDesign\.git\objects\f4\3cc39cf7cc9ab58fa04be703b6db1a3346eadb" />
+    <Content Include="MainDesign\.git\objects\f4\98bf42459a1ebab90022038ded42f9df10a201" />
+    <Content Include="MainDesign\.git\objects\f4\db39cd8392096234ced3928d3d58cf806c03b2" />
+    <Content Include="MainDesign\.git\objects\f6\a9c43263e3509588b82330040010bb97afa1b8" />
+    <Content Include="MainDesign\.git\objects\f7\1baa0c7d9348948c6bfb3b0338ea1931d20867" />
+    <Content Include="MainDesign\.git\objects\f7\e50b961a9ada572777a472bdad421cad024ba1" />
+    <Content Include="MainDesign\.git\objects\f8\1e833075a73ce0689efdd52d2775dd85e664cf" />
+    <Content Include="MainDesign\.git\objects\fe\068dbbefae21fc799d12a470a5d907e78d9a02" />
+    <Content Include="MainDesign\.git\objects\fe\97112d982bcf594032522b100898ecf7a8628d" />
+    <Content Include="MainDesign\.git\objects\ff\085aa96f7b97e6af8c54276177708db5580910" />
+    <Content Include="MainDesign\.git\objects\ff\82130a7af0dffa8723e5c00622924c13451a53" />
+    <Content Include="MainDesign\.git\objects\ff\98daba16e4974421df1396ba26053091c0f58b" />
+    <Content Include="MainDesign\.git\refs\heads\master" />
+    <Content Include="MainDesign\.git\refs\remotes\origin\master" />
+    <Content Include="MainDesign\css\.DS_Store" />
+    <Content Include="MainDesign\css\style.css.map" />
+    <Content Include="MainDesign\fonts\fontawesome-webfont.eot" />
+    <Content Include="MainDesign\fonts\fontawesome-webfont.ttf" />
+    <Content Include="MainDesign\fonts\fontawesome-webfont.woff" />
+    <Content Include="MainDesign\fonts\fontawesome-webfont.woff2" />
+    <Content Include="MainDesign\fonts\FontAwesome.otf" />
+    <Content Include="MainDesign\img\.DS_Store" />
+    <Content Include="MainDesign\img\banner\.DS_Store" />
+    <Content Include="MainDesign\img\elements\_DS_Store" />
+    <Content Include="MainDesign\img\package\.DS_Store" />
+    <Content Include="MainDesign\img\places\.DS_Store" />
+    <Content Include="MainDesign\img\service\.DS_Store" />
+    <Content Include="MainDesign\img\team\.DS_Store" />
+    <Content Include="MainDesign\img\testimonial\.DS_Store" />
+    <Content Include="MainDesign\prepros-6.config" />
+    <Content Include="MainDesign\scss\style.scss" />
+    <Content Include="MainDesign\scss\_banner.scss" />
+    <Content Include="MainDesign\scss\_blog.scss" />
+    <Content Include="MainDesign\scss\_button.scss" />
+    <Content Include="MainDesign\scss\_contact.scss" />
+    <Content Include="MainDesign\scss\_elements.scss" />
+    <Content Include="MainDesign\scss\_footer.scss" />
+    <Content Include="MainDesign\scss\_header.scss" />
+    <Content Include="MainDesign\scss\_home.scss" />
+    <Content Include="MainDesign\scss\_mixins.scss" />
+    <Content Include="MainDesign\scss\_predefine.scss" />
+    <Content Include="MainDesign\scss\_reset.scss" />
+    <Content Include="MainDesign\scss\_responsive.scss" />
+    <Content Include="MainDesign\scss\_variables.scss" />
+    <Content Include="MainDesign\Taxa Adventure-doc\.DS_Store" />
+    <Content Include="MainDesign\Taxa Adventure-doc\css\_DS_Store" />
+    <Content Include="MainDesign\Taxa Adventure-doc\fonts\fontawesome-webfont.eot" />
+    <Content Include="MainDesign\Taxa Adventure-doc\fonts\fontawesome-webfont.ttf" />
+    <Content Include="MainDesign\Taxa Adventure-doc\fonts\fontawesome-webfont.woff" />
+    <Content Include="MainDesign\Taxa Adventure-doc\fonts\FontAwesome.otf" />
+    <Content Include="MainDesign\Taxa Adventure-doc\fonts\_DS_Store" />
+    <Content Include="MainDesign\Taxa Adventure-doc\js\_DS_Store" />
+    <Content Include="MainDesign\Taxa Adventure-doc\syntax-highlighter\_DS_Store" />
+    <Content Include="MainDesign\Taxa Adventure-doc\_DS_Store" />
+    <Content Include="MainDesign\vendors\linericon\fonts\Linearicons-Free.eot" />
+    <Content Include="MainDesign\vendors\linericon\fonts\Linearicons-Free.ttf" />
+    <Content Include="MainDesign\vendors\linericon\fonts\Linearicons-Free.woff" />
+    <Content Include="MainDesign\vendors\linericon\fonts\Linearicons-Free.woff2" />
+    <Content Include="Areas\Comman\Views\Comman\Packages.cshtml" />
+    <Content Include="Areas\Comman\Views\Comman\BookATrip.cshtml" />
+    <Content Include="Areas\Comman\Views\Comman\Contact.cshtml" />
+    <Content Include="Areas\Comman\Views\Comman\AboutUs.cshtml" />
+    <Content Include="DashBoard\template\assets\css\demo.css.map" />
+    <Content Include="DashBoard\template\assets\css\main.css.map" />
+    <Content Include="DashBoard\template\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="DashBoard\template\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="DashBoard\template\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="DashBoard\template\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="DashBoard\template\assets\vendor\chartist\css\chartist-custom.css.map" />
+    <Content Include="DashBoard\template\assets\vendor\chartist\map\chartist.css.map" />
+    <Content Include="DashBoard\template\assets\vendor\chartist\map\chartist.min.js.map" />
+    <Content Include="DashBoard\template\assets\vendor\chartist\scss\chartist.scss" />
+    <Content Include="DashBoard\template\assets\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="DashBoard\template\assets\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="DashBoard\template\assets\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="DashBoard\template\assets\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="DashBoard\template\assets\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="DashBoard\template\assets\vendor\jquery\jquery.min.map" />
+    <Content Include="DashBoard\template\assets\vendor\linearicons\fonts\Linearicons-Free.eot" />
+    <Content Include="DashBoard\template\assets\vendor\linearicons\fonts\Linearicons-Free.ttf" />
+    <Content Include="DashBoard\template\assets\vendor\linearicons\fonts\Linearicons-Free.woff" />
+    <Content Include="DashBoard\template\assets\vendor\linearicons\fonts\Linearicons-Free.woff2" />
+    <Content Include="Areas\Admin\Views\Admin\AddPackage.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\PackageRequests.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\ContactUs.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AdminProfile.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AdminLogin.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AdminCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CurrentPackage.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AdminEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\GetAllAdmins.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AddPacdkage.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditPackage.cshtml" />
+    <Content Include="Areas\Comman\Views\Comman\PackagesDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AddMemebership.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CurrentMemebership.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditMemebership.cshtml" />
+    <Content Include="Areas\Comman\Views\Comman\MemeberShip.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\GuideCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CurrentGuide.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditGuide.cshtml" />
+    <Content Include="Areas\Comman\Views\Comman\Guides.cshtml" />
+    <Content Include="Areas\Comman\Views\Comman\Guiders.cshtml" />
+    <Content Include="Areas\Comman\Views\Comman\Hotels.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CreateHotels.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CurrentHotels.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditHotels.cshtml" />
+    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker-en-CA.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar-tn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.br.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-CA.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-IE.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-NZ.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.en-ZA.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.km.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.oc.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.si.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.ta.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tg.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uz-cyrl.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.uz-latn.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="Scripts\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Comman\CommanAreaRegistration.cs" />
+    <Compile Include="Areas\Comman\Controllers\CommanController.cs" />
+    <Compile Include="Areas\Security\Controllers\SecurityController.cs" />
+    <Compile Include="Areas\Security\SecurityAreaRegistration.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MyRoleProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Areas\Comman\Views\web.config" />
+    <Content Include="Areas\Security\Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Comman\Views\Comman\Index.cshtml" />
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.5.1.min.map" />
+    <Content Include="Scripts\moment.min.js.map" />
+    <Content Include="Scripts\moment-with-locales.min.js.map" />
+    <Content Include="Views\Shared\_MainDesign.cshtml" />
+    <Content Include="Views\Shared\_AdminPannelLayout.cshtml" />
+    <Content Include="Views\Shared\_AdminLogIn.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Comman\Data\" />
+    <Folder Include="Areas\Comman\Views\Shared\" />
+    <Folder Include="Areas\Security\Data\" />
+    <Folder Include="Areas\Security\Views\Shared\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="imgaes\" />
+    <Folder Include="MainDesign\.git\branches\" />
+    <Folder Include="MainDesign\.git\objects\info\" />
+    <Folder Include="MainDesign\.git\objects\pack\" />
+    <Folder Include="MainDesign\.git\refs\tags\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\Home\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BOL%28business object layer%29\BOL%28business object layer%29.csproj">
+      <Project>{816219ca-9541-4adf-8720-e8118741e4b3}</Project>
+      <Name>BOL%28business object layer%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL%28data access layer%29\DAL%28data access layer%29.csproj">
+      <Project>{ededfbc5-6a79-4687-80e6-08530a31519b}</Project>
+      <Name>DAL%28data access layer%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainModels\Mapping_Models.csproj">
+      <Project>{298a7fa4-c2fa-4b89-bd17-3173f8d0f251}</Project>
+      <Name>Mapping_Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mixed_Models\Mixed_Models.csproj">
+      <Project>{ebc6ffed-4c8b-4f8f-a906-16f9bffe88c4}</Project>
+      <Name>Mixed_Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57669</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44363/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

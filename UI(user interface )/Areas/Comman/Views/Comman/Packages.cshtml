@@ -1,0 +1,308 @@
+﻿@model IEnumerable<BOL_business_object_layer_.tbl_Packages>
+@{
+    ViewBag.Title = "Packages";
+    Layout = "~/Views/Shared/_MainDesign.cshtml";
+}
+
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+
+<!--================Home Banner Area =================-->
+<section class="banner_area ">
+    <div class="banner_inner overlay d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content">
+                <div class="page_link">
+                    @Html.ActionLink("Home", "Index", "Comman")
+
+                    @Html.ActionLink("Packages", "Packages", "Comman")
+                </div>
+                <h2>Trip Packages</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+<!--================ Start Trip Package Area =================-->
+<section class="package-area section_gap_top">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="ol-lg-12">
+                <div class="main_title">
+                    <p>We’re Offering these Trip Packages</p>
+                    <h1>Famous Trips Packages</h1>
+                    <span class="title-widget-bg"></span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        @{
+            int classIndex = -1;
+        }
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+
+
+
+
+            <div class="col-lg-4 col-md-6">
+                <div class="single-package">
+                    <div class="thumb">
+
+                        <img src="@Html.DisplayFor(modelItem => item.ImagePath)" />
+                    </div>
+                    <p class="date"><span>@Html.DisplayFor(modelItem => item.Date)</span> <br> @Html.DisplayFor(modelItem => item.Month)</p>
+                    <div class="meta-top d-flex">
+                        <p><span class="fa fa-location-arrow"></span> @Html.DisplayFor(modelItem => item.Location)</p>
+                        <p class="ml-20"><span class="fa fa-calendar"></span>@Html.DisplayFor(modelItem => item.NoOfDays) days <p class="nights pl-2"> @Html.DisplayFor(modelItem => item.NoOfDays) </p><p>nights</p>
+
+                        <script>
+
+                                    //Counter varbile from c#
+                                    @{ classIndex++ ;}
+
+                                    //C# varibale asighning to JS
+                                    var classIndex = @classIndex;
+
+                                    // nights class jis  ki hai us ki (eq) index mai jo text hai wo le kr numberString mai set kro
+                                    var numberString = $('.nights').eq(classIndex).text();
+
+                                    // numberString mai jo a raha hai usay int mai convert kr k amount mai save kro
+                                    var amount = parseInt(numberString, 10);
+
+                                    // amount mai 1 add kr do
+                                    var add = amount + 1;
+
+                                    //night class k eq(index) mai text add kr do
+                                    $(".nights").eq(classIndex).text(add);
+
+
+
+
+
+
+
+                        </script>
+
+                    </div>
+                    <h4>
+                        @Html.DisplayFor(modelItem => item.PackageName)
+                    </h4>
+                    <p style="  overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+                        @Html.DisplayFor(modelItem => item.PackageDescription)
+
+                    </p>
+                    @Html.ActionLink("Read More", "PackagesDetail", new {Packages_Id = item.ID  }, new { @style = "" , @class="primary-btn"})
+
+            
+                </div>
+            </div>
+
+  
+  
+ 
+
+
+        }
+
+
+
+
+    </div>
+
+
+        </div>
+
+
+   
+    </section>
+<!--================ End Trip Package Area =================-->
+<!--================ Start Popular Places Area =================-->
+<section class="popular-places-area section_gap_bottom">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-12">
+                <div class="main_title">
+                    <p>We’re Offering these Trip Packages</p>
+                    <h1>Popular Places Around the World</h1>
+                    <span class="title-widget-bg"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popular-places-slider owl-carousel">
+
+        <a href="~/MainDesign/img/places/p1.jpg" class="single-popular-places d-block img-gal">
+            <div class="popular-places-img">
+                <img src="~/MainDesign/img/places/p1.jpg" />
+
+            </div>
+            <div class="popular-places-text">
+                <p>Proper Guided Tour</p>
+                <h4>
+                    Santorini Island Dream Holiday
+                    and Fun package
+                </h4>
+            </div>
+        </a>
+        <a href="~/MainDesign/img/places/p2.jpg" class="single-popular-places d-block img-gal">
+            <div class="popular-places-img">
+                <img src="~/MainDesign/img/places/p2.jpg" />
+
+            </div>
+            <div class="popular-places-text">
+                <p>Proper Guided Tour</p>
+                <h4>
+                    Santorini Island Dream Holiday
+                    and Fun package
+                </h4>
+            </div>
+        </a>
+        <a href="popular-places-img" class="single-popular-places d-block img-gal">
+            <div class="popular-places-img">
+                <img src="~/MainDesign/img/places/p3.jpg" />
+
+            </div>
+            <div class="popular-places-text">
+                <p>Proper Guided Tour</p>
+                <h4>
+                    Santorini Island Dream Holiday
+                    and Fun package
+                </h4>
+            </div>
+        </a>
+        <a href="popular-places-img" class="single-popular-places d-block img-gal">
+            <div class="popular-places-img">
+                <img src="~/MainDesign/img/places/p4.jpg" />
+
+            </div>
+            <div class="popular-places-text">
+                <p>Proper Guided Tour</p>
+                <h4>
+                    Santorini Island Dream Holiday
+                    and Fun package
+                </h4>
+            </div>
+        </a>
+    </div>
+</section>
+<!--================ End Popular Places Area =================-->
+<!--================ Start Feature Area =================-->
+<section class="feature-area section_gap_bottom">
+    <div class="container">
+        <div class="row align-items-end justify-content-left">
+            <div class="col-lg-12">
+                <div class="main_title">
+                    <p>We’re Offering these Popular Services</p>
+                    <h1>Getting Adventure with Services</h1>
+                    <span class="title-widget-bg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- single-feature -->
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <div class="feature-details">
+                        <h5>
+                            Desert Riding Turning <br>
+                            So much Flowery
+                        </h5>
+                        <p>
+                            Lorem ipsum dolor sit amet, consecter adipisicing elit, sed do eiusmod tempor incididunt.
+                        </p>
+                        <a href="#" class="primary-btn mb-40">Read More</a>
+                    </div>
+                    <div class="feature-thumb">
+                        <img src="~/MainDesign/img/service/s1.png" />
+
+                    </div>
+                </div>
+            </div>
+            <!-- single-feature -->
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <div class="feature-details">
+                        <h5>
+                            Relaxation in the <br>
+                            Local Beach Campfire
+                        </h5>
+                        <p>
+                            Lorem ipsum dolor sit amet, consecter adipisicing elit, sed do eiusmod tempor incididunt.
+                        </p>
+                        <a href="#" class="primary-btn mb-40">Read More</a>
+                    </div>
+                    <div class="feature-thumb">
+                        <img src="~/MainDesign/img/service/s2.png" />
+
+                    </div>
+                </div>
+            </div>
+            <!-- single-feature -->
+            <div class="col-lg-4 col-md-6">
+                <div class="single-feature">
+                    <div class="feature-details">
+                        <h5>
+                            Forest Exploration <br>
+                            with Energy Package
+                        </h5>
+                        <p>
+                            Lorem ipsum dolor sit amet, consecter adipisicing elit, sed do eiusmod tempor incididunt.
+                        </p>
+                        <a href="#" class="primary-btn mb-40">Read More</a>
+                    </div>
+                    <div class="feature-thumb">
+                        <img src="~/MainDesign/img/service/s3.png" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ End Feature Area =================-->
+<!--================ Start CTA Area =================-->
+<div class="cta-area2 section_gap">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <img class="cta-img2 img-fluid" src="img/cta-img2.png" alt="">
+            </div>
+            <div class="offset-lg-2 col-lg-5">
+                <h1>
+                    Subscribe <br>
+                    for our Newsletter
+                </h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <div class="" id="mc_embed_signup2">
+                    <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                          method="get" class="form-inline">
+                        <div class="d-flex flex-row">
+                            <input class="form-control" name="EMAIL" placeholder="Enter Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email Address '"
+                                   required="" type="email">
+                            <button class="click-btn btn text-uppercase">subscribe</button>
+                            <div style="position: absolute; left: -5000px;">
+                                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                            </div>
+                        </div>
+                        <div class="info"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--================ End CTA Area =================-->
+
+
+
+
+

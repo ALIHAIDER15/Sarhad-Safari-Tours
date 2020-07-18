@@ -1,0 +1,87 @@
+﻿@model IEnumerable<BOL_business_object_layer_.tbl_MemberShip>
+@{
+    ViewBag.Title = "AddPackage";
+    Layout = "~/Views/Shared/_AdminPannelLayout.cshtml";
+}
+
+    <head>
+        <link href="~/MainDesign/css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link href="~/DashBoard/template/assets/css/addPackage.css" rel="stylesheet" />
+        <link href="~/my_css/CurrentMemberShip.css" rel="stylesheet" />
+
+        <style>
+
+            .display {
+                display: inline;
+            }
+        </style>
+
+    </head>
+
+
+<div class="col-lg=8 col-md-8 col-sm-12 AddPackageToDiv">
+    <div class="sb2-2-add-blog sb2-2-1">
+
+        @if (TempData["Memebership_Delete"] != null)
+        {
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <i class="fa fa-times-circle"></i>  @TempData["Memebership_Delete"]
+            </div>
+        }
+      
+       <div class="row">
+
+            @foreach (var item in Model)
+            {
+
+
+
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="card text-center">
+                        <div class="card-header title">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </div>
+                        <div class="card-body body">
+
+                            <ol>
+                                <li><p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p></li>
+                                <li><p class="card-text">@Html.DisplayFor(modelItem => item.Monthly_Cost)</p></li>
+                                <li><p class="card-text">@Html.DisplayFor(modelItem => item.Monthly_Souvenirs)</p></li>
+                                <li> <p class="card-text">@Html.DisplayFor(modelItem => item.Trekking_Equipment)</p></li>
+                                <li><p class="card-text">@Html.DisplayFor(modelItem => item.Extra_Field1)</p></li>
+                                <li class="body_last_li"> <p class="card-text">@Html.DisplayFor(modelItem => item.Extra_Field2)</p> </li>
+                            </ol>
+                           
+                            <ul class="ul_buttons">
+                                @Html.ActionLink("Edit", "EditMemebership", "Admin", new { Memebership_Id = item.ID }, new { @style = "", @class = "btn " , id="Button_Hover" })
+
+                                @Html.ActionLink("Delete", "DeleteMemebership", "Admin", new { Memebership_Id = item.ID }, new { @style = "", @class = "btn  Button_Hover" })
+
+                            </ul>
+                         
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+
+
+
+
+            }
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>

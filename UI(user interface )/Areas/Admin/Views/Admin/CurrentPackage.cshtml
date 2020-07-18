@@ -1,0 +1,132 @@
+﻿@model IEnumerable<BOL_business_object_layer_.tbl_Packages>
+@{
+    ViewBag.Title = "AddPackage";
+    Layout = "~/Views/Shared/_AdminPannelLayout.cshtml";
+}
+
+    <head>
+        <link href="~/MainDesign/css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link href="~/DashBoard/template/assets/css/addPackage.css" rel="stylesheet" />
+        
+        <style>
+
+              .display{
+
+        display: inline;
+        }
+
+
+        </style>
+        
+      
+
+    </head>
+
+
+<div class="col-lg=8 col-md-8 col-sm-12 AddPackageToDiv">
+    <div class="sb2-2-add-blog sb2-2-1">
+
+        @if (TempData["Packages_Delete"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <i class="fa fa-times-circle"></i>  @TempData["Packages_Delete"]
+            </div>
+
+
+
+
+        }
+
+
+
+
+
+        @{
+            int classIndex = -1;
+        }
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+
+
+
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="single-package">
+                        <div class="thumb">
+
+                            <img src="@Html.DisplayFor(modelItem => item.ImagePath)" style="max-height: 236px;min-height: 236px;" />
+                        </div>
+                        <p class="date display"><span>@Html.DisplayFor(modelItem => item.Date)</span> <br> @Html.DisplayFor(modelItem => item.Month)</p>
+                        <div class="meta-top d-flex">
+                            <p class="display"><span class="fa fa-location-arrow"></span> @Html.DisplayFor(modelItem => item.Location)</p>
+
+                            <p class="ml-20 display"><span class="fa fa-calendar"></span>@Html.DisplayFor(modelItem => item.NoOfDays) days <p class="nights pl-2 display"> @Html.DisplayFor(modelItem => item.NoOfDays) </p>nights</p>
+
+                            <script>
+
+                                    //Counter varbile from c#
+                                    @{ classIndex++ ;}
+
+                                    //C# varibale asighning to JS
+                                    var classIndex = @classIndex;
+
+                                    // nights class jis  ki hai us ki (eq) index mai jo text hai wo le kr numberString mai set kro
+                                    var numberString = $('.nights').eq(classIndex).text();
+
+                                    // numberString mai jo a raha hai usay int mai convert kr k amount mai save kro
+                                    var amount = parseInt(numberString, 10);
+
+                                    // amount mai 1 add kr do
+                                    var add = amount + 1;
+
+                                    //night class k eq(index) mai text add kr do
+                                    $(".nights").eq(classIndex).text(add);
+
+
+
+
+
+
+
+                            </script>
+
+                        </div>
+                        <h4 style="margin-top:30px;">
+                            @Html.DisplayFor(modelItem => item.PackageName)
+                        </h4>
+                        <p style="  overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3; -webkit-box-orient: vertical;;">
+                            @Html.DisplayFor(modelItem => item.PackageDescription)
+
+                        </p>
+                        @Html.ActionLink("Edit", "EditPackage", "Admin", new { Packages_Id = item.ID }, new { @style = "background-color: #9935f0", @class = "btn primary-btn" })
+
+                        @Html.ActionLink("Delete", "DeletePackage", "Admin", new { Packages_Id = item.ID }, new { @style = "background-color: #f13099;", @class = "btn primary-btn" })
+
+
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+            }
+
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>

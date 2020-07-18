@@ -1,0 +1,32 @@
+﻿.title {
+    font-size: 24px;
+    margin-top: 0PX;
+    padding-bottom: 7px;
+    font-weight: 700;
+    PADDING-TOP: 11PX;
+}
+
+.body {
+    padding-right: 25px;
+    padding-bottom: 19px;
+}
+
+
+.body_last_li {
+    padding-bottom: 4px !important;
+}
+
+.ul_buttons {
+    padding-left: 54px !important;
+}
+
+#Button_Hover:hover{
+    background-color: #00a0f0 !important;
+    border-color: #00a0f0 !important;
+}
+
+.primary-btn:hover {
+    background-color: #00a0f0 !important;
+    border-color: #00a0f0 !important;
+}
+

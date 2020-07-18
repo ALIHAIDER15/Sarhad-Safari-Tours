@@ -1,0 +1,115 @@
+﻿@model BOL_business_object_layer_.tbl_MemberShip
+
+@{
+    ViewBag.Title = "EditPackage";
+    Layout = "~/Views/Shared/_AdminPannelLayout.cshtml";
+}
+
+<head>
+
+    <link href="~/DashBoard/template/assets/css/addPackage.css" rel="stylesheet" />
+    <link href="~/my_css/RegistrationForms.css" rel="stylesheet" />
+</head>
+
+
+<div class="col-lg=8 col-md-8 AddPackageToDiv">
+    <div class="sb2-2-add-blog sb2-2-1">
+        <div class="box-inn-sp">
+            <div class="inn-title">
+
+                @if (TempData["Recored_Edited"] != null)
+                {
+
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <i class="fa fa-check-circle"></i>   @TempData["Recored_Edited"]
+                    </div>
+
+
+                }  
+                
+           <h4> Edit Your Current Packge </h4>
+            </div>
+             <div class="bor">
+
+                @using (Html.BeginForm("EditPackage", "Admin", new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+                    @Html.HiddenFor(model => model.ID)
+                 
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = " Title" } })
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Price Of Membership" } })
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Monthly_Cost, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Monthly Fee Of Membership" } })
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Monthly_Souvenirs, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Souvenirs For Members" } })
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Trekking_Equipment, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Trekking Equipment" } })
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Extra_Field1, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Extra facilities" } })
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Extra_Field2, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Extra facilities 2"} })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input" value="Submit"></i>
+                        </div>
+                    </div>
+
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

@@ -1,0 +1,137 @@
+﻿@model IEnumerable<BOL_business_object_layer_.tbl_Admin>
+
+@{
+    ViewBag.Title = "GetAllAdmins";
+    Layout = "~/Views/Shared/_AdminPannelLayout.cshtml";
+}
+
+<head>
+    <style>
+
+        .AdminTable td {
+            padding-bottom: 18px !important;
+            padding-top: 18px !important;
+        }
+    </style>
+
+
+</head>
+
+
+
+<!-- MAIN -->
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+
+            @if (TempData["Admin_Delete"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <i class="fa fa-times-circle"></i>  @TempData["Admin_Delete"]
+                </div>
+
+
+
+
+            }
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <!-- TABLE NO PADDING -->
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Current Admins</h3>
+                        </div>
+                        <div class="panel-body no-padding">
+                            <table class="table table table-striped AdminTable">
+                                <thead>
+                                    <tr>
+                                        <th>@Html.DisplayNameFor(model => model.Name)</th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Password)
+                                        </th>                                      
+                                        <th>
+
+                                            @Html.DisplayNameFor(model => model.Admin_rank)
+                                        </th>
+                                   
+                                        <th>
+
+                                            Image
+                                        </th>
+
+                                        <th>
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Password)
+                                        </td>
+
+
+                                        <td style="padding-left: 47px;">
+                                            @Html.DisplayFor(modelItem => item.Admin_rank)
+                                        </td>
+
+
+                                        <td style="width: 117px;">
+                                            <img src="@Html.DisplayFor(modelItem => item.ImagePath)" alt="No Image Avaliable" class="img-responsive upload-img" style=" height:72px; " />
+
+
+                                        </td>
+      
+                                        <td>
+                                            <button type="button" class="btn btn-danger">
+                                                <i class="fa fa-trash-o"></i>
+                                                @Html.ActionLink("Delete", "DeleteAdmins", "Admin", new { id = item.ID }, new { @style = "color:white;" })
+
+
+                                            </button>
+
+                                            <button type="button" class="btn btn-primary">
+                                                <i class="fa fa-refresh"></i>
+                                                @Html.ActionLink("Edit", "AdminEdit", "Admin", new { id = item.ID }, new { @style = "color:white;" })
+
+
+
+
+                                            </button>
+
+
+
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END TABLE NO PADDING -->
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+<!-- END MAIN CONTENT -->
+<!-- END MAIN -->

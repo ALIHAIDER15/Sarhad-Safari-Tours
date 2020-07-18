@@ -1,0 +1,266 @@
+﻿@model Mixed_Models.GuideCustomModel
+
+
+@{
+    ViewBag.Title = "AdminCreate";
+    Layout = "~/Views/Shared/_AdminPannelLayout.cshtml";
+}
+
+<head>
+
+    <link href="~/DashBoard/template/assets/css/addPackage.css" rel="stylesheet" />
+    <link href="~/my_css/RegistrationForms.css" rel="stylesheet" />
+</head>
+
+
+<div class="col-lg=8 col-md-8 AddPackageToDiv">
+    <div class="sb2-2-add-blog sb2-2-1">
+        <div class="box-inn-sp">
+            <div class="inn-title">
+
+                @if (TempData["Recored_Edited"] != null)
+                {
+
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <i class="fa fa-check-circle"></i>   @TempData["Recored_Edited"]
+                    </div>
+
+
+                }
+                else
+                {
+
+                    <h4> Update Your Informations  </h4>
+
+
+
+                }
+
+
+
+
+            </div>
+            <div class="bor">
+
+                @using (Html.BeginForm("EditGuide", "Admin", new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+                    @Html.HiddenFor(model => model.Guide.ID)
+                    @Html.HiddenFor(model => model.Guide.ImagePath)
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Guide.Name, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = " Name Of Guide" } })
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Guide.Age, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Age Of Guide" } })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Guide.Gender, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Gender Of Guide" } })
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Guide.Experience, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Total Experience" } })
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Guide.Total_Tours, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Number Of tours" } })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Guide.Govt_License, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Govt_License" } })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Guide.Charges, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Charges" } })
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <div class="file-field">
+                                <div class="btn">
+                                    <span>File</span>
+                                    <input type="file" class="upload-button" name="UserImageFiles" accept="image/*">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate FontSize" type="text" placeholder="Upload Admin Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-6 " id="formImg2">
+                        <div class="image-container" style="width:86%;">
+
+
+                            @*<img src="@Url.Content(Model.ImagePath)" height="315" width="100%" class="img-responsive upload-img" />*@
+                            <img src="@Url.Content(Model.Guide.ImagePath)" class="img-responsive upload-img" style="margin-top:21px; height:213px;  width: 100%;" />
+
+                            <div class="image-up row ">
+
+                                <i class="fas fa-camera icon-camera"></i>
+
+                                <p class="upload-img-text">Uplaod image here</p>
+
+                            </div>
+
+                            <div class="clossing-smybol close-x">
+                                <span aria-hidden="true" style="font-size: 20px;">&times;</span>
+                            </div>
+
+                            <div class="alert alert-danger alert-custom"><p>only 3500 , 2900 pixel image is allowed </p></div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="waves-effect waves-light btn-large waves-input-wrapper" style=""><input type="submit" class="waves-button-input" value="Submit"></i>
+                        </div>
+                    </div>
+
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script src="~/Scripts/jquery-3.5.1.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+    $('.upload-img').click(function () {
+
+        uploadimage();
+
+    });
+
+
+
+    $('.image-up').click(function () {
+
+        uploadimage();
+
+    });
+
+
+    function uploadimage() {
+
+        $('.upload-button').trigger('click');
+    }
+
+
+
+    $('.upload-button').change(function () {
+
+
+        if (this.files && this.files[0]) {
+
+            var fileReader = new FileReader();
+
+            //FilerReader webapp ko user k computer say file read krne mai madad deta hai
+
+            fileReader.readAsDataURL(this.files[0]);
+
+            //filerader.onload mtlb jab file load ho jaye
+
+            fileReader.onload = function (x) {
+
+                //new image () image ka constructor hai jis image ka obj initilaize hoga   image = <img src="" width="" heifht="">
+
+                var image = new Image();
+
+                //x(event) .targer.result ka mtlb h x(event) jo target huwa hai is result m wo value ai gi jis ki waja say event tagert huwa
+
+                image.src = x.target.result;
+
+                image.onload = function () {
+
+                    var width = this.width;
+                    var height = this.height;
+
+
+
+                    //alert("width :" + width + "height :" + height + "type :" + type );
+
+                    if (width <= "3500" && height <= "2933") {
+
+                        $('.upload-img').attr('src', x.target.result);
+
+                        $('.upload-img').css({ 'width': '100%', 'height': '315px' });
+
+
+                        //X thore disturb ho jata tha after image upload ye line us ki setting k leye hai
+
+                        $(".clossing-smybol").css({ "left": "290px", "bottom": "320px" });
+
+
+
+
+                    }
+                    else {
+
+                        $('.alert-custom').css('visibility', 'visible');
+                    }
+
+                }
+
+
+
+
+
+            }
+        }
+
+
+        $('.close-x').click(function () {
+
+            $('.upload-img').attr('src', "/images/No_Image_Available.jpg");
+
+
+        });
+
+    });
+
+</script>

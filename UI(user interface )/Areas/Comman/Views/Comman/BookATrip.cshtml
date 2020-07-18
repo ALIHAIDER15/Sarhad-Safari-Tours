@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewBag.Title = "BookATrip";
+    Layout = "~/Views/Shared/_MainDesign.cshtml";
+}
+
+<head>
+
+    <style>
+
+
+        .InputCursor {
+            cursor: pointer;
+        }
+    </style>
+
+
+
+</head>
+
+
+<!--================Home Banner Area =================-->
+<section class="banner_area ">
+    <div class="banner_inner overlay d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content">
+                <div class="page_link">
+                    <a href="index.html">Home</a>
+                    <a href="book-trip.html">Book a Trip</a>
+                </div>
+                <h2>Book a Trip</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+<!--================ Start Book a Trip Area =================-->
+<section class="trip-area section_gap">
+    <div class="container">
+        <div class="row justify-content-center">
+   
+            <div class="col-lg-7 col-md-10">
+                <div class="col-md-12 p-0">
+                    @if (@TempData["SENT"] != null)
+                    {                    
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <i class="fa fa-check-circle"></i>     @TempData["SENT"]
+                        </div>
+                    }
+                </div>
+                <div class="trip-form-section">
+                    <h1>
+                        Book a Trip <br>
+                        for your next Tour
+                    </h1>
+                    @using (Html.BeginForm("BookATrip", "Comman", FormMethod.Post, new { @class = "trip-form-area trip-page-form trip-form text-right" }))
+                    {
+                       <div class="form-group col-md-12">
+                            <input type="text" class="form-control InputCursor" id="name" name="name" placeholder="Location" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Location'">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control InputCursor datepicker" id="To" name="To" placeholder="To" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'To'">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control InputCursor datepicker" id="From" name="From" placeholder="From" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'From'">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control InputCursor" id="Adults" name="Adults" placeholder="Adults" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Adults'">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control InputCursor" name="Child" placeholder="Child" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Child'">
+                        </div>
+
+
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control InputCursor" id="Name" name="Name" placeholder="Name" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Name'">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control InputCursor" id="Email" name="Email" placeholder="Email" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Email'">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control InputCursor" id="Phone" name="Phone" placeholder="Phone" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Phone'">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control InputCursor" id="Nic" name="Nic" placeholder="Nic" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Nic'">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <input type="text" class="form-control InputCursor" id="Address" name="Address" placeholder="Address" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Address'">
+                        </div>
+
+
+                        <div class="form-group col-md-12">
+
+                            <div class="" style="border: 0; padding: 0px 20px; font-size: 13px; background: rgba(119, 135, 146, 0.8); color: #ffffff; height: 89px; line-height: 40px; border-radius: 0px;">
+
+                                <div style="display:flex">
+                                    <label style="margin: 0; height: 30px;">Transport</label>
+                                </div>
+                                <div style="display:flex">
+
+                                    <div class="radio" style="padding-right: 13px;">
+                                   
+                                        <label><input type="radio" name="Transport" value="HIACE" class="InputCursor" style="margin-right: 8px;">HIACE (13 - 26 P) </label>
+                                    </div>
+                                    <div class="radio" style="padding-right: 13px;">
+                                        <label><input type="radio" name="Transport" class="COACH" style="margin-right: 8px;">COACH (19 - 25 P)</label>
+                                    </div>
+                                    <div class="radio" style="padding-right: 13px;">
+                                        <label><input type="radio" name="Transport" class="CAR" style="margin-right: 8px;">CAR (3 - 4 P) </label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group col-md-12">
+
+                            <div class="" style="border: 0; padding: 0px 20px; font-size: 13px; background: rgba(119, 135, 146, 0.8); color: #ffffff; height: 89px; line-height: 40px; border-radius: 0px;">
+
+                                <div style="display:flex">
+                                    <label style="margin: 0; height: 30px;">Guide</label>
+                                </div>
+                                <div style="display:flex">
+
+                                    <div class="radio" style="padding-right: 13px;">
+                                        <label><input type="radio" name="Guide" value="Yes" style="margin-right: 8px;">Yes </label>
+                                    </div>
+                                    <div class="radio" style="padding-right: 13px;">
+                                        <label><input type="radio" name="Guide" value="No" style="margin-right: 8px;">No</label>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-12">
+
+                            <div class="" style="border: 0; padding: 0px 20px; font-size: 13px; background: rgba(119, 135, 146, 0.8); color: #ffffff; height: 89px; line-height: 40px; border-radius: 0px;">
+
+                                <div style="display:flex">
+                                    <label style="margin: 0; height: 30px;">Others</label>
+                                </div>
+                                <div style="display:flex">
+
+                                    <div class="radio" style="padding-right: 13px;">
+                                        <label><input type="radio" name="Others" value="Tent with sleeping bags and matters" style="margin-right: 8px;">Tent with sleeping bags and matters </label>
+                                    </div>
+                                    <div class="radio" style="padding-right: 13px;">
+                                        <label>
+                                            <input type="radio" name="Others" value="kitchen accessory" style="margin-right: 8px;">kitchen accessory
+                                        </label>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-12 text-center">
+
+
+
+                            <button class="primary-btn text-uppercase" value="submit" type="submit">Book</button>
+                        </div>
+
+                    }
+
+
+                </div>
+            </div>
+        </div>
+</section>
+<!--================ End Book a Trip Area =================-->

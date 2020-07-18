@@ -1,0 +1,152 @@
+﻿@model IEnumerable<BOL_business_object_layer_.tbl_MakeMyTrip>
+@{
+    ViewBag.Title = "PackageRequests";
+    Layout = "~/Views/Shared/_AdminPannelLayout.cshtml";
+}
+
+
+
+
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <!-- OVERVIEW -->
+            <div class="panel panel-headline">
+                <div class="panel-heading">
+                    <h3 class="panel-title">User Request Packages</h3>
+                    @if (TempData["Delete"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert" style="margin-bottom: -16px;margin-top: 11px;">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <i class="fa fa-check-circle"></i>     @TempData["Delete"]
+                        </div>
+
+                    }
+                </div>
+                <div class="PageTypeBg">
+
+                    <div style="padding:10px">
+
+                        <table class="table">
+                            <thead class="thead-dark" style="background-color: #00aaff;">
+                                <tr>
+
+                                    <th>
+                                        S.NO
+                                    </th>
+
+                                    <th>
+                                        Name
+                                    </th>
+
+                                    <th>
+                                        Email
+                                    </th>
+
+                                    <th>
+                                        Phone
+                                    </th>
+
+                                    <th>
+                                        Nic
+                                    </th>
+                                    <th>
+                                        Address
+                                    </th>
+                                    <th>
+                                        Transport
+                                    </th>
+                                    <th>
+                                        Guide
+                                    </th>
+                                    <th>
+                                        Others
+                                    </th>
+                                    <th>
+                                        To
+                                    </th>
+                                    <th>
+                                        Frpm
+                                    </th>
+                                    <th>
+                                        Adults
+                                    </th>
+                                    <th>
+                                        Child
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                <tr>
+                               <tbody>
+                                @{int i = 1; }
+                                @foreach (var item in Model)
+                                {
+
+                                   <tr>
+                                       <td>
+                                           @i
+                                       </td>
+                                       <td>
+                                           @Html.DisplayFor(modelItem => item.Name)
+                                       </td>
+                                       <td>
+                                           @Html.DisplayFor(modelItem => item.Email)
+                                       </td>
+                                       <td>
+                                           @Html.DisplayFor(modelItem => item.Phone)
+                                       </td>
+                                       <td>
+                                           @Html.DisplayFor(modelItem => item.Nic)
+                                       </td>
+                                       <td>
+                                           @Html.DisplayFor(modelItem => item.Address)
+                                       </td>
+                                       <td>
+                                           @Html.DisplayFor(modelItem => item.Transport)
+                                       </td>
+                                       <td>
+                                           @Html.DisplayFor(modelItem => item.Others)
+                                       </td>
+                                       <td>
+                                           @Html.DisplayFor(modelItem => item.Guide)
+                                       </td>
+                                       <td>
+                                           @Html.DisplayFor(modelItem => item.To)
+                                       </td>
+                                       <td>
+                                           @Html.DisplayFor(modelItem => item.From)
+                                       </td>
+                                       <td>
+                                           @Html.DisplayFor(modelItem => item.Adults)
+                                       </td>
+                                       <td>
+                                           @Html.DisplayFor(modelItem => item.Child)
+                                       </td>
+                                       <td>
+                                           @Html.ActionLink("Delete", "DeletePackageRequests", "Admin", new { id = item.ID, }, new { @class = "btn btn-danger" })
+                                       </td>
+                                   </tr>
+                                       i++;
+
+                                }
+
+
+
+
+                            </tbody>
+
+
+                        </table>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
