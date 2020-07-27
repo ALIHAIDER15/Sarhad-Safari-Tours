@@ -17,25 +17,34 @@
         <div class="box-inn-sp">
             <div class="inn-title">
 
-                @if (TempData["Recored_Edited"] != null)
-                {
+                @{
+                    if (TempData["Recored_Edited"] != null)
+                    {
 
-                    <div class="alert alert-success alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <i class="fa fa-check-circle"></i>   @TempData["Recored_Edited"]
-                    </div>
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <i class="fa fa-check-circle"></i>   @TempData["Recored_Edited"]
+                        </div>
 
 
+                    }
+                    else if (TempData["Recored_Edited-error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <i class="fa fa-check-circle"></i>   @TempData["Recored_Edited"]
+                        </div>
+
+                    }
+                    else
+                    {
+
+                        <h4> Edit Your Current Packge </h4>
+
+
+
+                    }
                 }
-                else
-                {
-
-            <h4> Edit Your Current Packge </h4>
-
-
-
-                }
-
 
 
 
@@ -51,6 +60,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             @Html.EditorFor(model => model.Packages.PackageName, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = " Name" } })
+                            @Html.ValidationMessageFor(model => model.Packages.PackageName, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -60,6 +70,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             @Html.EditorFor(model => model.Packages.Location, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Email" } })
+                            @Html.ValidationMessageFor(model => model.Packages.Location, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -68,7 +79,9 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            @Html.EditorFor(model => model.Packages.Date, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Password" } })
+                            @Html.EditorFor(model => model.Packages.Date, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Date" } })
+                            @Html.ValidationMessageFor(model => model.Packages.Date, "", new { @class = "text-danger" })
+
                         </div>
                     </div>
 
@@ -76,7 +89,8 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            @Html.EditorFor(model => model.Packages.Month, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Password" } })
+                            @Html.EditorFor(model => model.Packages.Month, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Month" } })
+                            @Html.ValidationMessageFor(model => model.Packages.Month, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -84,7 +98,8 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            @Html.EditorFor(model => model.Packages.NoOfDays, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Password" } })
+                            @Html.EditorFor(model => model.Packages.NoOfDays, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "NoOfDays" } })
+                            @Html.ValidationMessageFor(model => model.Packages.NoOfDays, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -92,7 +107,8 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            @Html.EditorFor(model => model.Packages.SpotSiteSeeing, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Password" } })
+                            @Html.EditorFor(model => model.Packages.SpotSiteSeeing, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "SpotSite Seeing" } })
+                            @Html.ValidationMessageFor(model => model.Packages.SpotSiteSeeing, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -101,7 +117,8 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            @Html.EditorFor(model => model.Packages.Standard, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Password" } })
+                            @Html.EditorFor(model => model.Packages.Standard, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Standard" } })
+                            @Html.ValidationMessageFor(model => model.Packages.Standard, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -109,7 +126,8 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            @Html.EditorFor(model => model.Packages.Contact, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Password" } })
+                            @Html.EditorFor(model => model.Packages.Contact, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Contact" } })
+                            @Html.ValidationMessageFor(model => model.Packages.Contact, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -126,6 +144,7 @@
                                 placeholder = "Package Description",
                            @style = "outline: none;  border: 1px solid #9e9e9e;   resize: none; margin-bottom: 31px;"
                             })
+                            @Html.ValidationMessageFor(model => model.Packages.PackageDescription, "", new { @class = "text-danger" })
 
                         </div>
 
@@ -195,11 +214,15 @@
 
 
             </div>
-                    </div>
-                </div>
+        </div>
+    </div>
 
 
 </div>
+<script src="~/DashBoard/template/assets/vendor/jquery/jquery.min.js"></script>
+@*<script src="~/Scripts/jquery-3.5.1.min.js"></script>*@
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 <script src="~/Scripts/jquery-3.5.1.min.js"></script>
 

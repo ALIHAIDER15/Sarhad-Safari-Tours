@@ -1,4 +1,4 @@
-﻿
+﻿@model BOL_business_object_layer_.tbl_MakeMyTrip
 @{
     ViewBag.Title = "BookATrip";
     Layout = "~/Views/Shared/_MainDesign.cshtml";
@@ -38,11 +38,11 @@
 <section class="trip-area section_gap">
     <div class="container">
         <div class="row justify-content-center">
-   
+
             <div class="col-lg-7 col-md-10">
                 <div class="col-md-12 p-0">
                     @if (@TempData["SENT"] != null)
-                    {                    
+                    {
                         <div class="alert alert-success alert-dismissible" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
                             <i class="fa fa-check-circle"></i>     @TempData["SENT"]
@@ -56,52 +56,62 @@
                     </h1>
                     @using (Html.BeginForm("BookATrip", "Comman", FormMethod.Post, new { @class = "trip-form-area trip-page-form trip-form text-right" }))
                     {
-                       <div class="form-group col-md-12">
-                            <input type="text" class="form-control InputCursor" id="name" name="name" placeholder="Location" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'Location'">
-                        </div>
-                        <div class="form-group col-md-12">
-                            <input type="text" class="form-control InputCursor datepicker" id="To" name="To" placeholder="To" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'To'">
-                        </div>
-                        <div class="form-group col-md-12">
-                            <input type="text" class="form-control InputCursor datepicker" id="From" name="From" placeholder="From" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'From'">
-                        </div>
+                <div class="form-group col-md-12">
+                    <input type="text" class="form-control InputCursor" id="name" name="name" placeholder="Location" onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = 'Location'">
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-12">
+                    <input type="text" class="form-control InputCursor datepicker" id="To" name="To" placeholder="To" onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = 'To'">
+                    @Html.ValidationMessageFor(model => model.To, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-12">
+                    <input type="text" class="form-control InputCursor datepicker" id="From" name="From" placeholder="From" onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = 'From'">
+                    @Html.ValidationMessageFor(model => model.From, "", new { @class = "text-danger" })
+                </div>
 
-                        <div class="form-group col-md-12">
-                            <input type="text" class="form-control InputCursor" id="Adults" name="Adults" placeholder="Adults" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'Adults'">
-                        </div>
-                        <div class="form-group col-md-12">
-                            <input type="text" class="form-control InputCursor" name="Child" placeholder="Child" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'Child'">
-                        </div>
+                <div class="form-group col-md-12">
+                    <input type="text" class="form-control InputCursor" id="Adults" name="Adults" placeholder="Adults" onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = 'Adults'">
+                    @Html.ValidationMessageFor(model => model.Adults, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-md-12">
+                    <input type="text" class="form-control InputCursor" name="Child" placeholder="Child" onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = 'Child'">
+                    @Html.ValidationMessageFor(model => model.Child, "", new { @class = "text-danger" })
+                </div>
 
 
-                        <div class="form-group col-md-12">
-                            <input type="text" class="form-control InputCursor" id="Name" name="Name" placeholder="Name" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'Name'">
-                        </div>
+                <div class="form-group col-md-12">
+                    <input type="text" class="form-control InputCursor" id="Name" name="Name" placeholder="Name" onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = 'Name'">
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
 
-                        <div class="form-group col-md-12">
-                            <input type="text" class="form-control InputCursor" id="Email" name="Email" placeholder="Email" onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'Email'">
-                        </div>
+                <div class="form-group col-md-12">
+                    <input type="text" class="form-control InputCursor" id="Email" name="Email" placeholder="Email" onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = 'Email'">
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
 
                         <div class="form-group col-md-12">
                             <input type="text" class="form-control InputCursor" id="Phone" name="Phone" placeholder="Phone" onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = 'Phone'">
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
                         </div>
 
                         <div class="form-group col-md-12">
                             <input type="text" class="form-control InputCursor" id="Nic" name="Nic" placeholder="Nic" onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = 'Nic'">
+                            @Html.ValidationMessageFor(model => model.Nic, "", new { @class = "text-danger" })
                         </div>
 
                         <div class="form-group col-md-12">
                             <input type="text" class="form-control InputCursor" id="Address" name="Address" placeholder="Address" onfocus="this.placeholder = ''"
                                    onblur="this.placeholder = 'Address'">
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                         </div>
 
 
@@ -115,7 +125,7 @@
                                 <div style="display:flex">
 
                                     <div class="radio" style="padding-right: 13px;">
-                                   
+
                                         <label><input type="radio" name="Transport" value="HIACE" class="InputCursor" style="margin-right: 8px;">HIACE (13 - 26 P) </label>
                                     </div>
                                     <div class="radio" style="padding-right: 13px;">
@@ -128,6 +138,7 @@
                                 </div>
 
                             </div>
+
                         </div>
 
 
@@ -196,3 +207,6 @@
         </div>
 </section>
 <!--================ End Book a Trip Area =================-->
+<script src="~/Scripts/jquery-3.5.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

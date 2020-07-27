@@ -59,7 +59,7 @@
                         <div class="input-field col s12">
 
                             @Html.EditorFor(model => model.Packages.PackageName, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "Package Name" } })
-
+                            @Html.ValidationMessageFor(model => model.Packages.PackageName,"",new {@class="text-danger" })
                         </div>
 
                     </div>
@@ -70,7 +70,7 @@
                         <div class="input-field col s12">
 
                             @Html.EditorFor(model => model.Packages.Location, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "Location" } })
-
+                            @Html.ValidationMessageFor(model => model.Packages.Location, "", new { @class = "text-danger" })
                         </div>
 
                     </div>
@@ -81,7 +81,7 @@
                         <div class="input-field col s12">
 
                             @Html.EditorFor(model => model.Packages.Date, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "Date" } })
-
+                            @Html.ValidationMessageFor(model =>  model.Packages.Date, "", new { @class = "text-danger" })
                         </div>
 
                     </div>
@@ -94,7 +94,7 @@
                         <div class="input-field col s12">
 
                             @Html.EditorFor(model => model.Packages.Month, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "Month" } })
-
+                            @Html.ValidationMessageFor(model =>model.Packages.Month, "", new { @class = "text-danger" })
                         </div>
 
                     </div>
@@ -105,7 +105,7 @@
                         <div class="input-field col s12">
 
                             @Html.EditorFor(model => model.Packages.NoOfDays, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "Number Of Days" } })
-
+                            @Html.ValidationMessageFor(model => model.Packages.NoOfDays, "", new { @class = "text-danger" })
                         </div>
 
                     </div>
@@ -117,7 +117,7 @@
                         <div class="input-field col s12">
 
                             @Html.EditorFor(model => model.Packages.SpotSiteSeeing, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "SpotSiteSeeing" } })
-
+                            @Html.ValidationMessageFor(model =>  model.Packages.SpotSiteSeeing, "", new { @class = "text-danger" })
                         </div>
 
                     </div>
@@ -128,7 +128,7 @@
                         <div class="input-field col s12">
 
                             @Html.EditorFor(model => model.Packages.Standard, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "Standard" } })
-
+                            @Html.ValidationMessageFor(model =>  model.Packages.Standard, "", new { @class = "text-danger" })
                         </div>
 
                     </div>
@@ -137,7 +137,7 @@
                         <div class="input-field col s12">
 
                             @Html.EditorFor(model => model.Packages.Contact, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "Contact Number" } })
-
+                            @Html.ValidationMessageFor(model => model.Packages.Contact, "", new { @class = "text-danger" })
                         </div>
 
                     </div>
@@ -155,7 +155,7 @@
                                 placeholder = "Package Description",
                            @style = "outline: none;  border: 1px solid #9e9e9e;   resize: none; margin-bottom: 31px;"
                             })
-
+                            @Html.ValidationMessageFor(model => model.Packages.PackageDescription, "", new { @class = "text-danger" })
                         </div>
 
                     </div>
@@ -224,22 +224,23 @@
 
 </div>
 <script src="~/DashBoard/template/assets/vendor/jquery/jquery.min.js"></script>
-
-
+@*<script src="~/Scripts/jquery-3.5.1.min.js"></script>*@
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 
 <script type="text/javascript">
 
 
-//    window.onload = function() {
-//    if (window.jQuery) {  
-//        // jQuery is loaded  
-//        alert("Yeah!");
-//    } else {
-//        // jQuery is not loaded
-//        alert("Doesn't Work");
-//    }
-//}
+    //    window.onload = function() {
+    //    if (window.jQuery) {
+    //        // jQuery is loaded
+    //        alert("Yeah!");
+    //    } else {
+    //        // jQuery is not loaded
+    //        alert("Doesn't Work");
+    //    }
+    //}
 
 
     $('.upload-img').click(function () {
@@ -334,5 +335,8 @@
         });
 
     });
+
+
+
 
 </script>

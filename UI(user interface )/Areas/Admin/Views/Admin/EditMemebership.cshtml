@@ -26,21 +26,22 @@
                     </div>
 
 
-                }  
-                
-           <h4> Edit Your Current Packge </h4>
-            </div>
-             <div class="bor">
+                }
 
-                @using (Html.BeginForm("EditPackage", "Admin", new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                <h4> Edit Your Current Packge </h4>
+            </div>
+            <div class="bor">
+
+                @using (Html.BeginForm("EditMemebership", "Admin", new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
 
                     @Html.HiddenFor(model => model.ID)
-                 
+
 
                     <div class="row">
                         <div class="input-field col s12">
                             @Html.EditorFor(model => model.Title, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = " Title" } })
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -50,6 +51,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             @Html.EditorFor(model => model.Price, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Price Of Membership" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -59,6 +61,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             @Html.EditorFor(model => model.Monthly_Cost, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Monthly Fee Of Membership" } })
+                            @Html.ValidationMessageFor(model => model.Monthly_Cost, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -67,6 +70,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             @Html.EditorFor(model => model.Monthly_Souvenirs, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Souvenirs For Members" } })
+                            @Html.ValidationMessageFor(model => model.Monthly_Souvenirs, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -75,6 +79,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             @Html.EditorFor(model => model.Trekking_Equipment, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Trekking Equipment" } })
+                            @Html.ValidationMessageFor(model => model.Trekking_Equipment, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -83,6 +88,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             @Html.EditorFor(model => model.Extra_Field1, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Extra facilities" } })
+                            @Html.ValidationMessageFor(model => model.Extra_Field1, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -91,7 +97,8 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            @Html.EditorFor(model => model.Extra_Field2, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Extra facilities 2"} })
+                            @Html.EditorFor(model => model.Extra_Field2, new { htmlAttributes = new { id = "list-title", @class = "materialize-textarea FontSize", placeholder = "Extra facilities 2" } })
+                            @Html.ValidationMessageFor(model => model.Extra_Field2, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -112,4 +119,8 @@
 
 
 </div>
+
+<script src="~/Scripts/jquery-3.5.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 

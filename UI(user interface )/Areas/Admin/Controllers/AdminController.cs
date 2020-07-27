@@ -87,8 +87,8 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
 
 
-      
-     
+
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -125,7 +125,7 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
 
         //Packages SECTION FUNCTIOANLITY 
-
+        [HttpGet]
         public ActionResult CurrentPackage()
         {
 
@@ -134,8 +134,8 @@ namespace UI_user_interface__.Areas.Admin.Controllers
         }
 
 
-      
-        
+
+        [HttpGet]
         public ActionResult AddPackage()
         {
             return View();
@@ -144,51 +144,63 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
 
        
- 
+        [HttpPost]
         public ActionResult AddPackage(PackagesCustomModel packageCM_Obj)
         {
 
-            if (packageCM_Obj.UserImageFiles != null)
+            try
             {
 
-                //image name lay rai hn
-                string fileName = Path.GetFileNameWithoutExtension(packageCM_Obj.UserImageFiles.FileName);
+                if (ModelState.IsValid)
+                {
 
-                //image extension
-                string Extension = Path.GetExtension(packageCM_Obj.UserImageFiles.FileName);
+                    if (packageCM_Obj.UserImageFiles != null)
+                    {
 
-                //unique name
-                fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
+                        //image name lay rai hn
+                        string fileName = Path.GetFileNameWithoutExtension(packageCM_Obj.UserImageFiles.FileName);
 
-                //saving path to db
-                packageCM_Obj.Packages.ImagePath = "/images/" + fileName;
+                        //image extension
+                        string Extension = Path.GetExtension(packageCM_Obj.UserImageFiles.FileName);
+
+                        //unique name
+                        fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
+
+                        //saving path to db
+                        packageCM_Obj.Packages.ImagePath = "/images/" + fileName;
 
 
-                //creating path from computer path + file name
-                fileName = Path.Combine(Server.MapPath("/images/"), fileName);
+                        //creating path from computer path + file name
+                        fileName = Path.Combine(Server.MapPath("/images/"), fileName);
 
-                //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
-                packageCM_Obj.UserImageFiles.SaveAs(fileName);
+                        //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
+                        packageCM_Obj.UserImageFiles.SaveAs(fileName);
 
+
+                    }
+
+
+
+                    int id = Common_Mapping_model_obj.Insert_Package(packageCM_Obj);
+
+
+                    if (id > 0)
+                    {
+
+                        TempData["Package_added"] = "Package added Successfully";
+
+                    }
+                   
+
+                }
+
+            }
+            catch(Exception e)
+            {
+                TempData["Package_not_added"] = "There Is A Prabblem In Adding New Package" + e.Message;
 
             }
 
-
-
-            int id = Common_Mapping_model_obj.Insert_Package(packageCM_Obj);
-
-
-            if (id > 0)
-            {
-
-                TempData["Package_added"] = "Package added Successfully";
-
-            }
-            else if(id <= 0)
-            {
-                TempData["Package_not_added"] = "There Is A Prabblem In Adding New Package";
-
-            }
 
 
             return RedirectToAction("AddPackage", "Admin", new { area = "Admin" });
@@ -197,8 +209,8 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
 
 
-       
 
+        [HttpGet]
         public ActionResult DeletePackage(int Packages_Id)
         {
             PackagesDB_Obj.Delete(Packages_Id);
@@ -211,8 +223,8 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
 
 
-     
-   
+
+        [HttpGet]
         public ActionResult EditPackage(int Packages_Id)
         {
 
@@ -240,49 +252,61 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
 
 
-
+        [HttpPost]
         public ActionResult EditPackage(PackagesCustomModel Package_OBJ)
         {
 
-
-            if (Package_OBJ.UserImageFiles != null)
+            try
             {
+                if (ModelState.IsValid)
+                {
+                    if (Package_OBJ.UserImageFiles != null)
+                    {
 
-                //image name lay rai hn
-                string fileName = Path.GetFileNameWithoutExtension(Package_OBJ.UserImageFiles.FileName);
+                        //image name lay rai hn
+                        string fileName = Path.GetFileNameWithoutExtension(Package_OBJ.UserImageFiles.FileName);
 
-                //image extension
-                string Extension = Path.GetExtension(Package_OBJ.UserImageFiles.FileName);
+                        //image extension
+                        string Extension = Path.GetExtension(Package_OBJ.UserImageFiles.FileName);
 
-                //unique name
-                fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
+                        //unique name
+                        fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
 
-                //saving path to db
-                Package_OBJ.Packages.ImagePath = "/images/" + fileName;
+                        //saving path to db
+                        Package_OBJ.Packages.ImagePath = "/images/" + fileName;
 
 
-                //creating path from computer path + file name
-                fileName = Path.Combine(Server.MapPath("/images/"), fileName);
+                        //creating path from computer path + file name
+                        fileName = Path.Combine(Server.MapPath("/images/"), fileName);
 
-                //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
-                Package_OBJ.UserImageFiles.SaveAs(fileName);
+                        //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
+                        Package_OBJ.UserImageFiles.SaveAs(fileName);
 
+
+                    }
+
+                    if (Package_OBJ.Packages.ImagePath == "/images/No_Image_Available.jpg")
+                    {
+
+                        Package_OBJ.Packages.ImagePath = null;
+
+                    }
+
+
+                    Common_Mapping_model_obj.Update_Package(Package_OBJ);
+
+
+
+                    TempData["Recored_Edited"] = "REOCORD EDITED SUCCESSFULLY";
+                }
+            }
+            catch (Exception e)
+            {
+                TempData["Recored_Edited-error"] = "REOCORD IS NOT EDITED " + e.Message;
 
             }
 
-            if (Package_OBJ.Packages.ImagePath == "/images/No_Image_Available.jpg")
-            {
-
-                Package_OBJ.Packages.ImagePath = null;
-
-            }
-
-
-            Common_Mapping_model_obj.Update_Package(Package_OBJ);
-
-
-
-            TempData["Recored_Edited"] = "REOCORD EDITED SUCCESSFULLY";
+           
 
             return RedirectToAction("EditPackage",  new { Packages_Id = Package_OBJ.Packages.ID });
 
@@ -301,7 +325,7 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
         //Membership SECTION FUNCTIOANLITY 
 
-     
+        [HttpGet]
         public ActionResult CurrentMemebership()
         {
 
@@ -315,39 +339,58 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
 
 
-     
+        [HttpGet]
         public ActionResult AddMemebership()
         {
             return View();
         }
 
 
-     
+
+        [HttpPost]
         public ActionResult AddMemebership(tbl_MemberShip tblMember_Obj)
         {
 
-            int id = Membership_Obj.Insert(tblMember_Obj);
-
-            if (id > 0)
+            try
             {
+                if (ModelState.IsValid)
+                {
+                    int id = Membership_Obj.Insert(tblMember_Obj);
+                    //is code ki zarort ni wasie , Exception iska kam kr rai hai 
+                    if (id > 0)
+                    {
+                        TempData["Memebership_added"] = "Memebership_added added Successfully";
 
-                TempData["Memebership_added"] = "Memebership_added added Successfully";
+                        return View();
+                    }
+                }
+                else
+                {
+                    return View();
+
+                }
+
+                return View();
+            }
+            catch (Exception e)
+            {
+                 
+               TempData["Memebership_added"] = "There Is A Prabblem In Adding New Memebership_added" + e.Message;
+
+                return View();
+
 
             }
-            else if (id <= 0)
-            {
-                TempData["Memebership_added"] = "There Is A Prabblem In Adding New Memebership_added";
 
-            }
 
-            return View();
+           
         }
 
 
 
 
 
-    
+        [HttpGet]
         public ActionResult DeleteMemebership(int Memebership_Id)
         {
             Membership_Obj.Delete(Memebership_Id);
@@ -360,7 +403,7 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
 
 
-      
+        [HttpGet]
         public ActionResult EditMemebership(int Memebership_Id)
         {
 
@@ -374,16 +417,29 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
 
 
-       
-        public ActionResult EditPackage(tbl_MemberShip tblMember_Obj)
+        [HttpPost]
+
+        public ActionResult EditMemebership(tbl_MemberShip tblMember_Obj)
         {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Membership_Obj.Upadate(tblMember_Obj);
 
-            Membership_Obj.Upadate(tblMember_Obj);
 
+                    TempData["Recored_Edited"] = "REOCORD EDITED SUCCESSFULLY";
+                }
 
-            TempData["Recored_Edited"] = "REOCORD EDITED SUCCESSFULLY";
+            }
+            catch (Exception e)
+            {
 
-            return RedirectToAction("EditMemebership", new { Packages_Id = tblMember_Obj.ID });
+                 TempData["Recored_Edited"] = "REOCORD EDITED SUCCESSFULLY"+ e.Message;
+            }
+      
+
+            return RedirectToAction("EditMemebership", new { Memebership_Id = tblMember_Obj.ID });
 
 
 
@@ -392,8 +448,18 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
 
 
+
+
+
+
+
+
+
+
+
+
         //PackageRequests  SECTION FUNCTIOANLITY 
-    
+        [HttpGet]
         public ActionResult PackageRequests()
         {
             var  trip_Obj = MyTrip_Obj.GetAll();
@@ -402,7 +468,7 @@ namespace UI_user_interface__.Areas.Admin.Controllers
         }
 
 
-
+        [HttpGet]
         public ActionResult DeletePackageRequests(int id)
         {
              MyTrip_Obj.Delete(id);
@@ -442,7 +508,7 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
         //CONTACT US SECTION FUNCTIOANLITY 
 
-    
+        [HttpGet]
         public ActionResult ContactUs()
         {
           var USerContactUs = ContactusDB_OBJ.GetAll();
@@ -450,7 +516,7 @@ namespace UI_user_interface__.Areas.Admin.Controllers
             return View(USerContactUs);
         }
 
-     
+        [HttpGet]
         public ActionResult ContactUsDeleteRecord(int id)
         {
             ContactusDB_OBJ.Delete(id);
@@ -517,7 +583,7 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
 
 
-       
+        [HttpGet]
         public ActionResult AdminProfile()
         {
             int Id = Int32.Parse(Session["User_Id"].ToString());
@@ -544,48 +610,54 @@ namespace UI_user_interface__.Areas.Admin.Controllers
         [HttpPost, Authorize(Roles = "A")]
         public ActionResult AdminCreate(AdminCustomModel Admin_OBJ)
         {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    if (Admin_OBJ.UserImageFiles != null)
+                    {
 
-            if (Admin_OBJ.UserImageFiles != null)
+                        //image name lay rai hn
+                        string fileName = Path.GetFileNameWithoutExtension(Admin_OBJ.UserImageFiles.FileName);
+
+                        //image extension
+                        string Extension = Path.GetExtension(Admin_OBJ.UserImageFiles.FileName);
+
+                        //unique name
+                        fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
+
+                        //saving path to db
+                        Admin_OBJ.Admin.ImagePath = "/images/" + fileName;
+
+
+                        //creating path from computer path + file name
+                        fileName = Path.Combine(Server.MapPath("/images/"), fileName);
+
+                        //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
+                        Admin_OBJ.UserImageFiles.SaveAs(fileName);
+
+
+                    }
+
+                    int id = Common_Mapping_model_obj.Insert_Admin(Admin_OBJ);
+
+                    if (id > 0)
+                    {
+
+                        TempData["Adim_Created"] = "Role Created Successfully";
+
+                    }
+                }
+                    
+                
+            }
+            catch (Exception e)
             {
 
-                //image name lay rai hn
-                string fileName = Path.GetFileNameWithoutExtension(Admin_OBJ.UserImageFiles.FileName);
-
-                //image extension
-                string Extension = Path.GetExtension(Admin_OBJ.UserImageFiles.FileName);
-
-                //unique name
-                fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
-
-                //saving path to db
-                Admin_OBJ.Admin.ImagePath = "/images/" + fileName;
-
-
-                //creating path from computer path + file name
-                fileName = Path.Combine(Server.MapPath("/images/"), fileName);
-
-                //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
-                Admin_OBJ.UserImageFiles.SaveAs(fileName);
-
-
+                TempData["Adim_Not_Created"] = "There Is A Prabblem In Adding New Role" + e.Message;
             }
 
-
-
-            int id = Common_Mapping_model_obj.Insert_Admin(Admin_OBJ);
-
-
-            if (id > 0)
-            {
-
-                TempData["Adim_Created"] = "Role Created Successfully";
-
-            }
-            else if (id <= 0)
-            {
-                TempData["Adim_Not_Created"] = "There Is A Prabblem In Adding New Role";
-
-            }
+        
 
             return RedirectToAction("AdminCreate", "Admin", new { area = "Admin" });
         }
@@ -632,44 +704,55 @@ namespace UI_user_interface__.Areas.Admin.Controllers
         public ActionResult AdminEdit(AdminCustomModel Admin_OBJ)
         {
 
-            if (Admin_OBJ.UserImageFiles != null)
+            try
             {
+                if (ModelState.IsValid)
+                {
+                    if (Admin_OBJ.UserImageFiles != null)
+                    {
 
-                //image name lay rai hn
-                string fileName = Path.GetFileNameWithoutExtension(Admin_OBJ.UserImageFiles.FileName);
+                        //image name lay rai hn
+                        string fileName = Path.GetFileNameWithoutExtension(Admin_OBJ.UserImageFiles.FileName);
 
-                //image extension
-                string Extension = Path.GetExtension(Admin_OBJ.UserImageFiles.FileName);
+                        //image extension
+                        string Extension = Path.GetExtension(Admin_OBJ.UserImageFiles.FileName);
 
-                //unique name
-                fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
+                        //unique name
+                        fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
 
-                //saving path to db
-                Admin_OBJ.Admin.ImagePath = "/images/" + fileName;
-
-
-                //creating path from computer path + file name
-                fileName = Path.Combine(Server.MapPath("/images/"), fileName);
-
-                //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
-                Admin_OBJ.UserImageFiles.SaveAs(fileName);
+                        //saving path to db
+                        Admin_OBJ.Admin.ImagePath = "/images/" + fileName;
 
 
+                        //creating path from computer path + file name
+                        fileName = Path.Combine(Server.MapPath("/images/"), fileName);
+
+                        //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
+                        Admin_OBJ.UserImageFiles.SaveAs(fileName);
+
+
+                    }
+
+                    if (Admin_OBJ.Admin.ImagePath == "/images/No_Image_Available.jpg")
+                    {
+                        Admin_OBJ.Admin.ImagePath = null;
+                    }
+
+                    Common_Mapping_model_obj.Update_Admin(Admin_OBJ);
+
+                    TempData["Recored_Edited"] = "REOCORD EDITED SUCCESSFULLY";
+                
+                }
+            
             }
 
-            if (Admin_OBJ.Admin.ImagePath == "/images/No_Image_Available.jpg")
+            catch (Exception e)
             {
 
-                Admin_OBJ.Admin.ImagePath = null;
 
+                TempData["Recored_Edited"] = "REOCORD IS NOT EDITED " + e.Message;
             }
-
-
-            Common_Mapping_model_obj.Update_Admin(Admin_OBJ);
-
-
-
-            TempData["Recored_Edited"] = "REOCORD EDITED SUCCESSFULLY";
+       
 
             return RedirectToAction("AdminEdit", "Admin", new { area = "Admin" });
 
@@ -727,48 +810,59 @@ namespace UI_user_interface__.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult GuideCreate(GuideCustomModel Guide_OBJ)
         {
+            try
+            {
+                if (ModelState.IsValid)
+                {
 
-            if (Guide_OBJ.UserImageFiles != null)
+                    if (Guide_OBJ.UserImageFiles != null)
+                    {
+
+                        //image name lay rai hn
+                        string fileName = Path.GetFileNameWithoutExtension(Guide_OBJ.UserImageFiles.FileName);
+
+                        //image extension
+                        string Extension = Path.GetExtension(Guide_OBJ.UserImageFiles.FileName);
+
+                        //unique name
+                        fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
+
+                        //saving path to db
+                        Guide_OBJ.Guide.ImagePath = "/images/" + fileName;
+
+
+                        //creating path from computer path + file name
+                        fileName = Path.Combine(Server.MapPath("/images/"), fileName);
+
+                        //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
+                        Guide_OBJ.UserImageFiles.SaveAs(fileName);
+
+
+                    }
+
+
+
+                    int id = Common_Mapping_model_obj.Insert_Guide(Guide_OBJ);
+
+
+                    if (id > 0)
+                    {
+
+                        TempData["Guide_Created"] = "Guide Created Successfully";
+
+                    }               
+
+
+                }
+            }
+            catch (Exception e)
             {
 
-                //image name lay rai hn
-                string fileName = Path.GetFileNameWithoutExtension(Guide_OBJ.UserImageFiles.FileName);
 
-                //image extension
-                string Extension = Path.GetExtension(Guide_OBJ.UserImageFiles.FileName);
-
-                //unique name
-                fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
-
-                //saving path to db
-                Guide_OBJ.Guide.ImagePath = "/images/" + fileName;
-
-
-                //creating path from computer path + file name
-                fileName = Path.Combine(Server.MapPath("/images/"), fileName);
-
-                //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
-                Guide_OBJ.UserImageFiles.SaveAs(fileName);
-
-
+                TempData["Guide_Not_Created"] = "There Is A Prabblem In Adding New Guide" + e.Message;
             }
 
-
-
-            int id = Common_Mapping_model_obj.Insert_Guide(Guide_OBJ);
-
-
-            if (id > 0)
-            {
-
-                TempData["Guide_Created"] = "Guide Created Successfully";
-
-            }
-            else if (id <= 0)
-            {
-                TempData["Guide_Not_Created"] = "There Is A Prabblem In Adding New Guide";
-
-            }
+      
 
             return RedirectToAction("GuideCreate", "Admin", new { area = "Admin" });
         }
@@ -818,44 +912,58 @@ namespace UI_user_interface__.Areas.Admin.Controllers
         public ActionResult EditGuide(GuideCustomModel Guide_OBJ)
         {
 
-            if (Guide_OBJ.UserImageFiles != null)
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    if (Guide_OBJ.UserImageFiles != null)
+                    {
+
+                        //image name lay rai hn
+                        string fileName = Path.GetFileNameWithoutExtension(Guide_OBJ.UserImageFiles.FileName);
+
+                        //image extension
+                        string Extension = Path.GetExtension(Guide_OBJ.UserImageFiles.FileName);
+
+                        //unique name
+                        fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
+
+                        //saving path to db
+                        Guide_OBJ.Guide.ImagePath = "/images/" + fileName;
+
+
+                        //creating path from computer path + file name
+                        fileName = Path.Combine(Server.MapPath("/images/"), fileName);
+
+                        //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
+                        Guide_OBJ.UserImageFiles.SaveAs(fileName);
+
+
+                    }
+
+                    if (Guide_OBJ.Guide.ImagePath == "/images/No_Image_Available.jpg")
+                    {
+
+                        Guide_OBJ.Guide.ImagePath = null;
+
+                    }
+
+
+                    Common_Mapping_model_obj.Update_Guide(Guide_OBJ);
+
+                    TempData["Recored_Edited"] = "REOCOR IS NOT EDITED SUCCESSFULLY";
+
+
+
+                }
+            }
+            catch (Exception e)
             {
 
-                //image name lay rai hn
-                string fileName = Path.GetFileNameWithoutExtension(Guide_OBJ.UserImageFiles.FileName);
-
-                //image extension
-                string Extension = Path.GetExtension(Guide_OBJ.UserImageFiles.FileName);
-
-                //unique name
-                fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
-
-                //saving path to db
-                Guide_OBJ.Guide.ImagePath = "/images/" + fileName;
-
-
-                //creating path from computer path + file name
-                fileName = Path.Combine(Server.MapPath("/images/"), fileName);
-
-                //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
-                Guide_OBJ.UserImageFiles.SaveAs(fileName);
-
-
+                TempData["Recored_Edited"] = "REOCOR  EDITED SUCCESSFULLY" + e.Message;
             }
 
-            if (Guide_OBJ.Guide.ImagePath == "/images/No_Image_Available.jpg")
-            {
-
-                Guide_OBJ.Guide.ImagePath = null;
-
-            }
-
-
-            Common_Mapping_model_obj.Update_Guide(Guide_OBJ);
-
-
-
-            TempData["Recored_Edited"] = "REOCORD EDITED SUCCESSFULLY";
+        
 
             return RedirectToAction("EditGuide", "Admin", new { area = "Admin" });
 
@@ -910,48 +1018,53 @@ namespace UI_user_interface__.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult CreateHotels(HotelsCustomModel Hotels_OBJ)
         {
-
-            if (Hotels_OBJ.UserImageFiles != null)
+            try
             {
+                if (ModelState.IsValid)
+                {
+                    if (Hotels_OBJ.UserImageFiles != null)
+                    {
 
-                //image name lay rai hn
-                string fileName = Path.GetFileNameWithoutExtension(Hotels_OBJ.UserImageFiles.FileName);
+                        //image name lay rai hn
+                        string fileName = Path.GetFileNameWithoutExtension(Hotels_OBJ.UserImageFiles.FileName);
 
-                //image extension
-                string Extension = Path.GetExtension(Hotels_OBJ.UserImageFiles.FileName);
+                        //image extension
+                        string Extension = Path.GetExtension(Hotels_OBJ.UserImageFiles.FileName);
 
-                //unique name
-                fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
+                        //unique name
+                        fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
 
-                //saving path to db
-                Hotels_OBJ.Hotels.ImagePath = "/images/" + fileName;
+                        //saving path to db
+                        Hotels_OBJ.Hotels.ImagePath = "/images/" + fileName;
 
 
-                //creating path from computer path + file name
-                fileName = Path.Combine(Server.MapPath("/images/"), fileName);
+                        //creating path from computer path + file name
+                        fileName = Path.Combine(Server.MapPath("/images/"), fileName);
 
-                //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
-                Hotels_OBJ.UserImageFiles.SaveAs(fileName);
+                        //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
+                        Hotels_OBJ.UserImageFiles.SaveAs(fileName);
 
+
+                    }
+
+                    int id = Common_Mapping_model_obj.Insert_hotel(Hotels_OBJ);
+
+                    if (id > 0)
+                    {
+                        TempData["hotel_Created"] = "Hotel Added Successfully";
+                    }
+
+                } 
 
             }
-
-
-
-            int id = Common_Mapping_model_obj.Insert_hotel(Hotels_OBJ);
-
-
-            if (id > 0)
+            catch (Exception e)
             {
 
-                TempData["hotel_Created"] = "Hotel Added Successfully";
-
+                TempData["hotel_Not_Created"] = "There Is A Prabblem In Adding New Hotel" +e.Message;
             }
-            else if (id <= 0)
-            {
-                TempData["hotel_Not_Created"] = "There Is A Prabblem In Adding New Hotel";
-
-            }
+           
+            
+          
 
             return RedirectToAction("CurrentHotels", "Admin", new { area = "Admin" });
         }
@@ -996,45 +1109,53 @@ namespace UI_user_interface__.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult EditHotels(HotelsCustomModel Hotels_OBJ)
         {
-
-            if (Hotels_OBJ.UserImageFiles != null)
+            try
             {
+                if (ModelState.IsValid)
+                {
+                    if (Hotels_OBJ.UserImageFiles != null)
+                    {
 
-                //image name lay rai hn
-                string fileName = Path.GetFileNameWithoutExtension(Hotels_OBJ.UserImageFiles.FileName);
+                        //image name lay rai hn
+                        string fileName = Path.GetFileNameWithoutExtension(Hotels_OBJ.UserImageFiles.FileName);
 
-                //image extension
-                string Extension = Path.GetExtension(Hotels_OBJ.UserImageFiles.FileName);
+                        //image extension
+                        string Extension = Path.GetExtension(Hotels_OBJ.UserImageFiles.FileName);
 
-                //unique name
-                fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
+                        //unique name
+                        fileName = fileName + DateTime.Now.ToString("yymmssff") + Extension;
 
-                //saving path to db
-                Hotels_OBJ.Hotels.ImagePath = "/images/" + fileName;
+                        //saving path to db
+                        Hotels_OBJ.Hotels.ImagePath = "/images/" + fileName;
 
 
-                //creating path from computer path + file name
-                fileName = Path.Combine(Server.MapPath("/images/"), fileName);
+                        //creating path from computer path + file name
+                        fileName = Path.Combine(Server.MapPath("/images/"), fileName);
 
-                //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
-                Hotels_OBJ.UserImageFiles.SaveAs(fileName);
+                        //obj.userimageFile mai jo image a rai hai usko save kr do folder mai
+                        Hotels_OBJ.UserImageFiles.SaveAs(fileName);
 
+
+                    }
+
+                    if (Hotels_OBJ.Hotels.ImagePath == "/images/No_Image_Available.jpg")
+                    {
+                        Hotels_OBJ.Hotels.ImagePath = null;
+                    }
+
+                    Common_Mapping_model_obj.Update_hotel(Hotels_OBJ);
+
+                    TempData["Recored_Edited"] = "REOCORD EDITED SUCCESSFULLY";
+
+                }
 
             }
 
-            if (Hotels_OBJ.Hotels.ImagePath == "/images/No_Image_Available.jpg")
+            catch (Exception e)
             {
-
-                Hotels_OBJ.Hotels.ImagePath = null;
-
+                TempData["Recored_Edited"] = "REOCORD EDITED SUCCESSFULLY" + e.Message;
             }
-
-
-            Common_Mapping_model_obj.Update_hotel(Hotels_OBJ);
-
-
-
-            TempData["Recored_Edited"] = "REOCORD EDITED SUCCESSFULLY";
+     
 
             return RedirectToAction("EditHotels", "Admin", new { area = "Admin" });
 
