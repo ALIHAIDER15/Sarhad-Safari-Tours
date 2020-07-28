@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -203,31 +204,11 @@ namespace UI_user_interface__.Areas.Comman.Controllers
             HtmlAgilityPack.HtmlDocument doc = web.Load("https://www.saiyah.com.pk/tour/");
 
 
-
-          ////FETCHING TITLE
-          //  foreach (var item in doc.DocumentNode.SelectNodes("//*[@class='tourmaster-tour-title gdlr-core-skin-title']"))
-          //  {
-          //      try
-          //      {
-          //          string name = item.InnerText;
-
-          //          name = Regex.Replace(name, "&#038;", "&");
-                  
-          //          CrawelCustomModel_Obj.NameList.Add(new Name() { names = name });
-
-                  
-               
-          //      }
-          //      catch (Exception e)
-          //      {
-
-          //      }
-
-          //  }
+            // Counter is leye liya hai k title zeyada or numb of days kam a rai thay to jitne NumOfDay ai usko counter mai dal kr us ki base pr title fetch hon
+            //or yehi chez pe view k lop mai bhi use hui hai k k hmri web k packges and dsuir web k packges same hon or view distrub na ho
+            int Counter = 0;
 
 
-
-            
             //FETCHING NUMBER OF DAYS
             foreach (var item in doc.DocumentNode.SelectNodes("  //*[@class='tourmaster-tour-info tourmaster-tour-info-duration-text '] "))
             {
@@ -239,23 +220,49 @@ namespace UI_user_interface__.Areas.Comman.Controllers
 
                     CrawelCustomModel_Obj.NumOfDayList.Add(new NumOfDay() { NumOfDays = NumOfDay });
 
+
+                    Counter = CrawelCustomModel_Obj.NumOfDayList.Count();
+
                 }
                 catch (Exception e)
                 {
 
+                    TempData["CrawelError"]= "There is error in fetching data from the other website" + e.Message;
                 }
 
             }
 
 
-
-
-
-            //FETCHING Months
-            foreach (var item in doc.DocumentNode.SelectNodes("//*[@class='tourmaster-tour-info tourmaster-tour-info-availability ']  "))
+            //FETCHING TITLE
+            for(int i = 0; i< Counter; i++)
             {
                 try
                 {
+                    var item = doc.DocumentNode.SelectNodes("//*[@class='tourmaster-tour-title gdlr-core-skin-title']")[i];
+
+                    string name = item.InnerText;
+
+                    name = Regex.Replace(name, "&#038;", "&");
+
+                    CrawelCustomModel_Obj.NameList.Add(new Name() { names = name });
+                
+                }
+                catch (Exception e)
+                {
+                    TempData["CrawelError"] = "There is error in fetching data from the other website" + e.Message;
+                }
+
+
+            }
+
+            //FETCHING Months
+            for (int i = 0; i < Counter; i++)
+            {
+                try
+                {
+
+                    var item = doc.DocumentNode.SelectNodes("//*[@class='tourmaster-tour-info tourmaster-tour-info-availability ']  ")[i];
+
                     string Months = item.InnerText;
 
                     Months = Regex.Replace(Months, "Availability :", "");
@@ -265,16 +272,46 @@ namespace UI_user_interface__.Areas.Comman.Controllers
                 }
                 catch (Exception e)
                 {
-
+                    TempData["CrawelError"] = "There is error in fetching data from the other website" + e.Message;
                 }
 
             }
 
 
 
+            //FETCHING Random Images form folder
+            for (int i = 0; i < Counter; i++)
+            {
+                string file = null;
+                string path = @"C:\Users\adasd\Desktop\visual studio\TourAgencyProject\UI(user interface )\Imges_Crawel";
+                if (!string.IsNullOrEmpty(path))
+                {
+                    var extensions = new string[] { ".png", ".jpg", ".gif" };
+                    try
+                    {
+                        var di = new DirectoryInfo(path);
+                        var rgFiles = di.GetFiles("*.*").Where(f => extensions.Contains(f.Extension.ToLower()));
+                        Random R = new Random();
+                        file = rgFiles.ElementAt(R.Next(0, rgFiles.Count())).FullName;
+
+                        file = file.Replace(@"C:\Users\adasd\Desktop\visual studio\TourAgencyProject\UI(user interface )", "");
+
+                        CrawelCustomModel_Obj.ImagesList.Add(new ImageModel() { Images = file });
+                }
+                 
+                    catch(Exception e) { }
+                }
+                
+              }
+
+            ViewBag.Counter = Counter;
 
             return View(CrawelCustomModel_Obj);
         }
 
     }
+
+
+
+
 }

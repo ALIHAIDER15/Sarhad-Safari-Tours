@@ -183,6 +183,13 @@
     <Content Include="Areas\Security\Views\Security\Index.cshtml" />
     <Content Include="Images\icon.jpg" />
     <Content Include="Images\No_Image_Available.jpg" />
+    <Content Include="Imges_Crawel\hunzadrone-scaled.jpg" />
+    <Content Include="Imges_Crawel\japan.jpg" />
+    <Content Include="Imges_Crawel\lahore-68-scaled.jpg" />
+    <Content Include="Imges_Crawel\leaves-68-scaled.jpg" />
+    <Content Include="Imges_Crawel\shogran-68-min-scaled.jpg" />
+    <Content Include="Imges_Crawel\swat41215-68-scaled.jpg" />
+    <Content Include="Imges_Crawel\swat415-68-scaled.jpg" />
     <Content Include="MainDesign\.gitignore" />
     <Content Include="MainDesign\about-us.html" />
     <Content Include="MainDesign\blog.html" />

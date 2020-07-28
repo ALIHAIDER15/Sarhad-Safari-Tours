@@ -14,12 +14,16 @@ namespace Mixed_Models
             NumOfDayList = new List<NumOfDay>();
 
             MonthsList = new List<Month>();
+
+            ImagesList = new List<ImageModel>();
         }
         public List<BOL_business_object_layer_.tbl_Packages> Packages { get; set; }
         public  List<Name> NameList { get; set; }
         public List<NumOfDay> NumOfDayList { get; set; }
 
         public List<Month> MonthsList { get; set; }
+
+        public List<ImageModel> ImagesList { get; set; }
 
 
 
@@ -42,6 +46,12 @@ namespace Mixed_Models
     public class Month
     {
         public string Months { get; set; }
+    }
+
+
+    public class ImageModel
+    {
+        public string Images { get; set; }
     }
 
 

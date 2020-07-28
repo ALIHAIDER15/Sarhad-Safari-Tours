@@ -102,7 +102,10 @@
 
             @*OUR PACKAGES ROW*@
             <div class="row col-md-6" style=" justify-content: center;align-items: center;">
-                @for (int i = 0; i < 10; i++)
+
+                <h1 style="margin-bottom:75px;"> Our Packges  </h1>
+
+                @for (int i = 0; i < @ViewBag.Counter; i++)
                 {
                     <div class="col-lg-9 col-md-9">
                         <div class="single-package">
@@ -124,7 +127,10 @@
 
                                 <li>  <span class="fa fa-star SpanMargin"> </span><label>Days</label> <p>@Html.DisplayFor(modelItem => modelItem.Packages[i].NoOfDays) Days </p> </li>
 
-                                <li><button class="btn btn-primary buttonCustom">Book</button></li>
+
+                                <li>  <span class="fa fa-phone SpanMargin"> </span><label>Contact</label> <p>@Html.DisplayFor(modelItem => modelItem.Packages[i].Contact)  </p> </li>
+
+                                <li><button class="btn btn-primary buttonCustom">Available</button></li>
                             </ul>
 
                         </div>
@@ -139,44 +145,47 @@
 
 
             @*OTHER WEB SITES PACKAGES ROW*@
-            <div class="row col-md-6" style="justify-content: center; align-items: center;">
+        <div class="row col-md-6" style="justify-content: center; align-items: center;">
 
+            <h1 style="margin-bottom:75px;"> Their Packges </h1>
 
+            @for (int i = 0; i < @ViewBag.Counter; i++)
+            {
+                <div class="col-lg-9 col-md-9" style="">
+                    <div class="single-package">
+                        <div class="thumb">
 
-                @for (int i = 0; i < 7; i++)
-                {
-                    <div class="col-lg-9 col-md-9" style="">
-                        <div class="single-package">
-                            <div class="thumb">
-
-                                <img src="@Html.DisplayFor(modelItem => modelItem.Packages[i].ImagePath )" style="max-height: 251px; min-height: 251px;" />
-                            </div>
-                            <p class="date CardTopLebel"><span>Saiyah </span> <br>Packages</p>
-
-                          
-                            <ul class="cardUl">
-                           
-
-                                @*<li> <span class="fa fa-location-arrow SpanMargin"></span> <label>Location</label> <p> @Html.DisplayFor(modelItem => modelItem.NameList[i].names) </p>   </li>*@
-
-                                <li>  <span class="fa fa-calendar SpanMargin"></span>       <label>Month</label><p>@Html.DisplayFor(modelItem => modelItem.MonthsList[i].Months)    </p> </li>
-
-
-
-                                <li>  <span class="fa fa-star SpanMargin"> </span><label>Days</label> <p>@Html.DisplayFor(modelItem => modelItem.NumOfDayList[i].NumOfDays)  </p> </li>
-
-                                <li><button class="btn btn-primary buttonCustom">Book</button></li>
-                            </ul>
-
+                            <img src="@Html.DisplayFor(modelItem => modelItem.ImagesList[i].Images )" style="max-height: 251px; min-height: 251px;" />
                         </div>
+                        <p class="date CardTopLebel"><span>Saiyah </span> <br>Packages</p>
+
+
+                        <ul class="cardUl">
+
+
+                            <li> <span class="fa fa-location-arrow SpanMargin"></span> <label>Location</label> <p> @Html.DisplayFor(modelItem => modelItem.NameList[i].names) </p>   </li>
+
+                            <li>  <span class="fa fa-calendar SpanMargin"></span>       <label>Month</label><p>@Html.DisplayFor(modelItem => modelItem.MonthsList[i].Months)    </p> </li>
+
+
+
+                            <li>  <span class="fa fa-star SpanMargin"> </span><label>Days</label> <p>@Html.DisplayFor(modelItem => modelItem.NumOfDayList[i].NumOfDays)  </p> </li>
+
+                            <li>  <span class="fa fa-phone SpanMargin"> </span><label>Contact</label> <p> 0335 5101659 </p> </li>
+
+
+                            <li><button class="btn btn-primary buttonCustom">Available</button></li>
+                        </ul>
+
                     </div>
+                </div>
 
-                }
+            }
 
 
 
 
-            </div>
+        </div>
 
         </div>
    
