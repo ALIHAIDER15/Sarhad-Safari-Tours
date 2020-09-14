@@ -1,151 +1,84 @@
-﻿body {
-    background-color: rgb(244, 239, 239);
+﻿/*//////////////////////////////////////////////////////
+ORGINAL CSS FOR IMAGE SECTIONS
+///////////////////////////////////////////////////////
+*/
+.user_img {
+    border: 1px solid #ededed;
+    border-radius: 3px;
 }
 
-.mainContainer {
-    margin-top: 32px;
-    background-color: white;
-    padding-bottom: 50px;
-}
+    .user_img img {
+        width: 100%;
+        height: 300px;
+        cursor: pointer;
+    }
 
-#form {
-    padding-left: 121px;
-    padding-top: 49px;
-}
+    .user_img .upload_icon {
+        background-color: #bbb8b8;
+        opacity: 0.5;
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        bottom: 0;
+        left: 15px;
+        transform: scaleY(0);
+        transition: 0.3s;
+        transform-origin: bottom;
+        margin-left: -14px;
+    }
 
-    #form h3 {
-        margin-bottom: 26px;
-        font-family: sans-serif;
-        font-weight: 700;
+    .user_img:hover .upload_icon {
+        transform: scaleY(1);
+    }
+
+    .user_img .upload_icon img {
+        height: 30px;
+        width: 30px;
+        color: #fff;
+        position: absolute;
+        top: 5px;
+        right: 50px;
+    }
+
+    .user_img .cross {
+        position: absolute;
+        top: 13px;
+        right: 20px;
+        padding: 5px;
+        cursor: pointer;
+        color: #5b626b;
+        transform: scale(0);
+        transform-origin: top;
+        transition: transform ease 0.5s;
+    }
+
+        .user_img .cross .glyphicon-remove {
+            opacity: 0.5;
+        }
+
+        .user_img .cross:hover .glyphicon-remove {
+            color: #808080;
+        }
+
+    .user_img:hover .cross {
+        transform: scale(1);
     }
 
 
-.inputfield {
-    border: none;
-    box-shadow: none;
-    border-bottom: 1px solid blue;
-    border-bottom: 1px solid #d0d0ba;
-}
 
-
-#form .input-group-addon {
-    background: none;
-    border: none;
-    box-shadow: none;
-    border-bottom: 1px solid blue;
-    border-bottom: 1px solid #d0d0ba;
-}
-
-.form-control:focus {
-    border-color: #ccc;
-    outline: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-
-
-#formImg2 {
-    padding-top: 2px;
-    padding-left: 0px;
-    margin-left: -9px;
-    padding-bottom: 19px
-}
-
-
-
-.subbtn {
-    background-color: #154a77;
-    border-radius: 20px;
-    padding: 5px 20px;
-    /* width: 83px; */
-    font-size: 16px;
-    margin-top: 19px;
-    margin-left: 226px;
-}
-
-
-    .subbtn:hover {
-        background-color: #0f6bb9;
-    }
-
-.mm {
-    padding-bottom: 32px;
-}
-
-.labelP {
-    padding: 0px;
-}
-
-.image-container:hover .image-up {
-    transform: scaleY(1);
-}
-
-.image-container {
+.upload-img {
     position: relative;
 }
 
-    .image-container:hover {
-        cursor: pointer;
-        position: relative;
-    }
-
-
-.image-up {
-    background-color: #d0d0d0;
-    position: absolute;
-    bottom: 43px;
-    margin: 0;
-    width: 100%;
-    height: 28px;
-    opacity: 1;
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform .3s ease;
-}
-
-
-
-.icon-camera {
-    font-size: 23px;
-    padding-left: 53px;
-    padding-top: 3px;
-}
-
-
-.upload-img-text {
-    padding-top: -28px;
-    font-size: 15px;
-    padding-left: 87px;
-    font-weight: 600;
-
-    margin-top: -25px;
-}
-
-
-
-.clossing-smybol {
-    position: absolute;
-    left: 280px;
-    bottom: 220px;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform ease 0.5s;
-}
-
-
-
-
-
-.image-container:hover .clossing-smybol {
+.user_img:hover .cross {
     transform: scaleY(1);
 }
 
-.alert-custom {
-    margin-top: 6px !important;
-    padding-bottom: 0px !important;
-    visibility: hidden;
+.upload-img-text {
+    text-align: center;
+    font-size: 135%;
+    padding-top: 6px;
+    font-weight: 700;
+    padding-left: 0;
+    color: black;
 }
-
-.span-margin {
-    margin-left: 90px;
-}

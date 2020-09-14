@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
@@ -27,9 +28,20 @@ namespace UI_user_interface__.Areas.Comman.Controllers
 
         HotelsDB HotelsDB_Obj = new HotelsDB();
 
-        CrawelCustomModel CrawelCustomModel_Obj = new CrawelCustomModel();
+        ItemsDB ItemsDB_Obj = new ItemsDB();
 
-        [HttpGet]
+        CrawelCustomModel CrawelCustomModel_Obj = new CrawelCustomModel();
+        
+
+        tbl_MakeMyTrip tbl_Obj = new tbl_MakeMyTrip();
+
+
+        Hotle_Images_Custom_Model hotle_Images_Custom_Model_Obj = new Hotle_Images_Custom_Model();
+
+        //itmeModelForCheckBox itmeModelForCheckBox_Obj = new itmeModelForCheckBox();
+
+
+       [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -71,9 +83,46 @@ namespace UI_user_interface__.Areas.Comman.Controllers
 
 
         [HttpGet]
-        public ActionResult BookATrip()
+        public ActionResult BookATrip(int Guider_Id = 0 , int Hotel_Id = 0 , int Packages_Id =0) 
         {
-            return View();
+            //CREATING LISTS
+
+
+            var ItemList = ItemsDB_Obj.GetAll();
+
+            tbl_Obj.ItemList = new SelectList(ItemList, "ID", "Name");
+
+
+
+
+            var PackageList = PackagesDB_Obj.GetAll();
+      
+            tbl_Obj.PackageList = new SelectList(PackageList, "ID", "PackageName", PackageList.Where(x => x.ID == Packages_Id).Select(item => item.ID).SingleOrDefault());
+
+
+
+       
+
+
+            var HotelsList = HotelsDB_Obj.GetAll();
+            // here on the basis of id we are selecting the selected item by user in drowp down list
+            tbl_Obj.HotelList = new SelectList(HotelsList, "ID", "Name", HotelsList.Where(x => x.ID == Hotel_Id).Select(item => item.Name).SingleOrDefault());
+
+
+
+
+
+            var GuideList = GuideDB_Obj.GetAll();
+            // here on the basis of id we are selecting the selected item by user in drowp down list
+            tbl_Obj.GuideList = new SelectList(GuideList, "ID", "Name", GuideList.Where(x => x.ID == Guider_Id).Select(item => item.ID).SingleOrDefault());
+
+
+
+         
+
+
+            return View(tbl_Obj);
+
         }
 
 
@@ -88,16 +137,55 @@ namespace UI_user_interface__.Areas.Comman.Controllers
                     MyTrip_Obj.Insert(Obj);
 
                     TempData["SENT"] = "Your Message Sent Successfully";
+
+                    //SENDING EMAIL TO CUSTOMER , sending emails using gmail you have to turn on => allow less sucre app to access this mail
+                    string from = "alihaiderwm15@gmail.com";
+                    string to = "alihaiderwm15@gmail.com"; /* = Obj.Email*/
+                    MailMessage MailMessage = new MailMessage(from , to);
+                    MailMessage.Subject = "Package Request";
+                    MailMessage.Body = "Your Package Request has been delivered to Our Team , Someone From Our Team Will Be In Touch Soon";
+                    SmtpClient smtpClient = new SmtpClient();
+                    smtpClient.Send(MailMessage);
+
+
+
+
+
                 }
             }
             catch (Exception e)
             {
 
-                TempData["SENT"] = "Your Message Sent Successfully" + e.Message;
+                TempData["FAILED"] = e.Message;
             }
 
+            var ItemList = ItemsDB_Obj.GetAll();
 
-            return View();
+            Obj.ItemList = new SelectList(ItemList, "ID", "Name");
+
+
+
+            var PackageList = PackagesDB_Obj.GetAll();
+
+            Obj.PackageList = new SelectList(PackageList, "ID", "PackageName");
+
+
+
+
+
+            var HotelsList = HotelsDB_Obj.GetAll();
+
+            Obj.HotelList = new SelectList(HotelsList, "ID", "Name");
+
+
+
+
+
+            var GuideList = GuideDB_Obj.GetAll();
+
+            Obj.GuideList = new SelectList(GuideList, "ID", "Name");
+
+            return View(Obj);
         }
 
 
@@ -134,6 +222,8 @@ namespace UI_user_interface__.Areas.Comman.Controllers
                     ContactUsDB_Obj.Insert(obj);
 
                     TempData["SENT"] = "Your Message Sent SuccessFully";
+
+
                 }
             }
             catch (Exception e)
@@ -172,14 +262,53 @@ namespace UI_user_interface__.Areas.Comman.Controllers
         [HttpGet]
         public ActionResult Hotels()
         {
-            var guides = HotelsDB_Obj.GetAll();
+            var Hotels = HotelsDB_Obj.GetAll();
 
-            return View(guides);
+            return View(Hotels);
 
         }
 
 
 
+
+
+
+        [HttpGet]
+        public ActionResult Hotels2()
+        {
+            var Hotels_info = HotelsDB_Obj.GetAllWithImages();
+
+            return View(Hotels_info);
+  
+
+        }
+
+
+        [HttpGet]
+        public ActionResult Hotels2Details(int Hotel_Id)
+        {
+           
+
+            var Hotels_info = HotelsDB_Obj.GetByIdWithImages(Hotel_Id);
+
+            hotle_Images_Custom_Model_Obj.Name = Hotels_info[0].Name;
+            hotle_Images_Custom_Model_Obj.Location = Hotels_info[0].Location;
+            hotle_Images_Custom_Model_Obj.Gov_License = Hotels_info[0].Gov_License;
+            hotle_Images_Custom_Model_Obj.Standard = Hotels_info[0].Standard;
+            hotle_Images_Custom_Model_Obj.Charges = Hotels_info[0].Charges;
+
+            foreach(var item in Hotels_info)
+            {
+             
+                hotle_Images_Custom_Model_Obj.Images.Add(new ImagePath() { Images = item.ImagePath });
+
+      
+            }
+
+            return View(hotle_Images_Custom_Model_Obj);
+
+
+        }
 
 
 
@@ -241,8 +370,10 @@ namespace UI_user_interface__.Areas.Comman.Controllers
                     var item = doc.DocumentNode.SelectNodes("//*[@class='tourmaster-tour-title gdlr-core-skin-title']")[i];
 
                     string name = item.InnerText;
-
+            
                     name = Regex.Replace(name, "&#038;", "&");
+
+                    name = Regex.Replace(name, "&#8211;", "&");
 
                     CrawelCustomModel_Obj.NameList.Add(new Name() { names = name });
                 
@@ -299,7 +430,7 @@ namespace UI_user_interface__.Areas.Comman.Controllers
                         CrawelCustomModel_Obj.ImagesList.Add(new ImageModel() { Images = file });
                 }
                  
-                    catch(Exception e) { }
+                    catch(Exception ) { }
                 }
                 
               }

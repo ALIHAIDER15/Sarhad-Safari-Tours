@@ -13,5 +13,8 @@ namespace Mixed_Models
 
         public HttpPostedFileBase UserImageFiles { get; set; }
 
+
+        public List<HttpPostedFileBase> Files { get; set; }
+
     }
 }

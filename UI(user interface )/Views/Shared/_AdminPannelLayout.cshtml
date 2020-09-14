@@ -12,6 +12,8 @@
     <link href="~/DashBoard/template/assets/vendor/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="~/DashBoard/template/assets/vendor/linearicons/style.css" rel="stylesheet" />
     <link href="~/DashBoard/template/assets/vendor/chartist/css/chartist-custom.css" rel="stylesheet" />
+    <link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/DataTableCss/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
 
 
@@ -36,6 +38,8 @@
     <link rel="apple-touch-icon" sizes="76x76" href="~/DashBoard/template/assets/img/apple-icon.png">
 
     <link rel="icon" type="image/png" sizes="96x96" href="~/DashBoard/template/assets/img/favicon.png">
+
+    @RenderSection("Style",false);
 </head>
 
 <body>
@@ -49,10 +53,10 @@
 
         <!-- NAVBAR -->
         <nav class="navbar navbar-default navbar-fixed-top">
-          
+
 
             <div class="brand" style="padding-bottom: 0; padding-top: 20px;">
-                <a href="@Url.Action("Index", "Admin")"><img src="~/DashBoard/template/assets/img/WebLogo2.png" height="49"  width="103" alt="Klorofil Logo" class="img-responsive logo"></a>
+                <a href="@Url.Action("Index", "Admin")"><img src="~/DashBoard/template/assets/img/WebLogo2.png" height="49" width="103" alt="Klorofil Logo" class="img-responsive logo"></a>
             </div>
             <div class="container-fluid">
                 <div class="navbar-btn">
@@ -68,27 +72,27 @@
                 <div id="navbar-menu">
                     <ul class="nav navbar-nav navbar-right">
                         @*<li class="dropdown">
-                    <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                        <i class="lnr lnr-alarm"></i>
-                        <span class="badge bg-danger">5</span>
-                    </a>*@
+                            <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                                <i class="lnr lnr-alarm"></i>
+                                <span class="badge bg-danger">5</span>
+                            </a>*@
                         @*<ul class="dropdown-menu notifications">
-                            <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
-                            <li><a href="#" class="notification-item"><span class="dot bg-danger"></span>You have 9 unfinished tasks</a></li>
-                            <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Monthly report is available</a></li>
-                            <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>Weekly meeting in 1 hour</a></li>
-                            <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
-                            <li><a href="#" class="more">See all notifications</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Basic Use</a></li>
-                            <li><a href="#">Working With Data</a></li>
-                            <li><a href="#">Security</a></li>
-                            <li><a href="#">Troubleshooting</a></li>
-                        </ul>*@
+                                    <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
+                                    <li><a href="#" class="notification-item"><span class="dot bg-danger"></span>You have 9 unfinished tasks</a></li>
+                                    <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Monthly report is available</a></li>
+                                    <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>Weekly meeting in 1 hour</a></li>
+                                    <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
+                                    <li><a href="#" class="more">See all notifications</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Basic Use</a></li>
+                                    <li><a href="#">Working With Data</a></li>
+                                    <li><a href="#">Security</a></li>
+                                    <li><a href="#">Troubleshooting</a></li>
+                                </ul>*@
 
                         </li>
                         <li class="dropdown">
@@ -170,9 +174,9 @@
                             </div>
                         </li>
 
-                  
 
-                        <li>
+
+                        @*<li>
                             <a href="#subPages4" data-toggle="collapse" class="collapsed"><i class="lnr lnr-apartment"></i> <span>Hotels</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                             <div id="subPages4" class="collapse ">
                                 <ul class="nav">
@@ -187,17 +191,32 @@
 
                                 </ul>
                             </div>
+                        </li>*@
+
+                        <li>
+                            <a href="#subPages5" data-toggle="collapse" class="collapsed"><i class="lnr lnr-apartment"></i> <span>Hotels</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <div id="subPages5" class="collapse ">
+                                <ul class="nav">
+
+
+                                    <li class="nav-item "><a href=@Url.Action("CurrentHotels2", "Admin")><span>Current Hotels</span></a></li>
+
+
+                                    <li class="nav-item "><a href=@Url.Action("CreateHotels2", "Admin")><spam style="font-size:14px">Add New Hotel</spam></a></li>
+
+
+
+                                </ul>
+                            </div>
                         </li>
-
-
 
                         <li class="nav-item "><a href=@Url.Action("PackageRequests", "Admin")><i class="lnr lnr-alarm"></i><span>Package Requests</span></a></li>
 
                         <li class="nav-item "><a href=@Url.Action("ContactUs", "Admin")><i class="lnr lnr-user"></i><span>User Contacts</span></a></li>
 
                         <li>
-                            <a href="#subPages5" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cog"></i> <span>Admin Settings</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-                            <div id="subPages5" class="collapse ">
+                            <a href="#subPages6" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cog"></i> <span>Admin Settings</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <div id="subPages6" class="collapse ">
                                 <ul class="nav">
 
                                     <li class="nav-item "><a href=@Url.Action("AdminProfile", "Admin")><span>Profile</span></a></li>
@@ -253,14 +272,19 @@
     <script src="~/DashBoard/template/assets/vendor/jquery.easy-pie-chart/angular.easypiechart.min.js"></script>
     <script src="~/DashBoard/template/assets/vendor/chartist/js/chartist.min.js"></script>
     <script src="~/DashBoard/template/assets/scripts/klorofil-common.js"></script>
+    <script src="~/Scripts/DataTableJs/jquery.dataTables.min.js"></script>
+        <script src="~/Scripts/DataTableJs/dataTables.bootstrap4.min.js"></script>
 
+
+
+    @RenderSection("scripts",false);
 
     @*<script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
-    <script src="assets/vendor/chartist/js/chartist.min.js"></script>
-    <script src="assets/scripts/klorofil-common.js"></script>*@
+        <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+        <script src="assets/vendor/chartist/js/chartist.min.js"></script>
+        <script src="assets/scripts/klorofil-common.js"></script>*@
 
     @*<script>
         $(function () {

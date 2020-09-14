@@ -144,6 +144,15 @@ namespace Mapping_Models
 
 
 
+        public int Update_hotel2(HotelsCustomModel model)
+        {
+            tbl_Hotels Hotel = model.Hotels;
+
+          int id =  Hotels_obj.Upadate2(Hotel);
+
+            return id;
+
+        }
 
 
 
@@ -155,10 +164,14 @@ namespace Mapping_Models
 
 
         // HotelsCustomModel METHODS
-        public int Insert_hote_Images(Hotel_imagesCustomModel model)
+        public int Insert_hote_Images(HotelsCustomModel model)
         {
 
-            tbl_Hotel_images Hotelimages = model.Hotel_Images;
+            tbl_Hotel_images Hotelimages = new tbl_Hotel_images();
+
+            Hotelimages.Hotel_ID = model.Hotels.ID;
+
+            Hotelimages.ImagePath = model.Hotels.ImagePath;
 
             int id = Hotel_ImagesDB_Obj.Insert(Hotelimages);
 
@@ -168,9 +181,13 @@ namespace Mapping_Models
 
 
 
-        public void Update_hotel_Images(Hotel_imagesCustomModel model)
+        public void Update_hotel_Images(HotelsCustomModel model)
         {
-            tbl_Hotel_images Hotelimages = model.Hotel_Images;
+            tbl_Hotel_images Hotelimages = new tbl_Hotel_images();
+
+            Hotelimages.ID = model.Hotels.ID;
+
+            Hotelimages.ImagePath = model.Hotels.ImagePath;
 
             Hotel_ImagesDB_Obj.Upadate(Hotelimages);
 

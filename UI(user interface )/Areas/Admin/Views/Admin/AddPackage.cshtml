@@ -59,7 +59,7 @@
                         <div class="input-field col s12">
 
                             @Html.EditorFor(model => model.Packages.PackageName, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "Package Name" } })
-                            @Html.ValidationMessageFor(model => model.Packages.PackageName,"",new {@class="text-danger" })
+                            @Html.ValidationMessageFor(model => model.Packages.PackageName, "", new { @class = "text-danger" })
                         </div>
 
                     </div>
@@ -80,8 +80,8 @@
                     <div class="row">
                         <div class="input-field col s12">
 
-                            @Html.EditorFor(model => model.Packages.Date, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "Date" } })
-                            @Html.ValidationMessageFor(model =>  model.Packages.Date, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Packages.Date, new { htmlAttributes = new { id = "list-title", type = "text", maxlength = "2", @class = "validate FontSize", placeholder = "Date" } })
+                            @Html.ValidationMessageFor(model => model.Packages.Date, "", new { @class = "text-danger" })
                         </div>
 
                     </div>
@@ -94,7 +94,7 @@
                         <div class="input-field col s12">
 
                             @Html.EditorFor(model => model.Packages.Month, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "Month" } })
-                            @Html.ValidationMessageFor(model =>model.Packages.Month, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.Packages.Month, "", new { @class = "text-danger" })
                         </div>
 
                     </div>
@@ -117,7 +117,7 @@
                         <div class="input-field col s12">
 
                             @Html.EditorFor(model => model.Packages.SpotSiteSeeing, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "SpotSiteSeeing" } })
-                            @Html.ValidationMessageFor(model =>  model.Packages.SpotSiteSeeing, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.Packages.SpotSiteSeeing, "", new { @class = "text-danger" })
                         </div>
 
                     </div>
@@ -128,7 +128,7 @@
                         <div class="input-field col s12">
 
                             @Html.EditorFor(model => model.Packages.Standard, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "Standard" } })
-                            @Html.ValidationMessageFor(model =>  model.Packages.Standard, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.Packages.Standard, "", new { @class = "text-danger" })
                         </div>
 
                     </div>
@@ -184,26 +184,31 @@
                     </div>
 
 
-                    <div class="col-md-6 " id="formImg2">
-                        <div class="image-container" style="width:86%;">
 
-                            <img src="~/Images/No_Image_Available.jpg" class="img-responsive upload-img" />
+                    //Image Div
+                    <div class="col-lg-7" style="overflow-x: hidden; padding-left: 0;     margin-bottom: 22px; ">
 
-                            <div class="image-up row ">
+                        <input type="file" name="UserImageFiles" class="upload-button invisible" id="inputFile"  />
 
-                                <i class="fas fa-camera icon-camera"></i>
+                        <div class="col-md-11" style=" overflow-x: hidden; padding: 0; overflow-y: hidden;">
 
-                                <p class="upload-img-text">Uplaod image here</p>
+                            <div class="user_img">
 
+                                <img src="~/Images/No_Image_Available.jpg" class="img-responsive upload-img-Js" id="uploadImage" />
+
+                                <div class="upload_icon image-up-js">
+                                    <p class="upload-img-text">Uplaod image here</p>
+                                </div>
+
+                                <div class="cross close-x-js">
+                                    <span aria-hidden="true" style="font-size: 20px; color: #7f848a;">&times;</span>
+                                </div>
                             </div>
 
-                            <div class="clossing-smybol close-x">
-                                <span aria-hidden="true" style="font-size: 20px;">&times;</span>
-                            </div>
-
-                            <div class="alert alert-danger alert-custom"><p>only 3500 , 2900 pixel image is allowed </p></div>
                         </div>
+
                     </div>
+
 
 
 
@@ -232,111 +237,120 @@
 <script type="text/javascript">
 
 
-    //    window.onload = function() {
-    //    if (window.jQuery) {
-    //        // jQuery is loaded
-    //        alert("Yeah!");
-    //    } else {
-    //        // jQuery is not loaded
-    //        alert("Doesn't Work");
-    //    }
-    //}
+    $(document).ready(function () {
 
 
-    $('.upload-img').click(function () {
+        $(".upload-img-Js").click(function () {
 
-        uploadimage();
+            uploadimage();
 
-    });
+        });
 
 
 
-    $('.image-up').click(function () {
+        $('.image-up-js').click(function () {
 
-        uploadimage();
+            uploadimage();
 
-    });
-
-
-    function uploadimage() {
-
-        $('.upload-button').trigger('click');
-    }
+        });
 
 
+        function uploadimage() {
 
-    $('.upload-button').change(function () {
-
-
-        if (this.files && this.files[0]) {
-
-            var fileReader = new FileReader();
-
-            //FilerReader webapp ko user k computer say file read krne mai madad deta hai
-
-            fileReader.readAsDataURL(this.files[0]);
-
-            //filerader.onload mtlb jab file load ho jaye
-
-            fileReader.onload = function (x) {
-
-                //new image () image ka constructor hai jis image ka obj initilaize hoga   image = <img src="" width="" heifht="">
-
-                var image = new Image();
-
-                //x(event) .targer.result ka mtlb h x(event) jo target huwa hai is result m wo value ai gi jis ki waja say event tagert huwa
-
-                image.src = x.target.result;
-
-                image.onload = function () {
-
-                    var width = this.width;
-                    var height = this.height;
-
-
-
-                    //alert("width :" + width + "height :" + height + "type :" + type );
-
-                    if (width <= "3500" && height <= "2933") {
-
-                        $('.upload-img').attr('src', x.target.result);
-
-                        $('.upload-img').css({ 'width': '100%', 'height': '315px' });
-
-
-                        //X thore disturb ho jata tha after image upload ye line us ki setting k leye hai
-
-                        $(".clossing-smybol").css({ "left": "290px", "bottom": "320px" });
-
-
-
-
-                    }
-                    else {
-
-                        $('.alert-custom').css('visibility', 'visible');
-                    }
-
-                }
-
-
-
-
-
-            }
+            $('.upload-button').trigger('click');
         }
 
 
-        $('.close-x').click(function () {
 
-            $('.upload-img').attr('src', "/images/No_Image_Available.jpg");
+        $('.upload-button').change(function () {
+
+
+            if (this.files && this.files[0]) {
+
+                var fileReader = new FileReader();
+
+                //FilerReader webapp ko user k computer say file read krne mai madad deta hai
+
+                fileReader.readAsDataURL(this.files[0]);
+
+                //filerader.onload mtlb jab file load ho jaye
+
+                fileReader.onload = function (x) {
+
+                    //new image () image ka constructor hai jis image ka obj initilaize hoga   image = <img src="" width="" heifht="">
+
+                    var image = new Image();
+
+                    //x(event) .targer.result ka mtlb h x(event) jo target huwa hai is result m wo value ai gi jis ki waja say event tagert huwa
+
+                    image.src = x.target.result;
+
+                    image.onload = function () {
+
+                        var width = this.width;
+                        var height = this.height;
+
+
+
+                        //alert("width :" + width + "height :" + height + "type :" + type );
+
+                        if (width <= "3500" && height <= "2933") {
+
+                            $('.upload-img-Js').attr('src', x.target.result);
+
+
+
+                            $('.upload-img-Js').css({ 'width': '100%', 'height': '315px' });
+
+
+                            //X thore disturb ho jata tha after image upload ye line us ki setting k leye hai
+
+                            //$(".clossing-smybol").css({ "left": "290px", "bottom": "320px" });
+
+
+
+
+                        }
+                        else {
+
+                            $('.alert-custom').css('visibility', 'visible');
+                        }
+
+                    }
+
+
+
+
+
+                }
+            }
+
+
+
+
+
+
+          
 
 
         });
 
+
+          $('.close-x-js').click(function () {
+
+
+
+                $('.upload-img-Js').attr('src', "/Images/No_Image_Available.jpg");
+
+                //Ham datab base ki field jaise imagepath ko bhi javascript k zarye # use kr k access kr skty hn jaise nechay kia
+                //$('#Packages.ImagePath').val("/images/No_Image_Available.jpg");
+
+                //jab X pe click ho to httpfilesbase mai jo hai usko null kr do id j zarye
+                $('.upload-button').val(null);
+
+
+            });
+
     });
-
-
-
 
 </script>

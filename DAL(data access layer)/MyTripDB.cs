@@ -12,16 +12,25 @@ namespace DAL_data_access_layer_
       
             WebAppEntities db = new WebAppEntities();
 
-            //CRUD OPERATIONS
+            tbl_MakeMyTrip tbl_Obj = new tbl_MakeMyTrip();
 
-            public List<tbl_MakeMyTrip> GetAll()              //get all records
+
+
+        //CRUD OPERATIONS
+
+        public List<tbl_MakeMyTrip> GetAll()              //get all records
             {
                 return db.tbl_MakeMyTrip.ToList();
             }
 
+        public tbl_MakeMyTrip GetById(int id)                  //get single records
+        {
+            tbl_MakeMyTrip Trip = db.tbl_MakeMyTrip.Find(id);
 
+            return Trip;
+        }
 
-            public void Insert(tbl_MakeMyTrip obj)            //Insert single records
+        public void Insert(tbl_MakeMyTrip obj)            //Insert single records
             {
                 db.tbl_MakeMyTrip.Add(obj);
 
@@ -31,8 +40,7 @@ namespace DAL_data_access_layer_
             }
 
 
-
-            public void Delete(int id)            //Delete single records
+        public void Delete(int id)                        //Delete single records
             {
 
                 tbl_MakeMyTrip Trip = db.tbl_MakeMyTrip.Find(id);
@@ -42,16 +50,38 @@ namespace DAL_data_access_layer_
 
             }
 
+        public tbl_MakeMyTrip GettigUserDataForEmail (int id)                        //Delete single records
+        {
+
+            //var data = db.Package_Confirmation_Email1(id);
+         
+
+            tbl_MakeMyTrip Trip = new tbl_MakeMyTrip();
 
 
-            //SAVE FUNTIONALITY
+            return Trip;
 
-            public void save()
+
+
+        }
+        //public List<tbl_Items> CheckBoxList()            //get single records for names
+        //{
+
+        //    //return tbl_Obj.itemsCheckBoxList =  db.tbl_Items.ToList<itemsCheckBoxList>();
+
+
+        //}
+
+
+
+        //SAVE FUNTIONALITY
+
+        public void save()
             {
                 db.SaveChanges();
             }
-
-
+          
+          
 
         
 

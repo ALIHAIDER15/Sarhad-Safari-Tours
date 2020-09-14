@@ -4,6 +4,20 @@
     Layout = "~/Views/Shared/_AdminPannelLayout.cshtml";
 }
 
+@section style
+{
+    <style>
+
+        .HeadingStyle {
+            font-weight: 300 !important;
+            font-size: 18px !important;
+        }
+           .BtnDelete {
+            padding: 5px 27px;
+            margin-bottom: 7px;
+        }
+    </style>
+}
 
 
 
@@ -12,7 +26,7 @@
     <div class="main-content">
         <div class="container-fluid">
             <!-- OVERVIEW -->
-            <div class="panel panel-headline">
+            <div class="panel panel-headline" style="overflow-x: auto;">
                 <div class="panel-heading">
                     <h3 class="panel-title">User Request Packages</h3>
                     @if (TempData["Delete"] != null)
@@ -23,18 +37,28 @@
                         </div>
 
                     }
+                    @if (TempData["Email-Sent"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible" role="alert" style="margin-bottom: -16px;margin-top: 11px;">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <i class="fa fa-check-circle"></i>     @TempData["Email-Sent"]
+                        </div>
+
+                    }
                 </div>
-                <div class="PageTypeBg">
+                <div class="PageTypeBg" style="padding: 0px 26px;">
 
-                    <div style="padding:10px">
+                    <div>
 
-                        <table class="table">
+                        <table class="table" id="myTable">
                             <thead class="thead-dark" style="background-color: #00aaff;">
                                 <tr>
 
                                     <th>
                                         S.NO
                                     </th>
+
+
 
                                     <th>
                                         Name
@@ -47,7 +71,6 @@
                                     <th>
                                         Phone
                                     </th>
-
                                     <th>
                                         Nic
                                     </th>
@@ -57,17 +80,18 @@
                                     <th>
                                         Transport
                                     </th>
-                                    <th>
-                                        Guide
-                                    </th>
+
                                     <th>
                                         Others
+                                    </th>
+                                    <th>
+                                        Guide
                                     </th>
                                     <th>
                                         To
                                     </th>
                                     <th>
-                                        Frpm
+                                        From
                                     </th>
                                     <th>
                                         Adults
@@ -75,64 +99,97 @@
                                     <th>
                                         Child
                                     </th>
+
+                                    <th>
+                                        Items
+                                    </th>
+                                    <th>
+                                        Package
+                                    </th>
+                                    <th>
+                                        Hotel
+                                    </th>
+                                    <th>
+                                        Guide
+                                    </th>
                                     <th>
                                         Action
                                     </th>
-                                <tr>
-                               <tbody>
-                                @{int i = 1; }
+                                </tr>
+                            </thead>
+
+
+
+
+                            <tbody>
+                                @{int iw = 1; }
                                 @foreach (var item in Model)
                                 {
 
-                                   <tr>
-                                       <td>
-                                           @i
-                                       </td>
-                                       <td>
-                                           @Html.DisplayFor(modelItem => item.Name)
-                                       </td>
-                                       <td>
-                                           @Html.DisplayFor(modelItem => item.Email)
-                                       </td>
-                                       <td>
-                                           @Html.DisplayFor(modelItem => item.Phone)
-                                       </td>
-                                       <td>
-                                           @Html.DisplayFor(modelItem => item.Nic)
-                                       </td>
-                                       <td>
-                                           @Html.DisplayFor(modelItem => item.Address)
-                                       </td>
-                                       <td>
-                                           @Html.DisplayFor(modelItem => item.Transport)
-                                       </td>
-                                       <td>
-                                           @Html.DisplayFor(modelItem => item.Others)
-                                       </td>
-                                       <td>
-                                           @Html.DisplayFor(modelItem => item.Guide)
-                                       </td>
-                                       <td>
-                                           @Html.DisplayFor(modelItem => item.To)
-                                       </td>
-                                       <td>
-                                           @Html.DisplayFor(modelItem => item.From)
-                                       </td>
-                                       <td>
-                                           @Html.DisplayFor(modelItem => item.Adults)
-                                       </td>
-                                       <td>
-                                           @Html.DisplayFor(modelItem => item.Child)
-                                       </td>
-                                       <td>
-                                           @Html.ActionLink("Delete", "DeletePackageRequests", "Admin", new { id = item.ID, }, new { @class = "btn btn-danger" })
-                                       </td>
-                                   </tr>
-                                       i++;
+                                    <tr>
+                                        <td>
+                                            @iw
+                                        </td>
+
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Phone)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nic)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Address)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Transport)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Others)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Guide)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.To)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.From)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Adults)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Child)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ItemName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PackageName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.HotelName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.GuideName)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Delete", "DeletePackageRequests", "Admin", new { id = item.ID, }, new { @class = "btn btn-danger BtnDelete" })
+                                            @Html.ActionLink("Confirm", "ConfirmPackageRequests", "Admin", new { id = item.ID, }, new { @class = "btn btn-primary" })
+                                        </td>
+
+
+                                    </tr>
+                                    iw++;
 
                                 }
-
-
 
 
                             </tbody>
@@ -149,4 +206,14 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
 
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+
+
+
+    });
+
+</script>

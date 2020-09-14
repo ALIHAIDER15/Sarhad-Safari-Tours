@@ -18,6 +18,7 @@
         <EntityTypeShape EntityType="WebAppModel.tbl_Guide" Width="1.5" PointX="3.375" PointY="8.75" />
         <EntityTypeShape EntityType="WebAppModel.tbl_Hotel_images" Width="1.5" PointX="8.375" PointY="0.75" />
         <EntityTypeShape EntityType="WebAppModel.tbl_Hotels" Width="1.5" PointX="8.375" PointY="7.75" />
+        <EntityTypeShape EntityType="WebAppModel.tbl_Items" Width="1.5" PointX="10.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

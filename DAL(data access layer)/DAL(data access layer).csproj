@@ -59,6 +59,7 @@
     <Compile Include="GuideDB.cs" />
     <Compile Include="HotelsDB.cs" />
     <Compile Include="Hotel_ImagesDB.cs" />
+    <Compile Include="ItemsDB.cs" />
     <Compile Include="MemberShipDB.cs" />
     <Compile Include="MyTripDB.cs" />
     <Compile Include="PackagesDB.cs" />
