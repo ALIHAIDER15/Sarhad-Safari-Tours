@@ -414,7 +414,8 @@ namespace UI_user_interface__.Areas.Comman.Controllers
             for (int i = 0; i < Counter; i++)
             {
                 string file = null;
-                string path = @"C:\Users\adasd\Desktop\visual studio\TourAgencyProject\UI(user interface )\Imges_Crawel";
+           
+                string path = @"C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\UI(user interface )\Imges_Crawel";
                 if (!string.IsNullOrEmpty(path))
                 {
                     var extensions = new string[] { ".png", ".jpg", ".gif" };
@@ -425,7 +426,7 @@ namespace UI_user_interface__.Areas.Comman.Controllers
                         Random R = new Random();
                         file = rgFiles.ElementAt(R.Next(0, rgFiles.Count())).FullName;
 
-                        file = file.Replace(@"C:\Users\adasd\Desktop\visual studio\TourAgencyProject\UI(user interface )", "");
+                        file = file.Replace(@"C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\UI(user interface )", "");
 
                         CrawelCustomModel_Obj.ImagesList.Add(new ImageModel() { Images = file });
                 }

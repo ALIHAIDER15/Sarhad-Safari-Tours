@@ -1525,12 +1525,15 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
 
 
+        [HttpGet]
+        public ActionResult DeleteHotels2(int id)
+        {
+            Hotels_Obj.Delete(id);
 
+            TempData["Hotels_Delete"] = "Record successfully deleted";
 
-
-
-
-
+            return RedirectToAction("CurrentHotels2", "Admin");
+        }
 
 
 

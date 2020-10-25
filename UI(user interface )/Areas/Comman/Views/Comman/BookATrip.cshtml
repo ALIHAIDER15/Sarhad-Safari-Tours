@@ -279,10 +279,14 @@
         //due to html.droplist there were two dropdowns so i have removed one with js which i dont need
         $(".nice-select").remove();
 
-        $('.datepicker').on('click', function(e) {
-   e.preventDefault();
-   $(this).attr("autocomplete", "off");  
-});
+        //$.fn.datepicker.defaults.format = 'dd-M-yyyy';
+
+        $('.datepicker').on('click', function (e) {
+
+             e.preventDefault();
+            $(this).attr("autocomplete", "off"); 
+            
+        });
 
      });
 
