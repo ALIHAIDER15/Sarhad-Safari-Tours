@@ -5,17 +5,21 @@
     Layout = "~/Views/Shared/_AdminPannelLayout.cshtml";
 }
 
-<head>
-    <style>
+    <head>
 
-        .AdminTable td {
-            padding-bottom: 18px !important;
-            padding-top: 18px !important;
-        }
-    </style>
+        @*@section style{
+            <link href="~/Content/DataTableCss/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
+        }*@
+        <style>
 
-</head>
+            .AdminTable td {
+                padding-bottom: 18px !important;
+                padding-top: 18px !important;
+            }
+        </style>
+
+    </head>
 
 
 
@@ -41,12 +45,12 @@
 
                 <div class="col-md-12">
                     <!-- TABLE NO PADDING -->
-                    <div class="panel">
-                        <div class="panel-heading">
+                    <div class="panel" style="padding: 0px 16px;">
+                        <div class="panel-heading"style="    padding-left: 0px;" >
                             <h3 class="panel-title">Current Guides</h3>
                         </div>
                         <div class="panel-body no-padding">
-                            <table class="table table table-striped AdminTable">
+                            <table class="table table table-striped AdminTable" id="myTable">
                                 <thead>
                                     <tr>
                                         <th>@Html.DisplayNameFor(model => model.Name)</th>
@@ -129,7 +133,7 @@
 
                                                 </button>
 
-                                                <button type="button" class="btn btn-primary">
+                                                <button type="button" class="btn btn-primary" style="padding: 6px 28px;">
                                                     <i class="fa fa-refresh"></i>
                                                     @Html.ActionLink("Edit", "EditGuide", "Admin", new { id = item.ID }, new { @style = "color:white;" })
 
@@ -159,3 +163,28 @@
 </div>
 <!-- END MAIN CONTENT -->
 <!-- END MAIN -->
+<script src="~/Scripts/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+
+        //APPLYING SEARCH ON SPECIFIC COLUMNS
+
+        var table = $('#myTable').DataTable();
+        // #myInput is a <input type="text"> element
+        $('.dataTables_filter input').on('keyup', function () {
+            var value = $('.dataTables_filter input').val();
+            table.columns(0).search(value).draw();
+        });
+
+
+    });
+
+</script>
+
+@*@section scripts{
+
+    <script src="~/Scripts/DataTableJs/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/DataTableJs/dataTables.bootstrap4.min.js"></script>
+}*@
