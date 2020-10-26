@@ -11,14 +11,10 @@ namespace BOL_business_object_layer_
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class tbl_MemberShip
     {
-
-     
         public int ID { get; set; }
-
         public string Title { get; set; }
         public string Price { get; set; }
         public string Monthly_Cost { get; set; }
@@ -26,7 +22,5 @@ namespace BOL_business_object_layer_
         public string Trekking_Equipment { get; set; }
         public string Extra_Field1 { get; set; }
         public string Extra_Field2 { get; set; }
-
-
     }
 }

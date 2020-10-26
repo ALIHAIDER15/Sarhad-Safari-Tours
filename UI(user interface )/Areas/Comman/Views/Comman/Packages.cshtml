@@ -3,7 +3,24 @@
     ViewBag.Title = "Packages";
     Layout = "~/Views/Shared/_MainDesign.cshtml";
 }
+    <head>
+        <style>
+            .buttonCustom 
+            {
+                background: linear-gradient(90deg, #ff2f8b 0%, #9035f9 100%);
+                border: none;
+                padding: 0px,32px;
+                padding: 5px 35px;
+                font-size: 15px;
+            }
 
+                .buttonCustom:hover {
+                    background: #777777;
+                    
+                }
+        </style>
+
+    </head>
     <script src="~/Scripts/jquery-3.5.1.min.js"></script>
 
 <!--================Home Banner Area =================-->
@@ -97,9 +114,12 @@
                         @Html.DisplayFor(modelItem => item.PackageDescription)
 
                     </p>
-                    @Html.ActionLink("Read More", "PackagesDetail", new {Packages_Id = item.ID  }, new { @style = "" , @class="primary-btn"})
+                    @Html.ActionLink("Read More", "PackagesDetail", new { Packages_Id = item.ID }, new { @style = "", @class = "primary-btn" })
 
-            
+                    <br />
+                    <br />
+
+                    @Html.ActionLink("Book", "BookATrip", "Comman", new { Packages_Id = item.ID }, new { @class = "btn btn-primary buttonCustom" })
                 </div>
             </div>
 

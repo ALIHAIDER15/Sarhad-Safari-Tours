@@ -121,7 +121,8 @@
 
                             <li>  <span class="fa fa-star SpanMargin"> </span><label>Standard</label> <p>@Html.DisplayFor(modelItem => item.Standard) Stars </p> </li>
 
-                            <li><button class="btn btn-primary buttonCustom">Book</button></li>
+                     
+                            @Html.ActionLink("Book", "BookATrip", "Comman", new { Hotel_Id = item.ID }, new {  @class = "btn btn-primary buttonCustom" })
                         </ul>
 
                     </div>

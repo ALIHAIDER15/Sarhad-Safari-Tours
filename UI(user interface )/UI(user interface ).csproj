@@ -843,7 +843,17 @@
     <Content Include="Areas\Admin\Views\Admin\CurrentHotels.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\EditHotels.cshtml" />
     <Content Include="Areas\Comman\Views\Comman\CompareTrips.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CreateHotels2.cshtml" />
+    <Content Include="Areas\Comman\Views\Comman\Hotels2.cshtml" />
+    <Content Include="Areas\Comman\Views\Comman\Hotels2Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CurrentHotels2.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditHotels2.cshtml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\inputmask\bindings\inputmask.binding.js" />
+    <Content Include="Scripts\inputmask\inputmask.js" />
+    <Content Include="Scripts\inputmask\inputmask.min.js" />
+    <Content Include="Scripts\inputmask\jquery.inputmask.js" />
+    <Content Include="Scripts\inputmask\jquery.inputmask.min.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
     <Content Include="Scripts\jquery-3.5.1.slim.js" />

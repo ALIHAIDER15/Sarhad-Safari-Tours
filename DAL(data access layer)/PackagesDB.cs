@@ -29,13 +29,23 @@ namespace DAL_data_access_layer_
 
         public tbl_Packages GetById(int id)            //get single records
         {
+
+        ;
             tbl_Packages Packages = db.tbl_Packages.Find(id);
 
             return Packages;
         }
 
 
+        public string GetByIdForName(int id)            //get single records for names
+        {
 
+
+            string Name = db.tbl_Packages.Where(item => item.ID == id).Select(item => item.PackageName).SingleOrDefault();
+
+
+            return Name;
+        }
 
         public int Insert(tbl_Packages obj)            //Insert single records
         {

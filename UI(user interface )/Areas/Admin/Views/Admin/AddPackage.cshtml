@@ -80,10 +80,10 @@
                     <div class="row">
                         <div class="input-field col s12">
 
-                            @Html.EditorFor(model => model.Packages.Date, new { htmlAttributes = new { id = "list-title", type = "text", @class = "validate FontSize", placeholder = "Date" } })
+                            @Html.EditorFor(model => model.Packages.Date, new { htmlAttributes = new { id = "list-title", type = "text", maxlength="2", @class = "validate FontSize", placeholder = "Date" } })
                             @Html.ValidationMessageFor(model =>  model.Packages.Date, "", new { @class = "text-danger" })
                         </div>
-
+                        
                     </div>
 
 
@@ -327,16 +327,21 @@
         }
 
 
-        $('.close-x').click(function () {
-
-            $('.upload-img').attr('src', "/images/No_Image_Available.jpg");
-
-
-        });
-
+      
     });
 
 
+      $('.close-x').click(function () {
+
+         $('.upload-img').attr('src', "/images/No_Image_Available.jpg");
+
+       //Ham datab base ki field jaise imagepath ko bhi javascript k zarye # use kr k access kr skty hn jaise nechay kia
+       //$('#Packages.ImagePath').val("/images/No_Image_Available.jpg");
+
+          //jab X pe click ho to httpfilesbase mai jo hai usko null kr do id j zarye
+          $('.upload-button').val(null);
+          
+        });
 
 
 </script>

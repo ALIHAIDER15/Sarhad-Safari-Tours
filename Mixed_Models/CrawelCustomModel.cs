@@ -7,6 +7,8 @@ namespace Mixed_Models
 {
     public class CrawelCustomModel
     {
+
+        //constructor of model
         public CrawelCustomModel()
         {
             NameList = new List<Name>();

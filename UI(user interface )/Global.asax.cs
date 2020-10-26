@@ -14,6 +14,8 @@ namespace UI_user_interface__
             GlobalFilters.Filters.Add(new AuthorizeAttribute());
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+
         }
     }
 }

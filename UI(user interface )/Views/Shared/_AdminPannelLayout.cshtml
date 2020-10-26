@@ -170,9 +170,9 @@
                             </div>
                         </li>
 
-                  
 
-                        <li>
+
+                        @*<li>
                             <a href="#subPages4" data-toggle="collapse" class="collapsed"><i class="lnr lnr-apartment"></i> <span>Hotels</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                             <div id="subPages4" class="collapse ">
                                 <ul class="nav">
@@ -187,17 +187,32 @@
 
                                 </ul>
                             </div>
+                        </li>*@
+
+                        <li>
+                            <a href="#subPages5" data-toggle="collapse" class="collapsed"><i class="lnr lnr-apartment"></i> <span>Hotels</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <div id="subPages5" class="collapse ">
+                                <ul class="nav">
+
+                                  
+                                    <li class="nav-item "><a href=@Url.Action("CurrentHotels2", "Admin")><span>Current Hotels</span></a></li>
+
+
+                                    <li class="nav-item "><a href=@Url.Action("CreateHotels2", "Admin")><spam style="font-size:14px">Add New Hotel</spam></a></li>
+
+
+
+                                </ul>
+                            </div>
                         </li>
-
-
 
                         <li class="nav-item "><a href=@Url.Action("PackageRequests", "Admin")><i class="lnr lnr-alarm"></i><span>Package Requests</span></a></li>
 
                         <li class="nav-item "><a href=@Url.Action("ContactUs", "Admin")><i class="lnr lnr-user"></i><span>User Contacts</span></a></li>
 
                         <li>
-                            <a href="#subPages5" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cog"></i> <span>Admin Settings</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-                            <div id="subPages5" class="collapse ">
+                            <a href="#subPages6" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cog"></i> <span>Admin Settings</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <div id="subPages6" class="collapse ">
                                 <ul class="nav">
 
                                     <li class="nav-item "><a href=@Url.Action("AdminProfile", "Admin")><span>Profile</span></a></li>
@@ -236,9 +251,7 @@
         <div class="clearfix"></div>
 
         <footer>
-            <div class="container-fluid">
-                <p class="copyright">&copy; 2017 <a href="https://www.themeineed.com" target="_blank">Theme I Need</a>. All Rights Reserved.</p>
-            </div>
+          
         </footer>
 
     </div>

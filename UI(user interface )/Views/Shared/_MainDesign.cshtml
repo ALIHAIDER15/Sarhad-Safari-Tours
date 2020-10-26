@@ -32,7 +32,7 @@
             }
     </style>
 
-</head>
+</head> 
 
 <body>
 
@@ -60,7 +60,7 @@
 
                             <li class="nav-item">@Html.ActionLink("Packages", "Packages", "Comman", new { area = "Comman" }, new { @class = "nav-link " })</li>
 
-                            <li class="nav-item">@Html.ActionLink("Book trip", "BookATrip", "Comman", new { area = "Comman" }, new { @class = "nav-link " })</li>
+                            @*<li class="nav-item">@Html.ActionLink("Book trip", "BookATrip", "Comman", new { area = "Comman" }, new { @class = "nav-link " })</li>*@
 
                             <li class="nav-item">@Html.ActionLink("MemeberShip", "MemeberShip", "Comman", new { area = "Comman" }, new { @class = "nav-link " })</li>
 
@@ -75,7 +75,8 @@
                                    aria-expanded="false">Services</a>
                                 <ul class="dropdown-menu">
                                     <li class="nav-item">@Html.ActionLink("Guiders", "Guiders", "Comman", new { area = "Comman" }, new { @class = "nav-link " })</li>
-                                    <li class="nav-item">@Html.ActionLink("Hotels", "Hotels", "Comman", new { area = "Comman" }, new { @class = "nav-link " })</li>
+                                    @*<li class="nav-item">@Html.ActionLink("Hotels", "Hotels", "Comman", new { area = "Comman" }, new { @class = "nav-link " })</li>*@
+                                    <li class="nav-item">@Html.ActionLink("Hotels", "Hotels2", "Comman", new { area = "Comman" }, new { @class = "nav-link " })</li>
                                     <li class="nav-item">@Html.ActionLink("Compare Trips", "CompareTrips", "Comman", new { area = "Comman" }, new { @class = "nav-link " })</li>
 
                                     <li class="nav-item">@Html.ActionLink("Admin Dashboard", "Index", "Admin", new { area = "Admin" }, new { @class = "nav-link " })</li>
@@ -86,7 +87,7 @@
                         </ul>
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item">
-                            <li class="nav-item">@Html.ActionLink("Book a trip", "BookATrip", "Comman", new { area = "Comman" }, new { @class = "primary-btn" })</li>
+                            <li class="nav-item">@Html.ActionLink("MAke My Trip", "BookATrip", "Comman", new { area = "Comman" }, new { @class = "primary-btn" })</li>
 
 
                             <li class="nav-item">
@@ -203,19 +204,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
-                        <p>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
+                   
                     </div>
                     <div class="col-lg-6 col-md-12 text-right">
                         <div class="social-icons">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-behance"></i></a>
+                           
                         </div>
                     </div>
                 </div>

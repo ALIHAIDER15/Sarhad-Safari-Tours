@@ -9,6 +9,8 @@ namespace BOL_business_object_layer_
 {
     public class tbl_Packages_Validation
     {
+
+    
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Package Name Filed is required")]
@@ -38,10 +40,16 @@ namespace BOL_business_object_layer_
         [Required(ErrorMessage = "Month Filed is required")]
         public string Month { get; set; }
 
-
+       
         [Required(ErrorMessage = "Date Filed is required")]
         public Nullable<int> Date { get; set; }
+
+
+
     }
+
+ 
+
 
     [MetadataType(typeof(tbl_Packages_Validation))]
     public partial class tbl_Packages

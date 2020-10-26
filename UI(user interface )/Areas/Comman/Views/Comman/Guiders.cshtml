@@ -90,7 +90,11 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="team_item">
                         <div class="team_img">
-                            <img src="@Url.Content(itme.ImagePath)" class="cardImage"/>
+                            @if (itme.ImagePath != null)
+                            {
+                                <img src="@Url.Content(itme.ImagePath)" class="cardImage" />
+                            }
+
 
                             <div class="hover Cardhover" style="">
                                 <h4>@itme.Name</h4>
@@ -101,8 +105,9 @@
                                     <li> <label>Total Tours</label>    <p>@itme.Total_Tours</p></li>
                                     <li><label>GovtLicense</label>    <p>@itme.Govt_License</p></li>
                                     <li><label>Charges</label>    <p>@itme.Charges</p></li>
-                                    <li><button class="btn btn-primary buttonCustom" >Book</button></li>
-                                </ul>                                                      
+                              
+                                    @Html.ActionLink("Book", "BookATrip", "Comman", new { Guider_Id = itme.ID  }, new { @class = "btn btn-primary buttonCustom" })
+                                </ul>
                             </div>
                         </div>
                     </div>

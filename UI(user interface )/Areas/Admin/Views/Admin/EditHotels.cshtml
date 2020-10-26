@@ -40,7 +40,22 @@
                 {
 
                     @Html.HiddenFor(model => model.Hotels.ID)
-                    @Html.HiddenFor(model => model.Hotels.ImagePath)
+                
+
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+
+                            @*
+                                model.image path ko js k zaeye null krna hai but model.package say ho ni raha is leye nechay leya lambay wala or
+                                us mai class di imagePath ki pr us ko select kr k null keya
+                                @Html.HiddenFor(model => model.Hotels.ImagePath)  *@
+                                @Html.EditorFor(model => model.Hotels.ImagePath, new { htmlAttributes = new { id = "list-title", type = "hidden", @class = "validate FontSize ImagePath", placeholder = " Name" } })
+
+                        </div>
+                    </div>
+
 
                     <div class="row">
                         <div class="input-field col s12">
@@ -91,7 +106,7 @@
                             <div class="file-field">
                                 <div class="btn">
                                     <span>File</span>
-                                    <input type="file" class="upload-button" name="UserImageFiles" accept="image/*">
+                                    <input type="file" class="upload-button" name="UserImageFiles">
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate FontSize" type="text" placeholder="Upload Admin Image">
@@ -242,13 +257,23 @@
         }
 
 
-        $('.close-x').click(function () {
-
-            $('.upload-img').attr('src', "/images/No_Image_Available.jpg");
-
-
-        });
+  
 
     });
+
+          $('.close-x').click(function () {
+
+            $('.upload-img').attr('src', "/images/No_Image_Available.jpg");
+    
+            //Ham datab base ki field jaise imagepath ko bhi javascript k zarye # use kr k access kr skty hn jaise nechay kia agar model.package.name na ho
+           //sirf model.name ho to
+           //X press krne pe image path ko null keya
+           $('.ImagePath').val(null);
+
+
+           //X press krne pe HttpFileBase ko null keya
+           $('.upload-button').val(null);
+
+        });
 
 </script>

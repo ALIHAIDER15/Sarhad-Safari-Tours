@@ -1,0 +1,28 @@
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\obj\Debug\DomainModels.csprojAssemblyReference.cache
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\DomainModels.dll
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\DomainModels.pdb
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\BOL(business object layer).dll
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\UI(user interface ).dll
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\DAL(data access layer).dll
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\EntityFramework.dll
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\System.Web.Mvc.dll
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\System.Web.WebPages.dll
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\System.Web.Razor.dll
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\BOL(business object layer).pdb
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\BOL(business object layer).dll.config
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\UI(user interface ).pdb
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\UI(user interface ).dll.config
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\DAL(data access layer).pdb
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\DAL(data access layer).dll.config
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\EntityFramework.xml
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\System.Web.Mvc.xml
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\System.Web.WebPages.xml
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\System.Web.Razor.xml
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\obj\Debug\DomainModels.csproj.CopyComplete
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\obj\Debug\DomainModels.dll
+C:\Users\adasd\Desktop\visual studio\TourAgencyProject\DomainModels\obj\Debug\DomainModels.pdb

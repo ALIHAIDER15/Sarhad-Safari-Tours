@@ -32,7 +32,16 @@ namespace DAL_data_access_layer_
             }
 
 
-
+             public string GetByIdForName(int id)            //get single records for names
+             {
+           
+           
+                 string Name = db.tbl_Guide.Where(item => item.ID == id).Select(item => item.Name).SingleOrDefault();
+           
+           
+                 return Name;
+             }
+           
 
             public int Insert(tbl_Guide obj)            //Insert single records
             {

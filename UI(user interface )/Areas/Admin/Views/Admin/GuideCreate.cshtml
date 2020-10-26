@@ -113,7 +113,7 @@
                             <div class="file-field">
                                 <div class="btn">
                                     <span>File</span>
-                                    <input type="file" class="upload-button" name="UserImageFiles" accept="image/*">
+                                    <input type="file" class="upload-button" name="UserImageFiles">
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate FontSize" type="text" placeholder="Upload Guide Image">
@@ -253,13 +253,22 @@
         }
 
 
+    
+    });
+
+
         $('.close-x').click(function () {
 
             $('.upload-img').attr('src', "/images/No_Image_Available.jpg");
 
+              //Ham datab base ki field jaise imagepath ko bhi javascript k zarye # use kr k access kr skty hn jaise nechay kia
+             //$('#Packages.ImagePath').val("/images/No_Image_Available.jpg");
+
+          //jab X pe click ho to httpfilesbase mai jo hai usko null kr do id j zarye
+          $('.upload-button').val(null);
+
 
         });
 
-    });
 
 </script>
