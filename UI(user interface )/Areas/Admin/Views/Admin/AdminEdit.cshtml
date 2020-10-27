@@ -47,7 +47,19 @@
                 {
 
                     @Html.HiddenFor(model => model.Admin.ID)
-                    @Html.HiddenFor(model => model.Admin.ImagePath)
+                
+
+
+                    @*
+                       model.image path ko js k zaeye null krna hai but model.package say ho ni raha is leye nechay leya lambay wala or
+                       us mai class di imagePath ki pr us ko select kr k null keya
+                       @Html.HiddenFor(model => model.Packages.ImagePath)
+                    *@
+                    @Html.EditorFor(model => model.Admin.ImagePath, new { htmlAttributes = new { id = "list-title", type = "hidden", @class = "validate FontSize ImagePath", placeholder = " Name" } })
+
+
+
+
 
                     <div class="row">
                         <div class="input-field col s12">
@@ -114,12 +126,13 @@
 
 
 
+
                     <div class="row">
                         <div class="input-field col s12">
                             <div class="file-field">
                                 <div class="btn">
                                     <span>File</span>
-                                    <input type="file" class="upload-button" name="UserImageFiles" accept="image/*">
+                                    <input type="file" class="upload-button" name="UserImageFiles">
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate FontSize" type="text" placeholder="Upload Admin Image">
@@ -131,28 +144,30 @@
 
 
 
-                    <div class="col-md-6 " id="formImg2">
-                        <div class="image-container" style="width:86%;">
+                    @*//Image Div*@
+                    <div class="col-lg-7" style="overflow-x: hidden; padding-left: 0;     margin-bottom: 22px; ">
+
+                        <div class="col-md-11" style=" overflow-x: hidden; padding: 0; overflow-y: hidden;">
+
+                            <div class="user_img">
+
+                                <img src="@Url.Content(Model.Admin.ImagePath)" class="img-responsive upload-img-Js" style="width: 100%;" />
+                                @*<img src="~/Images/No_Image_Available.jpg" class="img-responsive upload-img-Js" style="width: 100%;">*@
 
 
-                            @*<img src="@Html.DisplayFor(modelItem => item.ImagePath)" height="315" width="100%" class="img-responsive upload-img" />*@
+                                <div class="upload_icon image-up-js">
+                                    <p class="upload-img-text">Uplaod image here</p>
+                                </div>
 
-                            <img src="@Url.Content(Model.Admin.ImagePath)" class="img-responsive upload-img" style="margin-top:21px; height:213px;  width: 100%;" />
 
-                            <div class="image-up row ">
 
-                                <i class="fas fa-camera icon-camera"></i>
-
-                                <p class="upload-img-text">Uplaod image here</p>
-
+                                <div class="cross close-x-js">
+                                    <span aria-hidden="true" style="font-size: 20px; color: #7f848a;">&times;</span>
+                                </div>
                             </div>
 
-                            <div class="clossing-smybol close-x">
-                                <span aria-hidden="true" style="font-size: 20px;">&times;</span>
-                            </div>
-
-                            <div class="alert alert-danger alert-custom"><p>only 3500 , 2900 pixel image is allowed </p></div>
                         </div>
+
                     </div>
 
 
@@ -182,100 +197,84 @@
 <script type="text/javascript">
 
 
+    $(document).ready(function () {
 
 
+        $(".upload-img-Js").click(function () {
+            uploadimage();
+        });
 
-    $('.upload-img').click(function () {
+        $('.image-up-js').click(function () {
+            uploadimage();
+        });
 
-        uploadimage();
-
-    });
-
-
-
-    $('.image-up').click(function () {
-
-        uploadimage();
-
-    });
-
-
-    function uploadimage() {
-
-        $('.upload-button').trigger('click');
-    }
-
-
-
-    $('.upload-button').change(function () {
-
-
-        if (this.files && this.files[0]) {
-
-            var fileReader = new FileReader();
-
-            //FilerReader webapp ko user k computer say file read krne mai madad deta hai
-
-            fileReader.readAsDataURL(this.files[0]);
-
-            //filerader.onload mtlb jab file load ho jaye
-
-            fileReader.onload = function (x) {
-
-                //new image () image ka constructor hai jis image ka obj initilaize hoga   image = <img src="" width="" heifht="">
-
-                var image = new Image();
-
-                //x(event) .targer.result ka mtlb h x(event) jo target huwa hai is result m wo value ai gi jis ki waja say event tagert huwa
-
-                image.src = x.target.result;
-
-                image.onload = function () {
-
-                    var width = this.width;
-                    var height = this.height;
-
-
-
-                    //alert("width :" + width + "height :" + height + "type :" + type );
-
-                    if (width <= "3500" && height <= "2933") {
-
-                        $('.upload-img').attr('src', x.target.result);
-
-                        $('.upload-img').css({ 'width': '100%', 'height': '315px' });
-
-
-                        //X thore disturb ho jata tha after image upload ye line us ki setting k leye hai
-
-                        $(".clossing-smybol").css({ "left": "290px", "bottom": "320px" });
-
-
-
-
-                    }
-                    else {
-
-                        $('.alert-custom').css('visibility', 'visible');
-                    }
-
-                }
-
-
-
-
-
-            }
+        function uploadimage() {
+            $('.upload-button').trigger('click');
         }
 
+        $('.upload-button').change(function () {
+            if (this.files && this.files[0]) {
 
-        $('.close-x').click(function () {
+                var fileReader = new FileReader();
+                //FilerReader webapp ko user k computer say file read krne mai madad deta hai
 
-            $('.upload-img').attr('src', "/images/No_Image_Available.jpg");
+                fileReader.readAsDataURL(this.files[0]);
 
+                //filerader.onload mtlb jab file load ho jaye
+                fileReader.onload = function (x) {
+
+                    //new image () image ka constructor hai jis image ka obj initilaize hoga   image = <img src="" width="" heifht="">
+                    var image = new Image();
+
+                    //x(event) .targer.result ka mtlb h x(event) jo target huwa hai is result m wo value ai gi jis ki waja say event tagert huwa
+                    image.src = x.target.result;
+
+                    image.onload = function () {
+                        var width = this.width;
+                        var height = this.height;
+
+                        //alert("width :" + width + "height :" + height + "type :" + type );
+
+                        if (width <= "3500" && height <= "2933") {
+                            $('.upload-img-Js').attr('src', x.target.result);
+
+                            $('.upload-img-Js').css({ 'width': '100%', 'height': '315px' });
+
+                            //X thore disturb ho jata tha after image upload ye line us ki setting k leye hai
+
+                            //$(".clossing-smybol").css({ "left": "290px", "bottom": "320px" });
+
+                        }
+                        else {
+
+                            $('.alert-custom').css('visibility', 'visible');
+                        }
+
+                    }
+                }
+            }
+        });
+
+
+        $('.close-x-js').click(function () {
+
+            $('.upload-img-Js').attr('src', "/Images/No_Image_Available.jpg");
+
+
+            //Ham datab base ki field jaise imagepath ko bhi javascript k zarye # use kr k access kr skty hn jaise nechay kia agar model.package.name na ho
+            //sirf model.name ho to
+            //$('#Packages.ImagePath').val("/images/No_Image_Available.jpg");
+
+            //making image path null
+            $('.ImagePath').val(null);
+
+            //jab X pe click ho to httpfilesbase mai jo hai usko null kr do id j zarye
+            $('.upload-button').val(null);
 
         });
 
+
     });
+
 
 </script>

@@ -100,12 +100,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BOL%28business object layer%29\BOL%28business object layer%29.csproj">
-      <Project>{816219ca-9541-4adf-8720-e8118741e4b3}</Project>
-      <Name>BOL%28business object layer%29</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
@@ -114,6 +108,12 @@
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BOL%28business object layer%29\BOL%28business object layer%29.csproj">
+      <Project>{816219ca-9541-4adf-8720-e8118741e4b3}</Project>
+      <Name>BOL%28business object layer%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

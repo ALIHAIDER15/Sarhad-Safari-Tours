@@ -1125,7 +1125,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BOL%28business object layer%29\BOL%28business object layer%29.csproj">
-      <Project>{816219ca-9541-4adf-8720-e8118741e4b3}</Project>
+      <Project>{816219CA-9541-4ADF-8720-E8118741E4B3}</Project>
       <Name>BOL%28business object layer%29</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL%28data access layer%29\DAL%28data access layer%29.csproj">

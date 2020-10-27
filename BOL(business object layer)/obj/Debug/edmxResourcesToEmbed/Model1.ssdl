@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="300" />
+    <Property Name="Admin_rank" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_category">
+    <Key>
+      <PropertyRef Name="Category_id" />
+    </Key>
+    <Property Name="Category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_city">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_ContactUs">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+    <Property Name="Message" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Guide">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Age" Type="nvarchar" MaxLength="200" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="200" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Experience" Type="nvarchar(max)" />
+    <Property Name="Total_Tours" Type="nvarchar(max)" />
+    <Property Name="Charges" Type="nvarchar(max)" />
+    <Property Name="Govt_License" Type="nvarchar(max)" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Hotel_images">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Hotel_ID" Type="int" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Hotels">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Location" Type="nvarchar(max)" />
+    <Property Name="Gov_License" Type="nvarchar(max)" />
+    <Property Name="Standard" Type="nvarchar(max)" />
+    <Property Name="Charges" Type="nvarchar(max)" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Items">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_MakeMyTrip">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Item_ID" Type="int" />
+    <Property Name="Package_ID" Type="int" />
+    <Property Name="Hotel_ID" Type="int" />
+    <Property Name="Guide_ID" Type="int" />
+    <Property Name="To" Type="date" />
+    <Property Name="From" Type="date" />
+    <Property Name="Adults" Type="nvarchar" MaxLength="50" />
+    <Property Name="Child" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nic" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="Transport" Type="nvarchar" MaxLength="50" />
+    <Property Name="Guide" Type="nvarchar" MaxLength="50" />
+    <Property Name="Others" Type="nvarchar" MaxLength="50" />
+    <Property Name="test" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_MemberShip">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Price" Type="nvarchar(max)" />
+    <Property Name="Monthly_Cost" Type="nvarchar(max)" />
+    <Property Name="Monthly_Souvenirs" Type="nvarchar(max)" />
+    <Property Name="Trekking_Equipment" Type="nvarchar(max)" />
+    <Property Name="Extra_Field1" Type="nvarchar(max)" />
+    <Property Name="Extra_Field2" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Packages">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PackageName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PackageDescription" Type="nvarchar(max)" />
+    <Property Name="Date" Type="int" />
+    <Property Name="Month" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoOfDays" Type="int" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" />
+    <Property Name="Standard" Type="nvarchar" MaxLength="50" />
+    <Property Name="SpotSiteSeeing" Type="nvarchar" MaxLength="100" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="User_id" />
+    </Key>
+    <Property Name="User_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="Csharp" Type="bit" />
+    <Property Name="Java" Type="bit" />
+    <Property Name="Python" Type="bit" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="DBO" Type="date" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_tbl_user_tbl_city">
+    <End Role="tbl_city" Type="Self.tbl_city" Multiplicity="0..1" />
+    <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_city">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="tbl_user">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Package_Confirmation_Email" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Package_Confirmation_Email2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="WebAppModelStoreContainer">
+    <EntitySet Name="tbl_Admin" EntityType="Self.tbl_Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_category" EntityType="Self.tbl_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_city" EntityType="Self.tbl_city" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ContactUs" EntityType="Self.tbl_ContactUs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Guide" EntityType="Self.tbl_Guide" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Hotel_images" EntityType="Self.tbl_Hotel_images" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Hotels" EntityType="Self.tbl_Hotels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Items" EntityType="Self.tbl_Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_MakeMyTrip" EntityType="Self.tbl_MakeMyTrip" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_MemberShip" EntityType="Self.tbl_MemberShip" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Packages" EntityType="Self.tbl_Packages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_user_tbl_city" Association="Self.FK_tbl_user_tbl_city">
+      <End Role="tbl_city" EntitySet="tbl_city" />
+      <End Role="tbl_user" EntitySet="tbl_user" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

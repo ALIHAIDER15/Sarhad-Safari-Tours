@@ -52,13 +52,13 @@ ORGINAL CSS FOR IMAGE SECTIONS
         transition: transform ease 0.5s;
     }
 
-        .user_img .cross .glyphicon-remove {
-            opacity: 0.5;
-        }
+      .user_img .cross .glyphicon-remove {
+          opacity: 0.5;
+      }
 
-        .user_img .cross:hover .glyphicon-remove {
-            color: #808080;
-        }
+      .user_img .cross:hover .glyphicon-remove {
+          color: #808080;
+      }
 
     .user_img:hover .cross {
         transform: scale(1);

@@ -246,24 +246,14 @@ namespace UI_user_interface__.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult EditPackage(int Packages_Id)
         {
-
-
-
             var Package = PackagesDB_Obj.GetById(Packages_Id);
-
-
-
 
             if (Package.ImagePath == null)
             {
-
                 Package.ImagePath = "/images/No_Image_Available.jpg";
-
             }
 
             packagesCustomModel_Obj.Packages = Package;
-
-
 
             return View(packagesCustomModel_Obj);
 
@@ -777,6 +767,9 @@ namespace UI_user_interface__.Areas.Admin.Controllers
             return View(AdminsList);
         }
 
+
+
+
         [HttpGet, Authorize(Roles = "A")]
         public ActionResult AdminEdit(int id)
         {
@@ -838,9 +831,9 @@ namespace UI_user_interface__.Areas.Admin.Controllers
 
                     }
 
-                    if (Admin_OBJ.Admin.ImagePath == "/images/No_Image_Available.jpg")
+                    if (Admin_OBJ.Admin.ImagePath == null)
                     {
-                        Admin_OBJ.Admin.ImagePath = null;
+                        Admin_OBJ.Admin.ImagePath = "/images/No_Image_Available.jpg";
                     }
 
                     Common_Mapping_model_obj.Update_Admin(Admin_OBJ);

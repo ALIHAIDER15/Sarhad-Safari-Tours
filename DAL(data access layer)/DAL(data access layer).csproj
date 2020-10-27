@@ -68,14 +68,14 @@
     <Compile Include="UserDB.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BOL%28business object layer%29\BOL%28business object layer%29.csproj">
-      <Project>{816219ca-9541-4adf-8720-e8118741e4b3}</Project>
-      <Name>BOL%28business object layer%29</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BOL%28business object layer%29\BOL%28business object layer%29.csproj">
+      <Project>{816219CA-9541-4ADF-8720-E8118741E4B3}</Project>
+      <Name>BOL%28business object layer%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

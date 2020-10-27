@@ -125,6 +125,8 @@ C:\Users\Ali\Desktop\TourAgency\copy\TourAgencyProject\DomainModels\obj\Debug\Ma
 C:\Users\Ali\Desktop\TourAgency\copy\TourAgencyProject\DomainModels\obj\Debug\Mapping_Models.csproj.CopyComplete
 C:\Users\Ali\Desktop\TourAgency\copy\TourAgencyProject\DomainModels\obj\Debug\DomainModels.dll
 C:\Users\Ali\Desktop\TourAgency\copy\TourAgencyProject\DomainModels\obj\Debug\DomainModels.pdb
+C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\obj\Debug\Mapping_Models.csprojAssemblyReference.cache
+C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\obj\Debug\Mapping_Models.csproj.CoreCompileInputs.cache
 C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\bin\Debug\DomainModels.dll
 C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\bin\Debug\DomainModels.pdb
 C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\bin\Debug\BOL(business object layer).dll
@@ -152,8 +154,6 @@ C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\b
 C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\bin\Debug\System.Web.WebPages.xml
 C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\obj\Debug\Mapping_Models.csprojAssemblyReference.cache
-C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\obj\Debug\Mapping_Models.csproj.CoreCompileInputs.cache
 C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\obj\Debug\Mapping_Models.csproj.CopyComplete
 C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\obj\Debug\DomainModels.dll
 C:\Users\Ali\Desktop\desktop data\visual studio\TourAgencyProject\DomainModels\obj\Debug\DomainModels.pdb
